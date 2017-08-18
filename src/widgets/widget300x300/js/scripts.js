@@ -1,4 +1,4 @@
-import {getParameterByName} from '../../utils/getParameterByName.js';
+import {getParameterByName} from '../../../utils/getParameterByName.js';
 
 /*var url = new URL(window.location.href);
 var public_key = url.searchParams.get("public_key");*/
