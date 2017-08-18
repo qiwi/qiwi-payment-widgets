@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>БФ Константина Хабенского</title>
+</head>
+<body>
+    <div class="widget">
+        <h1 class="widget__title">БФ Константина Хабенского</h1>
+
+        <div class="widget__field">
+            <input type="text" class="widget__input" id="donation-amount" required>
+            <label class="widget__label" for="donation-amount">Cумма</label>
+            <div class="widget__currency">₽</div>
+            <div class="widget__bar"></div>
+        </div>
+
+        <button type="button" id="make-donation" class="widget__button">Помочь сейчас</button>
+
+        <div class="widget__payment-block">
+            <div class="widget__payment-type widget__payment-block-visa"></div>
+            <div class="widget__payment-type widget__payment-block-master-card"></div>
+            <div class="widget__payment-type widget__payment-block-mir"></div>
+            <div class="widget__payment-type widget__payment-block-qiwi"></div>
+        </div>
+
+        <a href="#" class="widget__link-how-to">Как разместить форму на своей странице</a>
+
+    </div>
+
+    <% for (var i=0; i < htmlWebpackPlugin.options.chunks.length; i++){ %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[htmlWebpackPlugin.options.chunks[i]].entry %>"></script>
+    <% } %>
+</body>
+</html>
