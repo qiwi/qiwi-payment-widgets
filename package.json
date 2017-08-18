@@ -2,23 +2,30 @@
   "name": "qiwi-widget-charaty",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "NODE_ENV=production webpack --progress -p --config webpack.prod.config.js"
+    "start": "node server.js",
+    "watch": "npm run build && gulp watch",
+    "clean": "rimraf widgets",
+    "build": "npm run clean && gulp"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
+    "express": "^4.15.4",
     "file-loader": "^0.11.2",
+    "gulp": "^3.9.1",
     "html-webpack-plugin": "^2.29.0",
     "json-loader": "^0.5.7",
+    "merge-stream": "^1.0.1",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.5.1",
+    "webpack-stream": "^4.0.0"
   }
 }

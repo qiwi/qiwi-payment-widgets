@@ -1,4 +1,4 @@
-@import url('../../css/fonts.css');
+@import url('../../../css/fonts.css');
 
 body {
     font-family: museo_sans_cyrl500;
@@ -36,8 +36,6 @@ body {
     height: 50px;
     width: 136px;
 }
-
-
 
 .widget__label {
     position: absolute;
