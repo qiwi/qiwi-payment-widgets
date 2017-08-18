@@ -1,0 +1,206 @@
+@import url('../../css/fonts.css');
+
+body {
+    font-family: museo_sans_cyrl500;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.widget {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: solid 1px #e7e7e7;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+.widget__title {
+    font-family: museo_sans_cyrl900;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    color: #000000;
+    margin: 30px auto 0;
+}
+
+.widget__field {
+    position: relative;
+    margin: 38px auto 0;
+    height: 50px;
+    width: 136px;
+}
+
+
+
+.widget__label {
+    position: absolute;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    color: #717171;
+    left: 4px;
+    bottom: 8px;
+    transition:0.2s ease all;
+}
+
+.widget__input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    padding: 8px 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid  #d8d8d8;
+    background-color: transparent;
+}
+
+.widget__input:focus {
+
+    outline: none;
+
+}
+
+.widget__input:focus ~ .widget__label,
+.widget__input:valid ~ .widget__label  {
+    -webkit-transform: scale(0.65,0.65) translate(-23px,-40px);
+       -moz-transform: scale(0.65,0.65) translate(-23px,-40px);
+        -ms-transform: scale(0.65,0.65) translate(-23px,-40px);
+         -o-transform: scale(0.65,0.65) translate(-23px,-40px);
+            transform: scale(0.65,0.65) translate(-23px,-40px);
+    opacity: 0.7;
+    color: #000000;
+}
+
+.widget__bar  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:120px;
+
+}
+
+.widget__bar::before,
+.widget__bar::after   {
+    content:'';
+    height: 1px;
+    width:0;
+    bottom:0;
+    position:absolute;
+    background: #ff8c00;
+    transition:0.2s ease all;
+}
+.widget__bar::before {
+    left:50%;
+}
+.widget__bar::after {
+    right:50%;
+}
+
+.widget__input:focus ~ .widget__bar::before,
+.widget__input:focus ~ .widget__bar::after {
+    width:50%;
+}
+
+.widget__currency {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 24px;
+    opacity: 0.7;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+}
+
+.widget__button {
+    display: block;
+    margin: 30px auto 0;
+    width: 214px;
+    height: 47px;
+    border-radius: 100px;
+    background-color: #ff8c00;
+    line-height: 47px;
+    font-size: 16px;
+    font-family: museo_sans_cyrl500;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.widget__payment-block {
+    width: 192px;
+    height: 18px;
+    text-align: justify;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+    text-align-last: justify;
+    margin: 14px auto 0;
+}
+
+.widget__payment-block::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.widget__payment-type {
+    text-align: left;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: relative;
+    vertical-align: middle;
+}
+
+.widget__payment-block-visa {
+    background-image: url('../assets/visa.svg');
+    width: 35px;
+    height: 12px;
+}
+
+.widget__payment-block-mir {
+    background-image: url('../assets/mir.svg');
+    width: 30px;
+    height: 11px;
+}
+.widget__payment-block-master-card {
+    background-image: url('../assets/master-card.svg');
+    width: 24px;
+    height: 16px;
+}
+.widget__payment-block-qiwi {
+    background-image: url('../assets/qiwi.svg');
+    width: 37px;
+    height: 17px;
+}
+
+.widget__link-how-to {
+    display: block;
+    margin: 12px auto 0;
+    font-family: museo_sans_cyrl500;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #9b9b9b;
+}
