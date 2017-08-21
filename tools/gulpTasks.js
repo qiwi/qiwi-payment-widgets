@@ -1,19 +1,13 @@
-const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const merge = require('merge-stream');
-
 const webpackProdConfig = require('./webpack.prod.config.js');
 
-const scriptsPath = 'src/widgets';
+const getFolders = require('./utils/getFolders.js');
 
-function getFolders(dir) {
-    return fs.readdirSync(dir)
-      .filter(file => {
-        return fs.statSync(path.join(dir, file)).isDirectory();
-      });
-}
+const scriptsPath = '../src/widgets';
+
 
 gulp.task('default', () => {
 
@@ -25,7 +19,7 @@ gulp.task('default', () => {
 
         return gulp.src(path.join(scriptsPath, folder, '/main.js'))
             .pipe(webpack(config))
-            .pipe(gulp.dest(path.join('widgets', folder)));
+            .pipe(gulp.dest(path.join('../widgets', folder)));
     });
 
     return merge(tasks);
@@ -33,5 +27,5 @@ gulp.task('default', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('src/**/**/**/*.*', ['default']);
+    gulp.watch('../src/**/**/**/*.*', ['default']);
 });
