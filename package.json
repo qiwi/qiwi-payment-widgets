@@ -6,15 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "watch": "npm run build && gulp watch",
+    "watch": "npm run build && gulp watch --gulpfile tools/gulpTasks.js",
     "clean": "rimraf widgets",
-    "build": "npm run clean && gulp"
+    "build": "npm run clean && gulp --gulpfile tools/gulpTasks.js"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
     "file-loader": "^0.11.2",
     "gulp": "^3.9.1",

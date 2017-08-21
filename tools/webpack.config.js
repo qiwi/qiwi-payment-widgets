@@ -10,15 +10,15 @@ module.exports = {
                 'css-loader'
             ]
         }, {
-            test: /\.(png|svg|jpg|gif|woff|woff2)$/,
+            test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
             use: [{
                 loader: 'url-loader',
                 options: {
-                    limit: 100000
+                    limit: 8000
                 }
             }]
         }, {
-            test: /\.(eot|ttf|otf)$/,
+            test: /\.(png|jpg|jpeg|gif)$/,
             use: [
                 'file-loader'
             ]
