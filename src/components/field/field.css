@@ -1,0 +1,97 @@
+.widget__field {
+    position: relative;
+    margin: 38px auto 0;
+    height: 50px;
+    width: 136px;
+}
+
+.widget__label {
+    position: absolute;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    color: #717171;
+    left: 4px;
+    bottom: 8px;
+    transition:0.2s ease all;
+}
+
+.widget__input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    padding: 8px 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid  #d8d8d8;
+    background-color: transparent;
+}
+
+.widget__input:focus {
+
+    outline: none;
+
+}
+
+.widget__input:focus ~ .widget__label,
+.widget__input:valid ~ .widget__label  {
+    -webkit-transform: scale(0.65,0.65) translate(-23px,-40px);
+       -moz-transform: scale(0.65,0.65) translate(-23px,-40px);
+        -ms-transform: scale(0.65,0.65) translate(-23px,-40px);
+         -o-transform: scale(0.65,0.65) translate(-23px,-40px);
+            transform: scale(0.65,0.65) translate(-23px,-40px);
+    opacity: 0.7;
+    color: #000000;
+}
+
+.widget__bar  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:120px;
+
+}
+
+.widget__bar::before,
+.widget__bar::after   {
+    content:'';
+    height: 1px;
+    width:0;
+    bottom:0;
+    position:absolute;
+    background: #ff8c00;
+    transition:0.2s ease all;
+}
+.widget__bar::before {
+    left:50%;
+}
+.widget__bar::after {
+    right:50%;
+}
+
+.widget__input:focus ~ .widget__bar::before,
+.widget__input:focus ~ .widget__bar::after {
+    width:50%;
+}
+
+.widget__currency {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 24px;
+    opacity: 0.7;
+    font-family: museo_sans_cyrl300;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+}

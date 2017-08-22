@@ -22,7 +22,8 @@ app.use(express.static(__dirname + '/widgets'));
 app.get('/', (req, res) =>{
     res.render('index.ejs', {
         widgets: folders,
-        public_key: public_key
+        public_key: public_key,
+        button_name: 'Пожертвовать'
     });
 });
 
