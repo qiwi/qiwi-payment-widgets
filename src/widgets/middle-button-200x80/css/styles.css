@@ -1,0 +1,27 @@
+@import url('../../../css/fonts.css');
+@import url('../../../css/style.css');
+@import url('../../../components/button/button.css');
+@import url('../../../components/payment-block/payment-block.css');
+
+.widget {
+    width: 200px;
+    height: 80px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.widget__button {
+    width: 200px;
+    height: 47px;
+    border-radius: 100px;
+    font-size: 16px;
+    line-height: 47px;
+    margin: 0 auto;
+}
+
+.widget__payment-block {
+    width: 189px;
+    height: 18px;
+    margin: 12px auto 0;
+}

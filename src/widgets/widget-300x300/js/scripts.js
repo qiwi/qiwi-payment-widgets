@@ -3,7 +3,10 @@ import {getParameterByName} from '../../../utils/getParameterByName.js';
 /*var url = new URL(window.location.href);
 var public_key = url.searchParams.get("public_key");*/
 
+
 var public_key = getParameterByName('public_key');
+
+console.log(getParameterByName('color'));
 
 document.getElementById('make-donation').addEventListener('click', function() {
 
