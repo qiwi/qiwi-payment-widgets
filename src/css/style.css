@@ -25,9 +25,9 @@ body {
     text-align: center;
     color: #000000;
     margin: 30px auto 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
-
 
 
 .widget__link-how-to {
@@ -39,4 +39,15 @@ body {
     text-align: center;
     text-decoration: none;
     color: #9b9b9b;
+}
+
+.widget__be-partner {
+    display: block;
+    margin: 27px auto 0;
+    font-family: museo_sans_cyrl300;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    color: #0629a3;
 }

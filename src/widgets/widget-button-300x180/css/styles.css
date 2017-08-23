@@ -1,35 +1,23 @@
 @import url('../../../css/fonts.css');
 @import url('../../../css/style.css');
 @import url('../../../css/button/button.css');
-@import url('../../../css/field/field.css');
 @import url('../../../css/payment-block/payment-block.css');
 
-.widget__field {
+.widget {
+    width: 300px;
+    height: 180px;
+}
+
+.widget__title {
     margin: 26px auto 0;
-    width: 194px;
-}
-
-.widget__input {
-    width: 194px;
-    padding: 0 12px 0  0;
-}
-
-.widget__bar  {
-    width: 194px;
-
-}
-
-.widget__currency {
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 
 .widget__button {
-    display: block;
-    margin: 22px auto 0;
     width: 200px;
+    height: 47px;
     box-shadow: 0 12px 15px 0 rgba(255, 140, 0, 0.2);
+    line-height: 47px;
+    margin: 23px auto 0;
 }
 
 .widget__payment-block {
