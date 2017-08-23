@@ -27,7 +27,7 @@ gulp.task('default', () => {
 
         return gulp.src(path.join(scriptsPath, folder, '/metadata.json'))
             .pipe(mergeJSON({
-                fileName:'specs.json'
+                fileName:'specs.json',
                 edit: (parsedJson, file) => {
                     return {
                         [folder]:parsedJson
