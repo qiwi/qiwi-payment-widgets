@@ -1,12 +1,10 @@
-/*билд разделен по папкам виджетов в widgets*/
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const mainConfig = require('./webpack.config.js');
-/*const CleanWebpackPlugin = require('clean-webpack-plugin');*/
 
 
-module.exports = function(scriptsPath, folder, env) {
+module.exports = function(scriptsPath, folder) {
     const config = {
         output: {
             filename: 'bundle.js',
@@ -25,7 +23,7 @@ module.exports = function(scriptsPath, folder, env) {
             new webpack.NamedModulesPlugin(),
             new webpack.DefinePlugin({
                 'process.env': {
-                    'NODE_ENV': JSON.stringify(env)
+                    'NODE_ENV': JSON.stringify('production')
                 }
             }),
             new HtmlWebpackPlugin({

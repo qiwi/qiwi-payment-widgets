@@ -1,21 +1,25 @@
-import {getParameterByName} from '../../../utils/getParameterByName.js';
-
-/*var url = new URL(window.location.href);
-var public_key = url.searchParams.get("public_key");*/
+import { getParametersValues, makeLinkCheckout} from '../../../utils';
 
 
-var public_key = getParameterByName('public_key');
+var enterWidgetParams = ['public_key'];
 
-console.log(getParameterByName('color'));
+var widgetParams = getParametersValues(enterWidgetParams);
+
+
+
+var input = document.getElementById('donation-amount');
 
 document.getElementById('make-donation').addEventListener('click', function() {
 
-    var amount = document.getElementById('donation-amount').value;
+    var checkoutParams = {
+        public_key: widgetParams['public_key'],
+        amount: input.value
+    };
 
-    parent.location.href = 'https://oplata.qiwi.com/form/create?public_key=' + public_key + '&amount=' + amount;
+    parent.location.href = makeLinkCheckout(checkoutParams);
 });
 
-document.getElementById('donation-amount').addEventListener('input', function(e) {
+input.addEventListener('input', function(e) {
 
     this.value = e.target.value.replace(/\D/g, '');
 
