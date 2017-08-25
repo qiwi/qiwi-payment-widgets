@@ -2,7 +2,6 @@ const path = require('path');
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const merge = require('merge-stream');
-const mergeJSON = require('gulp-merge-json-2');
 const webpackProdConfig = require('./webpack.prod.config.js');
 
 const getFolders = require('./utils/getFolders.js');
@@ -25,19 +24,7 @@ gulp.task('default', () => {
             .pipe(gulp.dest(path.join('../widgets', folder)));
     });
 
-    const specTasks = folders.map(folder => {
-
-        return gulp.src(path.join(scriptsPath, folder, '/spec.json'))
-            .pipe(mergeJSON('specs.json', (parsedJson) => {
-
-                    specs[folder] = parsedJson;
-                    return specs;
-                }
-            ))
-            .pipe(gulp.dest('../widgets'));
-    });
-
-    return merge(buildTasks,specTasks);
+    return merge(buildTasks);
 
 });
 

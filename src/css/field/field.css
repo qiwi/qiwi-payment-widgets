@@ -8,6 +8,7 @@
 .widget__label {
     position: absolute;
     font-family: museo_sans_cyrl300;
+    display: block;
     font-size: 20px;
     font-weight: 300;
     text-align: left;
@@ -94,4 +95,9 @@
     font-weight: 300;
     text-align: left;
     color: #000000;
+}
+
+.widget__form {
+    position: relative;
+    margin: 16px 0 0;
 }

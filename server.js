@@ -3,6 +3,9 @@ const querystring = require('querystring');
 const express = require('express');
 
 
+const widgetTemps = require('./tools/widgetTemps.json');
+
+
 const getFolders = require('./tools/utils/getFolders.js');
 
 const scriptsPath = 'widgets';
@@ -10,22 +13,12 @@ const scriptsPath = 'widgets';
 const folders = getFolders(scriptsPath);
 
 
-let tempData = [];
+const tempData = widgetTemps.map((temp) => {
+    temp.params = querystring.stringify(temp.params);
+    return temp;
+});
 
-try {
-    let specs = require('./widgets/specs.json');
 
-    folders.forEach((folder) => {
-        specs[folder].params = querystring.stringify(specs[folder].params);
-
-        tempData.push(specs[folder]);
-    });
-}
-catch (err) {
-
-    console.log("Unable to read file './widgets/specs.json': ", err);
-    console.log("First, run 'npm run build' command");
-}
 
 
 

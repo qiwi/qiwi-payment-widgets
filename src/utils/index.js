@@ -2,6 +2,7 @@ import 'url-search-params-polyfill';
 
 export function getParameterByName(param, urlSearch) {
     var searchParams = new URLSearchParams(urlSearch || window.location.search);
+
     return searchParams.get(param);
 }
 
@@ -23,4 +24,10 @@ export function makeLinkCheckout (params) {
     var parsedParams = new URLSearchParams(params);
 
     return url + '?' + parsedParams.toString();
+}
+
+export function numberWithSpaces(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return parts.join(".");
 }
