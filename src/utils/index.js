@@ -37,13 +37,13 @@ export function errorMessage(value) {
     var message = '';
 
     if( /^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
-        message = 'Cумма введена не корректно';
+        message = 'Некорректная сумма';
     }
     if(!value){
         message = 'Введите сумму';
     }
     if(parseFloat(value)>300000){
-        message = 'Cумма превышает 300000р.';
+        message = 'Максимальная сумма 500 000 ₽';
     }
 
     return message;

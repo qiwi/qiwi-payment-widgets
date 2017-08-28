@@ -7,7 +7,7 @@ const mainConfig = require('./webpack.config.js');
 module.exports = function(scriptsPath, folder) {
     const config = {
         output: {
-            filename: '[hash].bundle.js',
+            filename: 'bundle.[hash].js',
             path: path.resolve(__dirname, folder),
             chunkFilename: 'bundle.js'
         },
