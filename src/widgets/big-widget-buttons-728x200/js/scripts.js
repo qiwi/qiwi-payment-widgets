@@ -26,19 +26,21 @@ var buttons = document.getElementsByClassName('set-amount');
     var amount = widgetParams[param];
 
     if(amount) {
-
         buttons[index].getElementsByTagName('span')[0].innerHTML= numberWithSpaces(amount);
-
-        buttons[index].addEventListener('click', function(e) {
-
-            var checkoutParams = {
-                public_key: widgetParams['public_key'],
-                amount: amount
-            };
-
-            parent.location.href = makeLinkCheckout(checkoutParams);
-        });
+    } else {
+        amount = buttons[index].getElementsByTagName('span')[0].innerHTML;
     }
+
+    buttons[index].addEventListener('click', function(e) {
+
+        var checkoutParams = {
+            public_key: widgetParams['public_key'],
+            amount: amount
+        };
+
+        parent.location.href = makeLinkCheckout(checkoutParams);
+    });
+
 });
 
 

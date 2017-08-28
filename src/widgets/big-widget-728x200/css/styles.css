@@ -33,7 +33,6 @@
 
 .widget__input {
     width: 175px;
-    padding: 0 12px 0  0;
 }
 
 .widget__input:focus ~ .widget__label,

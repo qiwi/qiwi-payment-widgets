@@ -49,10 +49,11 @@ button.addEventListener('click', function() {
     }
 });
 
+
 input.addEventListener('input', function(e) {
 
-
     input.parentNode.classList.remove('widget__field--error');
-    this.value = e.target.value.replace(/[^0-9.,]/g, '');
+
+    this.value = e.target.value.replace(/[^0-9.,]/g, '').substring(0,9);
 
 });

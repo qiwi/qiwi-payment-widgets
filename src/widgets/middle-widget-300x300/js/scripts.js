@@ -11,7 +11,7 @@ var input = document.getElementById('donation-amount');
 
 var title = document.getElementById('merchant-title');
 
-title.innerHTML = widgetParams['title'] || '';
+title.innerHTML = widgetParams['title'] || 'Фонд помощи';
 
 
 var button = document.getElementById('make-donation');
@@ -45,7 +45,7 @@ button.addEventListener('click', function() {
 input.addEventListener('input', function(e) {
 
     input.parentNode.classList.remove('widget__field--error');
-    this.value = e.target.value.replace(/[^0-9.,]/g, '');
+    this.value = e.target.value.replace(/[^0-9.,]/g, '').substring(0,9);
 
 
 });
