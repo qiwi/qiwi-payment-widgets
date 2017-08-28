@@ -5,6 +5,35 @@
     width: 136px;
 }
 
+.widget__field--error .widget__bar::before,
+.widget__field--error .widget__bar::after   {
+    background: #ff8191;
+}
+
+.widget__field--error .widget__input   {
+    border-bottom: 1px solid #ff8191;
+}
+
+.widget__field--error .widget__message {
+    opacity: 1;
+    color: #d0021b;
+}
+
+
+.widget__message {
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    height: 13px;
+    font-family: museo_sans_cyrl300;
+    font-size: 11px;
+    font-weight: 300;
+    text-align: left;
+    color: #717171;
+    opacity: 0;
+}
+
+
 .widget__label {
     position: absolute;
     font-family: museo_sans_cyrl300;

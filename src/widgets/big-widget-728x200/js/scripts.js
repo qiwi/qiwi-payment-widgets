@@ -1,4 +1,4 @@
-import { getParametersValues, makeLinkCheckout} from '../../../utils';
+import { getParametersValues, makeLinkCheckout, errorMessage} from '../../../utils';
 
 
 var enterWidgetParams = ['public_key', 'title', 'button_name', 'text'];
@@ -25,6 +25,8 @@ var button = document.getElementById('make-donation');
 button.innerHTML = widgetParams['button_name'] || 'Помочь сейчас';
 
 
+var message = document.getElementById('error-message');
+
 
 button.addEventListener('click', function() {
 
@@ -33,11 +35,24 @@ button.addEventListener('click', function() {
         amount: input.value
     };
 
-    parent.location.href = makeLinkCheckout(checkoutParams);
+    var textErrorMessage = errorMessage(input.value);
+
+    if(!textErrorMessage){
+
+        parent.location.href = makeLinkCheckout(checkoutParams);
+
+    } else {
+
+        message.innerHTML = textErrorMessage;
+
+        input.parentNode.classList.add('widget__field--error');
+    }
 });
 
 input.addEventListener('input', function(e) {
 
-    this.value = e.target.value.replace(/\D/g, '');
+
+    input.parentNode.classList.remove('widget__field--error');
+    this.value = e.target.value.replace(/[^0-9.,]/g, '');
 
 });
