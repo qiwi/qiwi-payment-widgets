@@ -42,7 +42,7 @@ export function errorMessage(value) {
     if(!value){
         message = 'Введите сумму';
     }
-    if(parseFloat(value)>300000){
+    if(parseFloat(value)>500000){
         message = 'Максимальная сумма 500 000 ₽';
     }
 
