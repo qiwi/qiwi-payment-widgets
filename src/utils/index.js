@@ -36,7 +36,8 @@ export function errorMessage(value) {
 
     var message = '';
 
-    if( /^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
+
+    if(!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
         message = 'Некорректная сумма';
     }
     if(!value){
