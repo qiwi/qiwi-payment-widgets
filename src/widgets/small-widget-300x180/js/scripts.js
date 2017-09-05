@@ -1,4 +1,4 @@
-import {getParametersValues, makeLinkCheckout} from '../../utils';
+import {getParametersValues, makeLinkCheckout, getMerchant} from '../../utils';
 
 var enterWidgetParams = ['public_key', 'button_name', 'title'];
 
@@ -13,7 +13,7 @@ button.innerHTML = widgetParams['button_name'] || 'Оплатить';
 
 var input = document.getElementById('merchant-title');
 
-input.innerHTML = widgetParams['title'] || '';
+/*input.innerHTML = widgetParams['title'] || '';*/
 
 
 

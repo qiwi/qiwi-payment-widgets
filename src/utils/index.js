@@ -49,3 +49,12 @@ export function errorMessage(value) {
 
     return message;
 }
+
+export function getMerchant(public_key) {
+    return fetch('https://edge.qiwi.com/checkout/merchant/info?public_key='+ public_key, {
+            mode: 'cors'
+        })
+        .then(function(response) {
+            return response.json();
+        });
+}

@@ -1,4 +1,4 @@
-import { getParametersValues, makeLinkCheckout, errorMessage} from '../../../utils';
+import { getParametersValues, makeLinkCheckout, errorMessage, getMerchant} from '../../../utils';
 
 
 var enterWidgetParams = ['public_key', 'title', 'button_name'];
@@ -8,15 +8,19 @@ var widgetParams = getParametersValues(enterWidgetParams);
 var input = document.getElementById('donation-amount');
 
 
-
 var title = document.getElementById('merchant-title');
 
-title.innerHTML = widgetParams['title'] || 'Фонд помощи';
+getMerchant(widgetParams['public_key']).then(function(data) {
+    title.innerHTML = data['provider_name'];
+});
+
+
+/*title.innerHTML = widgetParams['title'] || 'Фонд помощи';*/
 
 
 var button = document.getElementById('make-donation');
 
-button.innerHTML = widgetParams['button_name'] || 'Помочь сейчас';
+/*button.innerHTML = widgetParams['button_name'] || 'Помочь сейчас';*/
 
 var message = document.getElementById('error-message');
 

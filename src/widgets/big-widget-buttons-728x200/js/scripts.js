@@ -1,4 +1,4 @@
-import { getParametersValues, makeLinkCheckout, numberWithSpaces} from '../../../utils';
+import { getParametersValues, makeLinkCheckout, numberWithSpaces, getMerchant} from '../../../utils';
 
 
 var enterWidgetParams = ['public_key', 'title', 'text', 'button1', 'button2', 'button3'];
@@ -13,7 +13,12 @@ text.innerHTML = widgetParams['text'] || '';
 
 var title = document.getElementById('merchant-title');
 
-title.innerHTML = 'Поддержите ' + widgetParams['title'];
+getMerchant(widgetParams['public_key']).then(function(data) {
+    title.innerHTML = 'Поддержите ' + data['provider_name'];
+});
+
+
+/*title.innerHTML = 'Поддержите ' + widgetParams['title'];*/
 
 
 
