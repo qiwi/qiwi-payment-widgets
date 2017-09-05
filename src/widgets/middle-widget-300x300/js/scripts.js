@@ -11,7 +11,7 @@ var input = document.getElementById('donation-amount');
 var title = document.getElementById('merchant-title');
 
 getMerchant(widgetParams['public_key']).then(function(data) {
-    title.innerHTML = data['provider_name'];
+    /*title.innerHTML = data['provider_name'];*/
 });
 
 
