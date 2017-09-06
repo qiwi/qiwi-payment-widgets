@@ -54,6 +54,17 @@ export function getMerchant(public_key) {
     return fetch('https://edge.qiwi.com/checkout/merchant/info?public_key='+ public_key, {
             mode: 'cors'
         })
+        .then(function(resp) {
+            console.log(resp);
+            if(resp.status >= 400 && resp.status < 500){
+                throw new Error('NotFoundError')
+            }
+            if(resp.status >= 500) {
+                throw new Error('ServerError')
+            }
+            return resp;
+
+        })
         .then(function(response) {
             return response.json();
         });

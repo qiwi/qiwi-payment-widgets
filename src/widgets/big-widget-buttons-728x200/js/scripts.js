@@ -14,7 +14,7 @@ text.innerHTML = widgetParams['text'] || '';
 var title = document.getElementById('merchant-title');
 
 getMerchant(widgetParams['public_key']).then(function(data) {
-    /*title.innerHTML = 'Поддержите ' + data['provider_name'];*/
+    title.innerHTML = 'Поддержите ' + data['provider_name'];
 });
 
 
