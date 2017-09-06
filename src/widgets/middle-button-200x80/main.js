@@ -1,2 +1,11 @@
 import './css/styles.css';
-import '../../components/widget-button';
+import WidgetButton from'../../components/widget-button';
+
+
+const middleButton200x80 = new WidgetButton(['public_key', 'button_name']);
+
+middleButton200x80.init({
+    button:{
+        id:'make-donation'
+    }
+});

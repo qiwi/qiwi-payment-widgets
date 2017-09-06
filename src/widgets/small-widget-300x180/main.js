@@ -1,2 +1,10 @@
 import './css/styles.css';
-import '../../components/widget-button';
+import WidgetButton from '../../components/widget-button';
+
+const smallWdiget300x180 = new WidgetButton(['public_key', 'button_name']);
+
+smallWdiget300x180.init({
+    button:{
+        id: 'make-donation'
+    }
+});
