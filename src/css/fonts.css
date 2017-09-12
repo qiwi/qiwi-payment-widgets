@@ -14,8 +14,8 @@
     font-family: 'museo_sans_cyrl500';
     src: url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/MuseoSansCyrl-500-webfont.eot');
     src: url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/MuseoSansCyrl-500-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/MuseoSansCyrl-500-webfont.woff2') format('woff2'),
-    url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/MuseoSansCyrl-500-webfont.woff') format('woff'),
+    url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/museosanscyrl-500-webfont.woff2') format('woff2'),
+    url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/museosanscyrl-500-webfont.woff') format('woff'),
     url('../fonts/MuseoSansCyrl/museosanscyrillic-500-cyrillic/MuseoSansCyrl-500-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
