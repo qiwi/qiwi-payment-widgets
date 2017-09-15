@@ -1,7 +1,7 @@
 @import url('../../../css/fonts.css');
 @import url('../../../css/style.css');
-@import url('../../../components/button/button.css');
-@import url('../../../components/payment-block/payment-block.css');
+@import url('../../../css/button/button.css');
+@import url('../../../css/payment-block/payment-block.css');
 
 .widget {
     width: 175px;
@@ -23,7 +23,7 @@
 .widget__payment-block {
     width: 148px;
     height: 14px;
-    margin: 9px auto 0;
+    margin: 6px auto 0;
 }
 
 .widget__payment-block-visa {
@@ -36,10 +36,10 @@
     height: 9px;
 }
 .widget__payment-block-master-card {
-    width: 20px;
-    height: 13px;
+    width: 21px;
+    height: 14px;
 }
 .widget__payment-block-qiwi {
-    width: 29px;
+    width: 35px;
     height: 14px;
 }

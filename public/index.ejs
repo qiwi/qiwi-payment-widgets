@@ -14,13 +14,13 @@
 
         <% widgets.forEach(function(widget, index) { %>
 
-            <h1>Виджет <%= widget %> </h1>
+            <h1>Виджет <%= widget.name %> </h1>
 
-            <iframe width="300" height="300" src="<%= widget %>?public_key=<%= public_key %>&button_name=<%= button_name %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+            <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 
             <h2>Код для вставки</h2>
 
-            <textarea class="code" readonly="true" > <iframe width="300" height="300" src="//widget.qiwi.com/<%= widget %>?public_key=<%= public_key %>&button_name=<%= button_name %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe> </textarea>
+            <textarea class="code" readonly="true" > <iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="//widget.qiwi.com/<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe> </textarea>
 
         <% }); %>
     </div>

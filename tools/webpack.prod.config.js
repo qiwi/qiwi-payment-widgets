@@ -1,15 +1,13 @@
-/*билд разделен по папкам виджетов в widgets*/
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const mainConfig = require('./webpack.config.js');
-/*const CleanWebpackPlugin = require('clean-webpack-plugin');*/
 
 
-module.exports = function(scriptsPath, folder, env) {
+module.exports = function(scriptsPath, folder) {
     const config = {
         output: {
-            filename: 'bundle.js',
+            filename: 'bundle.[hash].js',
             path: path.resolve(__dirname, folder),
             chunkFilename: 'bundle.js'
         },

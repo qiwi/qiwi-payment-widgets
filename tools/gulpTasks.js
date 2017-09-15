@@ -11,18 +11,20 @@ const scriptsPath = '../src/widgets';
 
 gulp.task('default', () => {
 
+    let specs = {};
+
     const folders = getFolders(scriptsPath);
 
-    const tasks = folders.map(folder => {
+    const buildTasks = folders.map(folder => {
 
-        const config = webpackProdConfig(scriptsPath, folder, 'production');
+        const config = webpackProdConfig(scriptsPath, folder);
 
         return gulp.src(path.join(scriptsPath, folder, '/main.js'))
             .pipe(webpack(config))
             .pipe(gulp.dest(path.join('../widgets', folder)));
     });
 
-    return merge(tasks);
+    return merge(buildTasks);
 
 });
 

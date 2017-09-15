@@ -1,0 +1,94 @@
+[
+	{
+		"name": "big-button-220x100",
+		"height": 100,
+		"width": 220,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"button_name": "Пожертвовать"
+		}
+	},
+	{
+		"name": "big-widget-728x200",
+		"height": 200,
+		"width": 728,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"title": "БФ Константина Хабенского",
+			"button_name": "Помочь сейчас",
+			"text": "Фонд занимается организацией помощи детям с онкологическими и другими тяжёлыми заболеваниями головного мозга."
+		}
+	},
+	{
+		"name": "middle-button-200x80",
+		"height": 80,
+		"width": 200,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"button_name": "Пожертвовать"
+		}
+	},
+	{
+		"name": "big-widget-buttons-728x200",
+		"height": 200,
+		"width": 728,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"title": "БФ Константина Хабенского",
+			"text": "Фонд занимается организацией помощи детям с онкологическими и другими тяжёлыми заболеваниями головного мозга.",
+			"button1": 100,
+			"button2": 500,
+			"button3": 10000
+
+		}
+	},
+	{
+		"name": "big-widget-buttons-728x200",
+		"height": 200,
+		"width": 728,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"title": "БФ Константина Хабенского",
+			"text": "Фонд занимается организацией помощи детям.",
+			"button3": 500
+
+		}
+	},
+	{
+		"name": "small-button-175x65",
+		"height": 65,
+		"width": 175,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"button_name": "Пожертвовать"
+		}
+	},
+	{
+		"name": "middle-widget-300x300",
+		"height": 300,
+		"width": 300,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"title": "БФ Константина Хабенского",
+			"button_name": "Помочь сейчас"
+		}
+	},
+	{
+		"name": "middle-widget-300x230",
+		"height": 230,
+		"width": 300,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
+		}
+	},
+	{
+		"name": "small-widget-300x180",
+		"height": 180,
+		"width": 300,
+		"params": {
+			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
+			"title": "БФ Константина Хабенского",
+			"button_name": "Помогите сейчас"
+		}
+	}
+]

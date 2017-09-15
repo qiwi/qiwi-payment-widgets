@@ -2,7 +2,13 @@ module.exports = {
     module: {
         rules: [{
             test: /.js?$/,
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env']
+                }
+            }
         },{
             test: /\.css$/,
             use: [
@@ -14,7 +20,7 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
-                    limit: 8000
+                    limit: 37000
                 }
             }]
         }, {

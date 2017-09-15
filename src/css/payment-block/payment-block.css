@@ -1,0 +1,46 @@
+.widget__payment-block {
+    width: 192px;
+    height: 18px;
+    text-align: justify;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+    text-align-last: justify;
+    margin: 14px auto 0;
+}
+
+.widget__payment-block::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.widget__payment-type {
+    text-align: left;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    vertical-align: middle;
+}
+
+.widget__payment-block-visa {
+    background-image: url('../../assets/visa.svg');
+    width: 35px;
+    height: 12px;
+}
+
+.widget__payment-block-mir {
+    background-image: url('../../assets/mir.svg');
+    width: 30px;
+    height: 11px;
+}
+.widget__payment-block-master-card {
+    background-image: url('../../assets/master-card.svg');
+    width: 24px;
+    height: 16px;
+}
+.widget__payment-block-qiwi {
+    background-image: url('../../assets/qiwi.svg');
+    width: 42px;
+    height: 17px;
+}

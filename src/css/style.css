@@ -13,6 +13,7 @@ body {
     border-radius: 10px;
     background-color: #ffffff;
     border: solid 1px #e7e7e7;
+    position: relative;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -25,10 +26,13 @@ body {
     text-align: center;
     color: #000000;
     margin: 30px auto 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-
-
+.widget__button-block {
+    margin: 16px 0 0;
+}
 
 .widget__link-how-to {
     display: block;
@@ -39,4 +43,32 @@ body {
     text-align: center;
     text-decoration: none;
     color: #9b9b9b;
+}
+
+.widget__be-partner {
+    display: block;
+    margin: 27px auto 0;
+    font-family: museo_sans_cyrl300;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    color: #0629a3;
+}
+
+.widget__text {
+    font-family: museo_sans_cyrl300;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+    margin: 12px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget__footer {
+    margin: 16px 0 0;
+    position: relative;
+    width: 100%;
 }
