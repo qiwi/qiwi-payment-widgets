@@ -2,12 +2,15 @@ const path = require('path');
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const merge = require('merge-stream');
-const webpackProdConfig = require('./webpack.prod.config.js');
+const webpackConfig = require('./webpack.config.js');
 
 const getFolders = require('./utils/getFolders.js');
 
 const scriptsPath = '../src/widgets';
 
+
+
+const ENV = process.env.NODE_ENV || 'production';
 
 gulp.task('default', () => {
 
@@ -17,7 +20,7 @@ gulp.task('default', () => {
 
     const buildTasks = folders.map(folder => {
 
-        const config = webpackProdConfig(scriptsPath, folder);
+        const config = webpackConfig(scriptsPath, folder, ENV);
 
         return gulp.src(path.join(scriptsPath, folder, '/main.js'))
             .pipe(webpack(config))
