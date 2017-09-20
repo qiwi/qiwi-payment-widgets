@@ -1,6 +1,7 @@
 const path = require('path');
 const querystring = require('querystring');
 const express = require('express');
+const request = require('request');
 
 
 const widgetTemps = require('./tools/widgetTemps.json');
@@ -37,6 +38,11 @@ app.get('/', (req, res) =>{
     res.render('index.ejs', {
         widgets: tempData
     });
+});
+
+app.use('/proxy', function(req, res) {
+    const url = req.url.replace('/?url=','');
+    req.pipe(request(url)).pipe(res);
 });
 
 folders.forEach(folder => {

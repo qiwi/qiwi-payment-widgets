@@ -28,10 +28,13 @@ export default class WidgetButton {
     }
 
     _getTitle() {
-        const title = document.getElementById(this._elements.title.id);
 
-        this._getMerchant(this._widgetParams['public_key']).then(function(data) {
-            title.innerHTML = this._elements.title.additional?`${this._elements.title.additional} ${data['provider_name']}`:data['provider_name'];
+        const titleInfo = this._elements.title;
+
+        const title = document.getElementById(titleInfo.id);
+
+        this._getMerchant(this._widgetParams['public_key']).then((data) => {
+            title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
         });
 
     }
@@ -67,7 +70,13 @@ export default class WidgetButton {
 
     _getMerchant(public_key) {
 
-        return fetch(`https://edge.qiwi.com/checkout/merchant/info?public_key=${public_key}`, {
+        let url = 'https://edge.qiwi.com/checkout/merchant/info';
+
+        if(process.env.NODE_ENV === 'development') {
+            url = '/proxy?url=https://edge.qiwi.com/checkout/merchant/info';
+        }
+
+        return fetch(`${url}?public_key=${public_key}`, {
                 mode: 'cors'
             })
             .then(response => {
