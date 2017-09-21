@@ -24,6 +24,10 @@ export default class WidgetButtons extends WidgetButton {
         if(this._elements.text) {
             this._makeText();
         }
+
+        if(this._elements.link) {
+            this._makePartnerLink();
+        }
     }
 
     _makeButtons() {

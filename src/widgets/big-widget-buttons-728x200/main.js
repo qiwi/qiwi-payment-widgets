@@ -18,5 +18,8 @@ bigWidgetButtons728x200.init({
     },
     buttonsBlock: {
         id: 'set-amount'
+    },
+    link: {
+        id: 'partner-link'
     }
 });
