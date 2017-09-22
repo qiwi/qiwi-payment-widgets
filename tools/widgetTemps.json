@@ -74,8 +74,8 @@
 		}
 	},
 	{
-		"name": "middle-widget-300x230",
-		"height": 230,
+		"name": "middle-widget-300x270",
+		"height": 270,
 		"width": 300,
 		"params": {
 			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"

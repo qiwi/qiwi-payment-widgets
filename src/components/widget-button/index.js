@@ -68,6 +68,16 @@ export default class WidgetButton {
         });
     }
 
+
+    _makePartnerLink() {
+
+        const parsedParams = new URLSearchParams({
+            public_key: this._widgetParams['public_key']
+        });
+
+        document.getElementById(this._elements.link.id).href = `https://widget.qiwi.com?${parsedParams.toString()}`;
+    }
+
     _getMerchant(public_key) {
 
         let url = 'https://edge.qiwi.com/checkout/merchant/info';

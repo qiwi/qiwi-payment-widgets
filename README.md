@@ -12,6 +12,5 @@ npm run build
 ~~~shell
 npm run watch
 npm run start
-
 ~~~
 

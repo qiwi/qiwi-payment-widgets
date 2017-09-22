@@ -17,5 +17,8 @@ middleWidget300x300.init({
     input: {
         id: 'donation-amount',
         errorState: 'widget__field--error'
+    },
+    link: {
+        id: 'partner-link'
     }
 });

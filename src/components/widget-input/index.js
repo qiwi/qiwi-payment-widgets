@@ -24,6 +24,10 @@ export default class WidgetInput extends WidgetButton{
             this._makeText();
         }
 
+        if(this._elements.link) {
+            this._makePartnerLink();
+        }
+
     }
 
     _makeButton() {
