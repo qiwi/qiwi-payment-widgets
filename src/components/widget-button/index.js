@@ -68,6 +68,7 @@ export default class WidgetButton {
         });
     }
 
+
     _makePartnerLink() {
 
         const parsedParams = new URLSearchParams({
