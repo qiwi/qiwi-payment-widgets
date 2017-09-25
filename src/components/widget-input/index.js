@@ -11,22 +11,23 @@ export default class WidgetInput extends WidgetButton{
     }
 
     init(elements) {
+
         this._elements = elements;
 
         this._makeInput();
         this._makeButton();
 
-        if(this._elements.title) {
-            this._getTitle();
-        }
+        const propsToMethodMap = {
+            title: this._getTitle.bind(this),
+            text: this._makeText.bind(this),
+            link: this._makePartnerLink.bind(this)
+        };
 
-        if(this._elements.text) {
-            this._makeText();
-        }
-
-        if(this._elements.link) {
-            this._makePartnerLink();
-        }
+        Object.keys(propsToMethodMap).forEach(key => {
+            if(elements[key]){
+                propsToMethodMap[key]();
+            }
+        });
 
     }
 
@@ -43,26 +44,28 @@ export default class WidgetInput extends WidgetButton{
         }
 
 
-        button.addEventListener('click', () => {
+        if(this._widgetParams['public_key']) {
+            button.addEventListener('click', () => {
 
-            const checkoutParams = {
-                public_key: this._widgetParams['public_key'],
-                amount: input.value
-            };
+                const checkoutParams = {
+                    public_key: this._widgetParams['public_key'],
+                    amount: input.value
+                };
 
-            const textErrorMessage = this._errorMessage(input.value);
+                const textErrorMessage = this._errorMessage(input.value);
 
-            if(!textErrorMessage){
+                if(!textErrorMessage){
 
-                parent.location.href = this._makeLinkCheckout(checkoutParams);
+                    parent.location.href = this._makeLinkCheckout(checkoutParams);
 
-            } else {
+                } else {
 
-                message.innerHTML = textErrorMessage;
+                    message.innerHTML = textErrorMessage;
 
-                input.parentNode.classList.add(this._elements.input.errorState);
-            }
-        });
+                    input.parentNode.classList.add(this._elements.input.errorState);
+                }
+            });
+        }
     }
 
 

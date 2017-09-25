@@ -17,3 +17,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.widget__button:focus {
+    outline: none;
+}

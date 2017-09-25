@@ -13,18 +13,17 @@ export default class WidgetButton {
 
         this._elements = elements;
 
-        if(this._elements.button) {
-            this._makeButton();
-        }
+        const propsToMethodMap = {
+            button: this._makeButton.bind(this),
+            title: this._getTitle.bind(this),
+            text: this._makeText.bind(this)
+        };
 
-        if(this._elements.title) {
-            this._getTitle();
-        }
-
-        if(this._elements.text) {
-            this._makeText();
-        }
-
+        Object.keys(propsToMethodMap).forEach(key => {
+            if(elements[key]){
+                propsToMethodMap[key]();
+            }
+        });
     }
 
     _getTitle() {
@@ -32,6 +31,8 @@ export default class WidgetButton {
         const titleInfo = this._elements.title;
 
         const title = document.getElementById(titleInfo.id);
+
+        console.log('get title')
 
         this._getMerchant(this._widgetParams['public_key']).then((data) => {
             title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
@@ -58,14 +59,17 @@ export default class WidgetButton {
             button.innerHTML = this._widgetParams['button_name'];
         }
 
-        button.addEventListener('click', () => {
+        if(this._widgetParams['public_key']) {
 
-            const checkoutParams = {
-                public_key: this._widgetParams['public_key']
-            };
+            button.addEventListener('click', () => {
 
-            parent.location.href = this._makeLinkCheckout(checkoutParams);
-        });
+                    const checkoutParams = {
+                        public_key: this._widgetParams['public_key']
+                    };
+
+                    parent.location.href = this._makeLinkCheckout(checkoutParams);
+            });
+        }
     }
 
 

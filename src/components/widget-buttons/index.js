@@ -9,30 +9,30 @@ export default class WidgetButtons extends WidgetButton {
     }
 
     init(elements) {
+
         this._elements = elements;
 
         this._makeButton();
 
-        if(this._elements.buttonsBlock) {
-            this._makeButtons();
-        }
+        const propsToMethodMap = {
+            buttonsBlock: this._makeButtons.bind(this),
+            title: this._getTitle.bind(this),
+            text: this._makeText.bind(this),
+            link: this._makePartnerLink.bind(this)
+        };
 
-        if(this._elements.title) {
-            this._getTitle();
-        }
-
-        if(this._elements.text) {
-            this._makeText();
-        }
-
-        if(this._elements.link) {
-            this._makePartnerLink();
-        }
+        Object.keys(propsToMethodMap).forEach(key => {
+            if(elements[key]){
+                propsToMethodMap[key]();
+            }
+        });
     }
 
     _makeButtons() {
 
         const buttons = document.getElementsByClassName(this._elements.buttonsBlock.id);
+
+        const public_key = this._widgetParams['public_key'];
 
         [].forEach.call(buttons, (button, index) => {
 
@@ -46,15 +46,19 @@ export default class WidgetButtons extends WidgetButton {
                 amount = buttons[index].getElementsByTagName('span')[0].innerHTML;
             }
 
-            buttons[index].addEventListener('click', (e) => {
 
-                const checkoutParams = {
-                    public_key: this._widgetParams['public_key'],
-                    amount: amount
-                };
+            if(public_key) {
 
-                parent.location.href = this._makeLinkCheckout(checkoutParams);
-            });
+                buttons[index].addEventListener('click', (e) => {
+
+                    const checkoutParams = {
+                        public_key,
+                        amount
+                    };
+
+                    parent.location.href = this._makeLinkCheckout(checkoutParams);
+                });
+            }
 
         });
     }
