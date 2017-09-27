@@ -8,19 +8,33 @@
 </head>
 <body>
 
+    <ul class="menu">
+        <% widgets.forEach(function(widget, index) { %>
+            <li>
+
+                <a href="#<%= widget.width %><%= widget.height %><%= widget.name %><%= widget.params %>">Виджет <%= widget.name %> </a>
+
+            </li>
+        <% }); %>
+    </ul>
+
     <div class="widgets">
-
-
 
         <% widgets.forEach(function(widget, index) { %>
 
-            <h1>Виджет <%= widget.name %> </h1>
+            <div class="widget">
 
-            <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+                <h1 id="<%= widget.width %><%= widget.height %><%= widget.name %><%= widget.params %>">Виджет <%= widget.name %> </h1>
 
-            <h2>Код для вставки</h2>
+                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 
-            <textarea class="code" readonly="true" > <iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="//widget.qiwi.com/<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe> </textarea>
+                <a href="<%= widget.name %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button" >Открыть в отдельном окне</a>
+
+                <h2>Код для вставки</h2>
+
+                <div class="code"> &lt;iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="<a href="https://widget.qiwi.com/<%= widget.name %>?<%= widget.params %>" target="_blank">https://widget.qiwi.com/<%= widget.name %>?<%= widget.params %></a>" allowtransparency="true" scrolling="no" frameborder="0"&gt;&lt;/iframe&gt; </div>
+
+            </div>
 
         <% }); %>
     </div>

@@ -86,7 +86,6 @@ export default class WidgetInput extends WidgetButton{
 
         let message = '';
 
-
         if(!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
             message = 'Некорректная сумма';
         }
@@ -95,6 +94,12 @@ export default class WidgetInput extends WidgetButton{
         }
         if(parseFloat(value)>500000){
             message = 'Максимальная сумма 500 000 ₽';
+        }
+        if(message) {
+            dataLayer.push({
+                'event': 'validation.error',
+                'eventAction': message
+            });
         }
 
         return message;

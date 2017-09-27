@@ -7,11 +7,7 @@ const request = require('request');
 const widgetTemps = require('./tools/widgetTemps.json');
 
 
-const getFolders = require('./tools/utils/getFolders.js');
-
 const scriptsPath = 'widgets';
-
-const folders = getFolders(scriptsPath);
 
 
 const tempData = widgetTemps.map((temp) => {
@@ -21,11 +17,10 @@ const tempData = widgetTemps.map((temp) => {
 
 
 
-
-
 const app = express();
 
 const port = 9290;
+
 
 
 app.set('views', path.join(__dirname, 'public'));
@@ -45,14 +40,6 @@ app.use('/proxy', function(req, res) {
     req.pipe(request(url)).pipe(res);
 });
 
-folders.forEach(folder => {
-
-    app.get(`/${folder}`, (req, res) =>{
-        res.sendFile(path.join(__dirname, `widgets/${folder}/index.html`));
-    });
-
-});
-
 
 app.listen(port, (err) =>  {
     if (err) {
@@ -60,5 +47,5 @@ app.listen(port, (err) =>  {
         return;
     }
 
-    console.log('Start at ' + port);
+    console.log('Project is running at', '\x1b[34m', 'http://localhost:' + port, '\x1b[39m');
 });

@@ -32,11 +32,13 @@ export default class WidgetButton {
 
         const title = document.getElementById(titleInfo.id);
 
-        console.log('get title')
-
-        this._getMerchant(this._widgetParams['public_key']).then((data) => {
-            title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
-        });
+        this._getMerchant(this._widgetParams['public_key'])
+            .then((data) => {
+                title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
+            })
+            .catch(() => {
+                title.innerHTML = '';
+            });
 
     }
 
@@ -95,11 +97,23 @@ export default class WidgetButton {
             })
             .then(response => {
 
-                if(response.status >= 400 && response.status < 500){
-                    throw new Error('NotFoundError')
+                if(response.status >= 400 ){
+
+                    dataLayer.push({
+                        'event': 'load.error',
+                        'eventAction': 'Not found error'
+                    });
+
+                    throw new Error('NotFoundError');
                 }
                 if(response.status >= 500) {
-                    throw new Error('ServerError')
+
+                    dataLayer.push({
+                        'event': 'load.error',
+                        'eventAction': 'Server error'
+                    });
+
+                    throw new Error('ServerError');
                 }
                 return response;
 
