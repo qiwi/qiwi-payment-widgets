@@ -10,7 +10,6 @@ npm run build
 
 ## Для разработки
 ~~~shell
-npm run watch
-npm run start
+npm run dev
 ~~~
 
