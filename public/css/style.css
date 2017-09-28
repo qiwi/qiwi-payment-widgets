@@ -1,21 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
     background-color: #F5F5F5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
 
 iframe {
     border:none;
-    margin: 0 auto;
+    margin: 20px 0;
     display: block;
 }
 
+.menu {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.menu li {
+    padding: 15px 0 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+
 .widgets {
-    margin: 0 auto;
-    width: 500px;
+    margin: 0 0 0 300px;
+    width: 800px;
+}
+
+.widget {
+    margin-bottom: 100px;
 }
 
 .code {
-    font-size: 16px;
     width: 100%;
-    height: 150px;
-    resize: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    line-height: 1.31;
+    text-align: left;
+    color: #000000;
+    word-break: break-word;
+    margin-bottom: 35px;
+    -webkit-user-select: all;  /* Chrome all / Safari all */
+    -moz-user-select: all;     /* Firefox all */
+    -ms-user-select: all;      /* IE 10+ */
+    user-select: all;
+}
+
+.code a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+
+.widget-info__get-code-button {
+    display: inline-block;
+    cursor: pointer;
+    width: 240px;
+    border-radius: 6px;
+    border: solid 2px #000000;
+    font-family: 'MuseoSansCyrl700';
+    font-size: 16px;
+    line-height: 16px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgb(247,247,247);
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
 }
