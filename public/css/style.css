@@ -49,10 +49,11 @@ iframe {
     width: 100%;
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
-    line-height: 1.31;
+    line-height: 1.5;
     text-align: left;
     color: #000000;
     word-break: break-word;
+    word-break:break-all;
     margin-bottom: 35px;
     -webkit-user-select: all;  /* Chrome all / Safari all */
     -moz-user-select: all;     /* Firefox all */
@@ -72,7 +73,7 @@ iframe {
     width: 240px;
     border-radius: 6px;
     border: solid 2px #000000;
-    font-family: 'MuseoSansCyrl700';
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 16px;
     margin: 20px 0;

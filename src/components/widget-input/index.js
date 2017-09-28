@@ -56,7 +56,10 @@ export default class WidgetInput extends WidgetButton{
 
                 if(!textErrorMessage){
 
-                    parent.location.href = this._makeLinkCheckout(checkoutParams);
+                    window.open(
+                        this._makeLinkCheckout(checkoutParams),
+                        '_blank'
+                    );
 
                 } else {
 
