@@ -26,13 +26,13 @@
 
                 <h1 id="<%= widget.width %><%= widget.height %><%= widget.name %><%= widget.params %>">Виджет <%= widget.name %> </h1>
 
-                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.name %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.link %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
 
-                <a href="<%= widget.name %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button" >Открыть в отдельном окне</a>
+                <a href="<%= widget.link %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button" >Открыть в отдельном окне</a>
 
                 <h2>Код для вставки</h2>
 
-                <div class="code"> &lt;iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="<a href="https://widget.qiwi.com/<%= widget.name %>?<%= widget.params %>" target="_blank">https://widget.qiwi.com/<%= widget.name %>?<%= widget.params %></a>" allowtransparency="true" scrolling="no" frameborder="0"&gt;&lt;/iframe&gt; </div>
+                <div class="code"> &lt;iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="<a href="https://widget.qiwi.com/<%= widget.link %>?<%= widget.params %>" target="_blank">https://widget.qiwi.com/<%= widget.link %>?<%= widget.params %></a>" allowtransparency="true" scrolling="no" frameborder="0"&gt;&lt;/iframe&gt; </div>
 
             </div>
 

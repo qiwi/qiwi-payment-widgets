@@ -37,15 +37,13 @@ export default class WidgetButton {
                 title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
             })
             .catch(() => {
-                title.innerHTML = '';
+
             });
 
     }
 
     _makeText() {
         const text = document.getElementById(this._elements.text.id);
-
-        text.innerHTML = '';
 
         if(this._widgetParams.text) {
 
@@ -69,7 +67,10 @@ export default class WidgetButton {
                         public_key: this._widgetParams['public_key']
                     };
 
-                    parent.location.href = this._makeLinkCheckout(checkoutParams);
+                    window.open(
+                        this._makeLinkCheckout(checkoutParams),
+                        '_blank'
+                    );
             });
         }
     }

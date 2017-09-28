@@ -56,7 +56,10 @@ export default class WidgetButtons extends WidgetButton {
                         amount
                     };
 
-                    parent.location.href = this._makeLinkCheckout(checkoutParams);
+                    window.open(
+                        this._makeLinkCheckout(checkoutParams),
+                        '_blank'
+                    );
                 });
             }
 
