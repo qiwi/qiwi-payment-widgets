@@ -102,19 +102,10 @@ export default class WidgetButton {
 
                     dataLayer.push({
                         'event': 'load.error',
-                        'eventAction': 'Not found error'
+                        'eventAction': 'Mechant name load error'
                     });
 
-                    throw new Error('NotFoundError');
-                }
-                if(response.status >= 500) {
-
-                    dataLayer.push({
-                        'event': 'load.error',
-                        'eventAction': 'Server error'
-                    });
-
-                    throw new Error('ServerError');
+                    throw new Error('LoadError');
                 }
                 return response;
 
