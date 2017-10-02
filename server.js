@@ -4,7 +4,7 @@ const express = require('express');
 const request = require('request');
 
 
-const widgetTemps = require('./tools/widgetTemps.json');
+const widgetTemps = require('./public/widgetTemps.json');
 
 
 const scriptsPath = 'widgets';
