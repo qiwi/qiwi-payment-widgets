@@ -11,7 +11,7 @@ bigWidgetButtons728x200.init({
     },
     title: {
         id: 'merchant-title',
-        additional: 'Поддержите'
+        additional: ''
     },
     text: {
         id: 'text-donation'
