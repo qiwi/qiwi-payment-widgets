@@ -3,7 +3,7 @@ import './css/styles.css';
 
 import WidgetButtons from '../../components/widget-buttons';
 
-const bigWidgetButtons728x200 = new WidgetButtons(['public_key', 'text', 'button1', 'button2', 'button3']);
+const bigWidgetButtons728x200 = new WidgetButtons(['public_key']);
 
 bigWidgetButtons728x200.init({
     button: {
