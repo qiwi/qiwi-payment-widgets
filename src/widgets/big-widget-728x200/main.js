@@ -1,7 +1,7 @@
 import './css/styles.css';
 import WidgetInput from '../../components/widget-input';
 
-const bigWidget728x200 = new WidgetInput(['public_key', 'button_name', 'text']);
+const bigWidget728x200 = new WidgetInput(['public_key']);
 
 bigWidget728x200.init({
     button: {

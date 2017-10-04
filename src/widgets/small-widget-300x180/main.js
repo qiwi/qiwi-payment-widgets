@@ -1,7 +1,7 @@
 import './css/styles.css';
 import WidgetButton from '../../components/widget-button';
 
-const smallWdiget300x180 = new WidgetButton(['public_key', 'button_name']);
+const smallWdiget300x180 = new WidgetButton(['public_key']);
 
 smallWdiget300x180.init({
     button:{
