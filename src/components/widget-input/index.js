@@ -31,6 +31,26 @@ export default class WidgetInput extends WidgetButton{
 
     }
 
+    _getTitle() {
+
+        const self = this;
+
+        const titleInfo = this._elements.title;
+
+        const title = document.getElementById(titleInfo.id);
+
+        this._getMerchantInfo(this._widgetParams['public_key'])
+            .then((data) => {
+                title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
+
+                self._makeText();
+            })
+            .catch(() => {
+
+            });
+
+    }
+
     _makeButton() {
 
         const button = document.getElementById(this._elements.button.id);
