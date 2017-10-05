@@ -15,8 +15,7 @@ export default class WidgetButton {
 
         const propsToMethodMap = {
             button: this._makeButton.bind(this),
-            title: this._getTitle.bind(this),
-            text: this._makeText.bind(this)
+            title: this._getTitle.bind(this)
         };
 
         Object.keys(propsToMethodMap).forEach(key => {
@@ -32,7 +31,7 @@ export default class WidgetButton {
 
         const title = document.getElementById(titleInfo.id);
 
-        this._getMerchant(this._widgetParams['public_key'])
+        this._getMerchantInfo(this._widgetParams['public_key'])
             .then((data) => {
                 title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
             })
@@ -42,13 +41,10 @@ export default class WidgetButton {
 
     }
 
-    _makeText() {
-        const text = document.getElementById(this._elements.text.id);
+    _makeText(text = '') {
+        const desc = document.getElementById(this._elements.text.id);
 
-        if(this._widgetParams.text) {
-
-            text.innerHTML = this._widgetParams.text;
-        }
+        desc.innerHTML = text;
     }
 
     _makeButton() {
@@ -85,7 +81,7 @@ export default class WidgetButton {
         document.getElementById(this._elements.link.id).href = `https://widget.qiwi.com?${parsedParams.toString()}`;
     }
 
-    _getMerchant(public_key) {
+    _getMerchantInfo(public_key) {
 
         let url = 'https://edge.qiwi.com/checkout/merchant/info';
 

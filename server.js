@@ -43,8 +43,7 @@ app.use('/proxy', function(req, res) {
 
 app.listen(port, (err) =>  {
     if (err) {
-        console.log(err);
-        return;
+        throw new Error(err);
     }
 
     console.log('Project is running at', '\x1b[34m', 'http://localhost:' + port, '\x1b[39m');
