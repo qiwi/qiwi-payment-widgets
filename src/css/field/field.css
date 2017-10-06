@@ -25,7 +25,7 @@
     left: 0;
     bottom: -14px;
     height: 13px;
-    font-family: museo_sans_cyrl300;
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: 11px;
     font-weight: 300;
     text-align: left;
@@ -36,7 +36,7 @@
 
 .widget__label {
     position: absolute;
-    font-family: museo_sans_cyrl300;
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
     display: block;
     font-size: 20px;
     font-weight: 300;
@@ -52,7 +52,7 @@
     bottom: 0;
     left: 0;
     width: 120px;
-    font-family: museo_sans_cyrl300;
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: 20px;
     font-weight: 300;
     text-align: left;
@@ -120,7 +120,7 @@
     width: 12px;
     height: 24px;
     opacity: 0.7;
-    font-family: museo_sans_cyrl300;
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: 20px;
     font-weight: 300;
     text-align: left;

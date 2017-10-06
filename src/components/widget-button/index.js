@@ -60,7 +60,8 @@ export default class WidgetButton {
             button.addEventListener('click', () => {
 
                     const checkoutParams = {
-                        public_key: this._widgetParams['public_key']
+                        public_key: this._widgetParams['public_key'],
+                        extra_widget_refferer: window.location.hostname
                     };
 
                     window.open(
@@ -73,6 +74,7 @@ export default class WidgetButton {
 
 
     _makePartnerLink() {
+
 
         const parsedParams = new URLSearchParams({
             public_key: this._widgetParams['public_key']
