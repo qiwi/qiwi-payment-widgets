@@ -67,9 +67,12 @@ export default class WidgetInput extends WidgetButton{
         if(this._widgetParams['public_key']) {
             button.addEventListener('click', () => {
 
+
+
                 const checkoutParams = {
                     public_key: this._widgetParams['public_key'],
-                    amount: input.value
+                    amount: input.value,
+                    extra_widget_refferer: window.location.hostname
                 };
 
                 const textErrorMessage = this._errorMessage(input.value);

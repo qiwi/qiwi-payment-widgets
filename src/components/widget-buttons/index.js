@@ -53,7 +53,8 @@ export default class WidgetButtons extends WidgetButton {
 
                     const checkoutParams = {
                         public_key,
-                        amount
+                        amount,
+                        extra_widget_refferer: window.location.hostname
                     };
 
                     window.open(
