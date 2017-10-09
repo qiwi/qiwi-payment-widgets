@@ -19,7 +19,6 @@ export default class WidgetInput extends WidgetButton{
 
         const propsToMethodMap = {
             title: this._getTitle.bind(this),
-            text: this._makeText.bind(this),
             link: this._makePartnerLink.bind(this)
         };
 
@@ -72,7 +71,7 @@ export default class WidgetInput extends WidgetButton{
                 const checkoutParams = {
                     public_key: this._widgetParams['public_key'],
                     amount: input.value,
-                    extra_widget_refferer: window.location.hostname
+                    extra_widget_refferer: window.parent.location.hostname
                 };
 
                 const textErrorMessage = this._errorMessage(input.value);
