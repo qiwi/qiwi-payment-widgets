@@ -61,7 +61,7 @@ export default class WidgetButton {
 
                     const checkoutParams = {
                         public_key: this._widgetParams['public_key'],
-                        extra_widget_refferer: window.location.hostname
+                        extra_widget_refferer: window.parent.location.hostname
                     };
 
                     window.open(
