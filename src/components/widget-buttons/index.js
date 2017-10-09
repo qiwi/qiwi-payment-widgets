@@ -17,7 +17,6 @@ export default class WidgetButtons extends WidgetButton {
         const propsToMethodMap = {
             buttonsBlock: this._makeButtons.bind(this),
             title: this._getTitle.bind(this),
-            text: this._makeText.bind(this),
             link: this._makePartnerLink.bind(this)
         };
 
@@ -54,7 +53,7 @@ export default class WidgetButtons extends WidgetButton {
                     const checkoutParams = {
                         public_key,
                         amount,
-                        extra_widget_refferer: window.location.hostname
+                        extra_widget_refferer: window.parent.location.hostname
                     };
 
                     window.open(
