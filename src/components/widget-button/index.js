@@ -55,13 +55,16 @@ export default class WidgetButton {
             button.innerHTML = this._widgetParams['button_name'];
         }
 
+        const extra_widget_refferer = this._getHostName(document.referrer);
+
+
         if(this._widgetParams['public_key']) {
 
             button.addEventListener('click', () => {
 
                     const checkoutParams = {
                         public_key: this._widgetParams['public_key'],
-                        extra_widget_refferer: window.parent.location.hostname
+                        extra_widget_refferer
                     };
 
                     window.open(
@@ -109,6 +112,12 @@ export default class WidgetButton {
 
             })
             .then(response => response.json());
+    }
+
+    _getHostName (host='') {
+        const a = document.createElement('a');
+        a.href = host;
+        return a.hostname;
     }
 
 
