@@ -33,6 +33,8 @@ export default class WidgetButtons extends WidgetButton {
 
         const public_key = this._widgetParams['public_key'];
 
+        const extra_widget_refferer = this._getHostName(document.referrer);
+
         [].forEach.call(buttons, (button, index) => {
 
             const param = `button${index + 1}`;
@@ -53,7 +55,7 @@ export default class WidgetButtons extends WidgetButton {
                     const checkoutParams = {
                         public_key,
                         amount,
-                        extra_widget_refferer: window.parent.location.hostname
+                        extra_widget_refferer
                     };
 
                     window.open(
