@@ -62,6 +62,8 @@ export default class WidgetInput extends WidgetButton{
             button.innerHTML = this._widgetParams.button_name;
         }
 
+        const extra_widget_refferer = this._getHostName(document.referrer);
+
 
         if(this._widgetParams['public_key']) {
             button.addEventListener('click', () => {
@@ -71,7 +73,7 @@ export default class WidgetInput extends WidgetButton{
                 const checkoutParams = {
                     public_key: this._widgetParams['public_key'],
                     amount: input.value,
-                    extra_widget_refferer: window.parent.location.hostname
+                    extra_widget_refferer
                 };
 
                 const textErrorMessage = this._errorMessage(input.value);
