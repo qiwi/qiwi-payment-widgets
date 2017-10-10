@@ -50,6 +50,10 @@ module.exports = function(scriptsPath, folder, ENV) {
                     warnings: false
                 }
             }),
+            new webpack.ProvidePlugin({
+                'Promise': 'es6-promise',
+                'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
+            }),
             new webpack.NamedModulesPlugin(),
             new webpack.DefinePlugin({
                 'process.env': {
