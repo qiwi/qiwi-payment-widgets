@@ -2,6 +2,7 @@ const path = require('path');
 const gulp = require('gulp');
 const clean = require('gulp-clean');
 const gls = require('gulp-live-server');
+const plumber = require('gulp-plumber');
 const webpack = require('webpack-stream');
 const merge = require('merge-stream');
 const webpackConfig = require('./webpack.config.js');
@@ -27,6 +28,7 @@ gulp.task('default', () => {
         const pathToFolder = path.join('../widgets', folder);
 
         return gulp.src(path.join(scriptsPath, folder, '/main.js'))
+            .pipe(plumber())
             .pipe(webpack(config))
             .pipe(gulp.dest(pathToFolder));
     });

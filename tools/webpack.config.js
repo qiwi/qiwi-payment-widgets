@@ -15,10 +15,7 @@ module.exports = function(scriptsPath, folder, ENV) {
                 test: /.js?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
+                    loader: 'babel-loader'
                 }
             },{
                 test: /\.css$/,
