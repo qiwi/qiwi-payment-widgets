@@ -8,8 +8,15 @@ npm install
 npm run build
 ~~~
 
+## Для тестовой сборки
+~~~shell
+npm run test-build
+~~~
+
 ## Для разработки
 ~~~shell
 npm run dev
 ~~~
+
+
 
