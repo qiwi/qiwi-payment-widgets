@@ -141,7 +141,7 @@ export default class FormInput{
 
         let url = 'https://my.qiwi.com/partners_api/merchant_widget_info';
 
-        if(process.env.NODE_ENV === 'development') {
+        if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
             url = 'http://s3705.qiwi.com/partners_api/merchant_widget_info';
         }
 
