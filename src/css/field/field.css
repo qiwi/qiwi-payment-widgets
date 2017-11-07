@@ -63,6 +63,7 @@
             box-sizing: border-box;
     border: 0;
     border-bottom: 1px solid  #d8d8d8;
+    box-shadow: none;
     background-color: transparent;
 }
 

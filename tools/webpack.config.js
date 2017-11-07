@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = function(scriptsPath, folder, ENV) {
@@ -19,10 +21,14 @@ module.exports = function(scriptsPath, folder, ENV) {
                 }
             },{
                 test: /\.css$/,
-                use: [
+                /*use: [
                     'style-loader',
                     'css-loader'
-                ]
+                ],*/
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader'
+                })
             }, {
                 test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
                 use: [{
@@ -47,6 +53,8 @@ module.exports = function(scriptsPath, folder, ENV) {
                     warnings: false
                 }
             }),
+            new ExtractTextPlugin('[name].[hash].css'),
+            new OptimizeCssAssetsPlugin(),
             new webpack.ProvidePlugin({
                 'Promise': 'es6-promise',
                 'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
