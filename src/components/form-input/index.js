@@ -32,7 +32,7 @@ export default class FormInput{
                 });
 
             } catch (err) {
-                console.log(err);
+                console.warn(err);
 
             }
         }
@@ -175,7 +175,8 @@ export default class FormInput{
     _getHostName (host='') {
         const a = document.createElement('a');
         a.href = host;
-        return a.hostname;
+
+        return encodeURIComponent(a.hostname.replace(/\./g, '-'));
     }
 
 

@@ -117,7 +117,7 @@ export default class WidgetButton {
     _getHostName (host='') {
         const a = document.createElement('a');
         a.href = host;
-        return a.hostname;
+        return encodeURIComponent(a.hostname.replace(/\./g, '-'));
     }
 
 
