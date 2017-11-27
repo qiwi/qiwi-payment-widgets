@@ -3,52 +3,52 @@ import WidgetButton from '../widget-button';
 
 export default class WidgetInput extends WidgetButton{
 
-    constructor(enterWidgetParams) {
-
-        super(enterWidgetParams);
-
-
-    }
-
-    init(elements) {
+    async init(elements) {
 
         this._elements = elements;
 
-        this._makeInput();
-        this._makeButton();
+        this._merchantId = this._getParameterByName('public_key');
 
-        const propsToMethodMap = {
-            title: this._getTitle.bind(this),
-            link: this._makePartnerLink.bind(this)
-        };
+        this._merchantAlias = this._getAlias();
 
-        Object.keys(propsToMethodMap).forEach(key => {
-            if(elements[key]){
-                propsToMethodMap[key]();
+        if(this._merchantId || this._merchantAlias) {
+
+            try {
+
+                const data = await this._getMerchantInfo();
+
+                this._merchantInfo = data.result;
+
+                const propsToMethodMap = {
+                    title: this._makeTitle.bind(this),
+                    button: this._makeButton.bind(this),
+                    link: this._makePartnerLink.bind(this),
+                    input: this._makeInput.bind(this)
+                };
+
+                Object.keys(propsToMethodMap).forEach(key => {
+                    if(elements[key]){
+                        propsToMethodMap[key]();
+                    }
+                });
+
+            } catch (err) {
+                console.warn(err);
+
             }
-        });
+        }
 
     }
 
-    _getTitle() {
 
-        const self = this;
+    _makeTitle() {
 
-        const titleInfo = this._elements.title;
+        const title = document.getElementById(this._elements.title.id);
 
-        const title = document.getElementById(titleInfo.id);
-
-        this._getMerchantInfo(this._widgetParams['public_key'])
-            .then((data) => {
-                title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
-
-                self._makeText();
-            })
-            .catch(() => {
-
-            });
+        title.innerHTML = this._merchantInfo.merchant_name;
 
     }
+
 
     _makeButton() {
 
@@ -58,20 +58,17 @@ export default class WidgetInput extends WidgetButton{
 
         const input = document.getElementById(this._elements.input.id);
 
-        if(this._widgetParams.button_name) {
-            button.innerHTML = this._widgetParams.button_name;
-        }
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
+        const public_key = this._merchantInfo.merchant_public_key;
 
-        if(this._widgetParams['public_key']) {
+        if(public_key) {
+
             button.addEventListener('click', () => {
 
-
-
                 const checkoutParams = {
-                    public_key: this._widgetParams['public_key'],
+                    public_key,
                     amount: input.value,
                     extra_widget_refferer
                 };
