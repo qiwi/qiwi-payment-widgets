@@ -3,15 +3,21 @@ import 'url-search-params-polyfill';
 
 export default class WidgetButton {
 
+    constructor() {
+        this._propsToMethodMap = {
+            title: this._makeTitle.bind(this),
+            button: this._makeButton.bind(this),
+            text: this._makeText.bind(this)
+        };
+    }
+
     async init(elements) {
 
         this._elements = elements;
 
         this._merchantId = this._getParameterByName('public_key');
 
-        this._merchantAlias = this._getAlias();
-
-        if(this._merchantId || this._merchantAlias) {
+        if(this._merchantId) {
 
             try {
 
@@ -19,11 +25,7 @@ export default class WidgetButton {
 
                 this._merchantInfo = data.result;
 
-                const propsToMethodMap = {
-                    title: this._makeTitle.bind(this),
-                    button: this._makeButton.bind(this),
-                    text: this._makeText.bind(this)
-                };
+                const propsToMethodMap = this._propsToMethodMap;
 
                 Object.keys(propsToMethodMap).forEach(key => {
                     if(elements[key]){
@@ -57,6 +59,8 @@ export default class WidgetButton {
 
         const button = document.getElementById(this._elements.button.id);
 
+        button.innerHTML = this._merchantInfo.merchant_button_text[0];
+
         const extra_widget_refferer = this._getHostName(document.referrer);
 
         const public_key = this._merchantInfo.merchant_public_key;
@@ -66,15 +70,15 @@ export default class WidgetButton {
 
             button.addEventListener('click', () => {
 
-                    const checkoutParams = {
-                        public_key,
-                        extra_widget_refferer
-                    };
+                const checkoutParams = {
+                    public_key,
+                    extra_widget_refferer
+                };
 
-                    window.open(
-                        this._makeLinkCheckout(checkoutParams),
-                        '_blank'
-                    );
+                window.open(
+                    this._makeLinkCheckout(checkoutParams),
+                    '_blank'
+                );
             });
         }
     }
@@ -100,11 +104,6 @@ export default class WidgetButton {
         }
 
         let param = `merchant_public_key=${this._merchantId}`;
-
-
-        if(this._merchantAlias && !this._merchantId) {
-            param = `merchant_alias_code=${this._merchantAlias}`;
-        }
 
         return fetch(`${url}?${param}`, {
                 mode: 'cors'

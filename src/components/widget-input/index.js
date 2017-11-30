@@ -3,43 +3,17 @@ import WidgetButton from '../widget-button';
 
 export default class WidgetInput extends WidgetButton{
 
-    async init(elements) {
+    constructor() {
 
-        this._elements = elements;
+        super();
 
-        this._merchantId = this._getParameterByName('public_key');
-
-        this._merchantAlias = this._getAlias();
-
-        if(this._merchantId || this._merchantAlias) {
-
-            try {
-
-                const data = await this._getMerchantInfo();
-
-                this._merchantInfo = data.result;
-
-                const propsToMethodMap = {
-                    title: this._makeTitle.bind(this),
-                    button: this._makeButton.bind(this),
-                    link: this._makePartnerLink.bind(this),
-                    input: this._makeInput.bind(this)
-                };
-
-                Object.keys(propsToMethodMap).forEach(key => {
-                    if(elements[key]){
-                        propsToMethodMap[key]();
-                    }
-                });
-
-            } catch (err) {
-                console.warn(err);
-
-            }
-        }
-
+        this._propsToMethodMap = {
+            title: this._makeTitle.bind(this),
+            button: this._makeButton.bind(this),
+            link: this._makePartnerLink.bind(this),
+            input: this._makeInput.bind(this)
+        };
     }
-
 
     _makeTitle() {
 
