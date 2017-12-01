@@ -31,12 +31,20 @@ export default class FormInput{
                     }
                 });
 
+                this._showBody();
+
             } catch (err) {
+                this._showBody();
+
                 console.warn(err);
 
             }
         }
 
+    }
+
+    _showBody() {
+        document.body.style.opacity = '1';
     }
 
     _makeTitle() {

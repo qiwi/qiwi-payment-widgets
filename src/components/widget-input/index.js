@@ -32,6 +32,12 @@ export default class WidgetInput extends WidgetButton{
 
         const input = document.getElementById(this._elements.input.id);
 
+        const buttonText = this._merchantInfo.merchant_button_text;
+
+        if(buttonText.length) {
+
+            button.innerHTML = buttonText[0];
+        }
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 

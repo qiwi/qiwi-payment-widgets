@@ -19,7 +19,7 @@ export default class WidgetButtons extends WidgetButton {
 
         const public_key = this._merchantInfo.merchant_public_key;
 
-        const merchant_payment_sum_amount = this._merchantInfo.merchant_payment_sum_amount;
+        const sumAmount = this._merchantInfo.merchant_payment_sum_amount;
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
@@ -27,10 +27,14 @@ export default class WidgetButtons extends WidgetButton {
 
             const param = `button${index + 1}`;
 
-            let amount = merchant_payment_sum_amount[index];
+            let amount;
 
-            if(amount) {
+            if(sumAmount.length && sumAmount[index]) {
+
+                amount = sumAmount[index];
+
                 buttons[index].getElementsByTagName('span')[0].innerHTML= this._numberWithSpaces(amount);
+
             } else {
                 amount = buttons[index].getElementsByTagName('span')[0].innerHTML;
             }

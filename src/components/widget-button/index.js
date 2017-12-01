@@ -34,10 +34,16 @@ export default class WidgetButton {
                 });
 
             } catch (err) {
+
                 console.warn('Widget is disabled by: ',err);
             }
         }
 
+        this._showBody();
+    }
+
+    _showBody() {
+        document.body.style.opacity = '1';
     }
 
 
@@ -59,7 +65,13 @@ export default class WidgetButton {
 
         const button = document.getElementById(this._elements.button.id);
 
-        button.innerHTML = this._merchantInfo.merchant_button_text[0];
+        const buttonText = this._merchantInfo.merchant_button_text;
+
+        if(buttonText.length) {
+
+            button.innerHTML = buttonText[0];
+        }
+
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
