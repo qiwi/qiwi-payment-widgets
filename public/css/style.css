@@ -4,6 +4,8 @@ body {
     background-color: #F5F5F5;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    margin: 0;
+    padding: 0;
 }
 
 iframe {
@@ -38,7 +40,7 @@ iframe {
 
 .widgets {
     margin: 0 0 0 300px;
-    width: 800px;
+    max-width: 800px;
 }
 
 .widget {
