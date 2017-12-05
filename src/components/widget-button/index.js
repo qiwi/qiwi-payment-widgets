@@ -3,67 +3,71 @@ import 'url-search-params-polyfill';
 
 export default class WidgetButton {
 
-    constructor(enterWidgetParams) {
-        this._widgetParams = this._getParametersValues(enterWidgetParams);
-
-        this._elements = {};
-    }
-
-    init(elements) {
+    async init(elements) {
 
         this._elements = elements;
 
-        const propsToMethodMap = {
-            button: this._makeButton.bind(this),
-            title: this._getTitle.bind(this)
-        };
+        this._merchantId = this._getParameterByName('public_key');
 
-        Object.keys(propsToMethodMap).forEach(key => {
-            if(elements[key]){
-                propsToMethodMap[key]();
+        this._merchantAlias = this._getAlias();
+
+        if(this._merchantId || this._merchantAlias) {
+
+            try {
+
+                const data = await this._getMerchantInfo();
+
+                this._merchantInfo = data.result;
+
+                const propsToMethodMap = {
+                    title: this._makeTitle.bind(this),
+                    button: this._makeButton.bind(this),
+                    text: this._makeText.bind(this)
+                };
+
+                Object.keys(propsToMethodMap).forEach(key => {
+                    if(elements[key]){
+                        propsToMethodMap[key]();
+                    }
+                });
+
+            } catch (err) {
+                console.warn('Widget is disabled by: ',err);
             }
-        });
-    }
-
-    _getTitle() {
-
-        const titleInfo = this._elements.title;
-
-        const title = document.getElementById(titleInfo.id);
-
-        this._getMerchantInfo(this._widgetParams['public_key'])
-            .then((data) => {
-                title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
-            })
-            .catch(() => {
-
-            });
+        }
 
     }
 
-    _makeText(text = '') {
+
+    _makeTitle() {
+
+        const title = document.getElementById(this._elements.title.id);
+
+        title.innerHTML = this._merchantInfo.merchant_name;
+
+    }
+
+    _makeText() {
         const desc = document.getElementById(this._elements.text.id);
 
-        desc.innerHTML = text;
+        desc.innerHTML = this._merchantInfo.merchant_widget_description;
     }
 
     _makeButton() {
 
         const button = document.getElementById(this._elements.button.id);
 
-        if(this._widgetParams['button_name']) {
-            button.innerHTML = this._widgetParams['button_name'];
-        }
-
         const extra_widget_refferer = this._getHostName(document.referrer);
 
+        const public_key = this._merchantInfo.merchant_public_key;
 
-        if(this._widgetParams['public_key']) {
+
+        if(public_key) {
 
             button.addEventListener('click', () => {
 
                     const checkoutParams = {
-                        public_key: this._widgetParams['public_key'],
+                        public_key,
                         extra_widget_refferer
                     };
 
@@ -78,23 +82,31 @@ export default class WidgetButton {
 
     _makePartnerLink() {
 
+        const public_key = this._merchantInfo.merchant_public_key;
 
         const parsedParams = new URLSearchParams({
-            public_key: this._widgetParams['public_key']
+            public_key
         });
 
         document.getElementById(this._elements.link.id).href = `https://widget.qiwi.com?${parsedParams.toString()}`;
     }
 
-    _getMerchantInfo(public_key) {
+    _getMerchantInfo() {
 
-        let url = 'https://edge.qiwi.com/checkout/merchant/info';
+        let url = 'https://my.qiwi.com/partners_api/merchant_widget_info';
 
-        if(process.env.NODE_ENV === 'development') {
-            url = '/proxy?url=https://edge.qiwi.com/checkout/merchant/info';
+        if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+            url = 'http://s3705.qiwi.com/partners_api/merchant_widget_info';
         }
 
-        return fetch(`${url}?public_key=${public_key}`, {
+        let param = `merchant_public_key=${this._merchantId}`;
+
+
+        if(this._merchantAlias && !this._merchantId) {
+            param = `merchant_alias_code=${this._merchantAlias}`;
+        }
+
+        return fetch(`${url}?${param}`, {
                 mode: 'cors'
             })
             .then(response => {
@@ -117,16 +129,21 @@ export default class WidgetButton {
     _getHostName (host='') {
         const a = document.createElement('a');
         a.href = host;
+
         return encodeURIComponent(a.hostname.replace(/\./g, '-'));
     }
 
 
+    _getAlias () {
+
+        return window.location.pathname.match(/([^\/]*)\/*$/)[1];
+    }
 
     _getParametersValues (enterWidgetParams) {
 
         let params = {};
 
-        enterWidgetParams.map((param) => {
+        enterWidgetParams.forEach((param) => {
             params[param] = this._getParameterByName(param);
         });
 

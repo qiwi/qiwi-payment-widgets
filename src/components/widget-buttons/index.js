@@ -2,36 +2,49 @@ import WidgetButton from '../widget-button';
 
 export default class WidgetButtons extends WidgetButton {
 
-
-    constructor(enterWidgetParams) {
-
-        super(enterWidgetParams);
-    }
-
-    init(elements) {
+    async init(elements) {
 
         this._elements = elements;
 
-        this._makeButton();
+        this._merchantId = this._getParameterByName('public_key');
 
-        const propsToMethodMap = {
-            buttonsBlock: this._makeButtons.bind(this),
-            title: this._getTitle.bind(this),
-            link: this._makePartnerLink.bind(this)
-        };
+        this._merchantAlias = this._getAlias();
 
-        Object.keys(propsToMethodMap).forEach(key => {
-            if(elements[key]){
-                propsToMethodMap[key]();
+        if(this._merchantId || this._merchantAlias) {
+
+            try {
+
+                const data = await this._getMerchantInfo();
+
+                this._merchantInfo = data.result;
+
+                const propsToMethodMap = {
+                    title: this._makeTitle.bind(this),
+                    buttonBlock: this._makeButtons.bind(this),
+                    link: this._makePartnerLink.bind(this)
+                };
+
+                Object.keys(propsToMethodMap).forEach(key => {
+                    if(elements[key]){
+                        propsToMethodMap[key]();
+                    }
+                });
+
+            } catch (err) {
+                console.warn(err);
+
             }
-        });
+        }
+
     }
 
     _makeButtons() {
 
         const buttons = document.getElementsByClassName(this._elements.buttonsBlock.id);
 
-        const public_key = this._widgetParams['public_key'];
+        const public_key = this._merchantInfo.merchant_public_key;
+
+        const merchant_payment_sum_amount = this._merchantInfo.merchant_payment_sum_amount;
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
@@ -39,7 +52,7 @@ export default class WidgetButtons extends WidgetButton {
 
             const param = `button${index + 1}`;
 
-            let amount = this._widgetParams[param];
+            let amount = merchant_payment_sum_amount[index];
 
             if(amount) {
                 buttons[index].getElementsByTagName('span')[0].innerHTML= this._numberWithSpaces(amount);

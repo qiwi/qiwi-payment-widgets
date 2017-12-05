@@ -126,7 +126,7 @@ export default class FormInput{
         return message;
     }
 
-     _makePartnerLink() {
+    _makePartnerLink() {
 
         const public_key = this._merchantInfo.merchant_public_key;
 
