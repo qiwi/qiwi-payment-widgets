@@ -40,10 +40,16 @@ export default class WidgetButton {
         }
 
         this._showBody();
+
+        this._changeTabTitle();
     }
 
     _showBody() {
         document.body.style.opacity = '1';
+    }
+
+    _changeTabTitle() {
+        document.title = this._merchantInfo.merchant_name;
     }
 
 

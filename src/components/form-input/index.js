@@ -31,20 +31,25 @@ export default class FormInput{
                     }
                 });
 
-                this._showBody();
-
             } catch (err) {
-                this._showBody();
 
                 console.warn(err);
 
             }
+
+            this._showBody();
+
+            this._changeTabTitle();
         }
 
     }
 
     _showBody() {
         document.body.style.opacity = '1';
+    }
+
+    _changeTabTitle() {
+        document.title = this._merchantInfo.merchant_name;
     }
 
     _makeTitle() {
