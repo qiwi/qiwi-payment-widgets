@@ -11,7 +11,8 @@ export default class WidgetInput extends WidgetButton{
             title: this._makeTitle.bind(this),
             button: this._makeButton.bind(this),
             link: this._makePartnerLink.bind(this),
-            input: this._makeInput.bind(this)
+            input: this._makeInput.bind(this),
+            text: this._makeText.bind(this)
         };
     }
 
@@ -43,6 +44,10 @@ export default class WidgetInput extends WidgetButton{
 
         const public_key = this._merchantInfo.merchant_public_key;
 
+        const success_url = this._merchantInfo.merchant_success_url_optional;
+
+        const fail_url = this._merchantInfo.merchant_fail_url_optional;
+
         if(public_key) {
 
             button.addEventListener('click', () => {
@@ -50,6 +55,8 @@ export default class WidgetInput extends WidgetButton{
                 const checkoutParams = {
                     public_key,
                     amount: input.value,
+                    success_url,
+                    fail_url,
                     extra_widget_refferer
                 };
 
