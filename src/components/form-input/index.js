@@ -73,12 +73,19 @@ export default class FormInput{
 
         const public_key = this._merchantInfo.merchant_public_key;
 
+        const success_url = this._merchantInfo.merchant_success_url_optional;
+
+        const fail_url = this._merchantInfo.merchant_fail_url_optional;
+
+
         if(public_key) {
 
             button.addEventListener('click', () => {
 
                 const checkoutParams = {
                     public_key,
+                    success_url,
+                    fail_url,
                     amount: input.value,
                     extra_widget_refferer
                 };
