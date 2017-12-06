@@ -9,7 +9,8 @@ export default class WidgetButtons extends WidgetButton {
         this._propsToMethodMap = {
             title: this._makeTitle.bind(this),
             buttonBlock: this._makeButtons.bind(this),
-            link: this._makePartnerLink.bind(this)
+            link: this._makePartnerLink.bind(this),
+            text: this._makeText.bind(this)
         };
     }
 
@@ -22,6 +23,10 @@ export default class WidgetButtons extends WidgetButton {
         const sumAmount = this._merchantInfo.merchant_payment_sum_amount;
 
         const extra_widget_refferer = this._getHostName(document.referrer);
+
+        const success_url = this._merchantInfo.merchant_success_url_optional;
+
+        const fail_url = this._merchantInfo.merchant_fail_url_optional;
 
         [].forEach.call(buttons, (button, index) => {
 
@@ -47,6 +52,8 @@ export default class WidgetButtons extends WidgetButton {
                     const checkoutParams = {
                         public_key,
                         amount,
+                        success_url,
+                        fail_url,
                         extra_widget_refferer
                     };
 
