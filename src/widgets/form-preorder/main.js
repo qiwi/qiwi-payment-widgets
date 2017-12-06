@@ -1,8 +1,8 @@
 import './css/styles.css';
 
-import FormInput from '../../components/form-input';
+import WidgetInput from '../../components/widget-input';
 
-const formInputPreorder = new FormInput();
+const formInputPreorder = new WidgetInput();
 
 formInputPreorder.init({
     button: {

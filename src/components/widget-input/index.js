@@ -3,52 +3,27 @@ import WidgetButton from '../widget-button';
 
 export default class WidgetInput extends WidgetButton{
 
-    constructor(enterWidgetParams) {
+    constructor() {
 
-        super(enterWidgetParams);
+        super();
 
-
-    }
-
-    init(elements) {
-
-        this._elements = elements;
-
-        this._makeInput();
-        this._makeButton();
-
-        const propsToMethodMap = {
-            title: this._getTitle.bind(this),
-            link: this._makePartnerLink.bind(this)
+        this._propsToMethodMap = {
+            title: this._makeTitle.bind(this),
+            button: this._makeButton.bind(this),
+            link: this._makePartnerLink.bind(this),
+            input: this._makeInput.bind(this),
+            text: this._makeText.bind(this)
         };
+    }
 
-        Object.keys(propsToMethodMap).forEach(key => {
-            if(elements[key]){
-                propsToMethodMap[key]();
-            }
-        });
+    _makeTitle() {
+
+        const title = document.getElementById(this._elements.title.id);
+
+        title.innerHTML = this._merchantInfo.merchant_name;
 
     }
 
-    _getTitle() {
-
-        const self = this;
-
-        const titleInfo = this._elements.title;
-
-        const title = document.getElementById(titleInfo.id);
-
-        this._getMerchantInfo(this._widgetParams['public_key'])
-            .then((data) => {
-                title.innerHTML = titleInfo.additional?`${titleInfo.additional} ${data['provider_name']}`:data['provider_name'];
-
-                self._makeText();
-            })
-            .catch(() => {
-
-            });
-
-    }
 
     _makeButton() {
 
@@ -58,21 +33,30 @@ export default class WidgetInput extends WidgetButton{
 
         const input = document.getElementById(this._elements.input.id);
 
-        if(this._widgetParams.button_name) {
-            button.innerHTML = this._widgetParams.button_name;
+        const buttonText = this._merchantInfo.merchant_button_text;
+
+        if(buttonText.length) {
+
+            button.innerHTML = buttonText[0];
         }
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
+        const public_key = this._merchantInfo.merchant_public_key;
 
-        if(this._widgetParams['public_key']) {
+        const success_url = this._merchantInfo.merchant_success_url_optional;
+
+        const fail_url = this._merchantInfo.merchant_fail_url_optional;
+
+        if(public_key) {
+
             button.addEventListener('click', () => {
 
-
-
                 const checkoutParams = {
-                    public_key: this._widgetParams['public_key'],
+                    public_key,
                     amount: input.value,
+                    success_url,
+                    fail_url,
                     extra_widget_refferer
                 };
 

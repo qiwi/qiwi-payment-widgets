@@ -2,47 +2,44 @@ import WidgetButton from '../widget-button';
 
 export default class WidgetButtons extends WidgetButton {
 
+    constructor() {
 
-    constructor(enterWidgetParams) {
+        super();
 
-        super(enterWidgetParams);
-    }
-
-    init(elements) {
-
-        this._elements = elements;
-
-        this._makeButton();
-
-        const propsToMethodMap = {
-            buttonsBlock: this._makeButtons.bind(this),
-            title: this._getTitle.bind(this),
-            link: this._makePartnerLink.bind(this)
+        this._propsToMethodMap = {
+            title: this._makeTitle.bind(this),
+            buttonBlock: this._makeButtons.bind(this),
+            link: this._makePartnerLink.bind(this),
+            text: this._makeText.bind(this)
         };
-
-        Object.keys(propsToMethodMap).forEach(key => {
-            if(elements[key]){
-                propsToMethodMap[key]();
-            }
-        });
     }
 
     _makeButtons() {
 
         const buttons = document.getElementsByClassName(this._elements.buttonsBlock.id);
 
-        const public_key = this._widgetParams['public_key'];
+        const public_key = this._merchantInfo.merchant_public_key;
+
+        const sumAmount = this._merchantInfo.merchant_payment_sum_amount;
 
         const extra_widget_refferer = this._getHostName(document.referrer);
+
+        const success_url = this._merchantInfo.merchant_success_url_optional;
+
+        const fail_url = this._merchantInfo.merchant_fail_url_optional;
 
         [].forEach.call(buttons, (button, index) => {
 
             const param = `button${index + 1}`;
 
-            let amount = this._widgetParams[param];
+            let amount;
 
-            if(amount) {
+            if(sumAmount.length && sumAmount[index]) {
+
+                amount = sumAmount[index];
+
                 buttons[index].getElementsByTagName('span')[0].innerHTML= this._numberWithSpaces(amount);
+
             } else {
                 amount = buttons[index].getElementsByTagName('span')[0].innerHTML;
             }
@@ -55,6 +52,8 @@ export default class WidgetButtons extends WidgetButton {
                     const checkoutParams = {
                         public_key,
                         amount,
+                        success_url,
+                        fail_url,
                         extra_widget_refferer
                     };
 
