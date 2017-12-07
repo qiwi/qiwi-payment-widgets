@@ -24,9 +24,9 @@ export default class WidgetButtons extends WidgetButton {
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
-        const success_url = this._merchantInfo.merchant_success_url_optional;
+        const success_url = this._merchantInfo.merchant_success_url_optional || '';
 
-        const fail_url = this._merchantInfo.merchant_fail_url_optional;
+        const fail_url = this._merchantInfo.merchant_fail_url_optional || '';
 
         [].forEach.call(buttons, (button, index) => {
 
