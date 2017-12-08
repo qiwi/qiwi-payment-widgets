@@ -2,7 +2,7 @@ import './css/styles.css';
 
 import WidgetInput from '../../components/widget-input';
 
-const middleWidget300x300 = new WidgetInput(['public_key']);
+const middleWidget300x300 = new WidgetInput();
 
 middleWidget300x300.init({
     button: {

@@ -6,8 +6,7 @@
 		"width": 220,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Пожертвовать"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -17,9 +16,7 @@
 		"width": 728,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Помочь сейчас",
-			"text": "Фонд занимается организацией помощи детям с онкологическими и другими тяжёлыми заболеваниями головного мозга."
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -29,8 +26,7 @@
 		"width": 200,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Пожертвовать"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -40,12 +36,7 @@
 		"width": 728,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"text": "Фонд занимается организацией помощи детям с онкологическими и другими тяжёлыми заболеваниями головного мозга.",
-			"button1": 100,
-			"button2": 500,
-			"button3": 10000
-
+			"public_key": "Testpublickey"
 		}
 	},{
 		"name": "big-widget-buttons-728x200 без ключа",
@@ -54,9 +45,6 @@
 		"width": 728,
 		"type": "widget",
 		"params": {
-			"button1": 100,
-			"button2": 500,
-			"button3": 10000
 		}
 	},
 	{
@@ -66,9 +54,7 @@
 		"width": 728,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button3": 500
-
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -78,8 +64,7 @@
 		"width": 175,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Пожертвовать"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -89,8 +74,7 @@
 		"width": 300,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Помочь сейчас"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -100,7 +84,7 @@
 		"width": 300,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
@@ -110,8 +94,7 @@
 		"width": 300,
 		"type": "widget",
 		"params": {
-			"public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ",
-			"button_name": "Помогите сейчас"
+			"public_key": "Testpublickey"
 		}
 	},
 	{
