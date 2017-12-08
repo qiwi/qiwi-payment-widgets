@@ -17,7 +17,9 @@ export default class WidgetButton {
 
         this._merchantId = this._getParameterByName('public_key');
 
-        if(this._merchantId) {
+        this._merchantAlias = this._getAlias();
+
+        if(this._merchantId || this._merchantAlias) {
 
             try {
 
@@ -33,6 +35,8 @@ export default class WidgetButton {
                     }
                 });
 
+                this._changeTabTitle();
+
             } catch (err) {
 
                 console.warn('Widget is disabled by: ',err);
@@ -41,7 +45,6 @@ export default class WidgetButton {
 
         this._showBody();
 
-        this._changeTabTitle();
     }
 
     _showBody() {
@@ -128,6 +131,10 @@ export default class WidgetButton {
         }
 
         let param = `merchant_public_key=${this._merchantId}`;
+
+        if(this._merchantAlias && !this._merchantId) {
+            param = `merchant_alias_code=${this._merchantAlias}`;
+        }
 
         return fetch(`${url}?${param}`, {
                 mode: 'cors'
