@@ -97,7 +97,7 @@ export default class WidgetInput extends WidgetButton{
 
         let message = '';
 
-        if(!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
+        if(parseFloat(value) == 0 || !/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
             message = 'Некорректная сумма';
         }
         if(!value){
