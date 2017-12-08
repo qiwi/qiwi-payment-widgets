@@ -33,6 +33,8 @@ export default class WidgetButton {
                     }
                 });
 
+                this._changeTabTitle();
+
             } catch (err) {
 
                 console.warn('Widget is disabled by: ',err);
@@ -41,7 +43,6 @@ export default class WidgetButton {
 
         this._showBody();
 
-        this._changeTabTitle();
     }
 
     _showBody() {

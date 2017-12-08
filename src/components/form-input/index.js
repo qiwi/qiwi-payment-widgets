@@ -31,6 +31,8 @@ export default class FormInput{
                     }
                 });
 
+                this._changeTabTitle();
+
             } catch (err) {
 
                 console.warn(err);
@@ -39,7 +41,7 @@ export default class FormInput{
 
             this._showBody();
 
-            this._changeTabTitle();
+
         }
 
     }
