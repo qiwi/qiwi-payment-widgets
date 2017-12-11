@@ -87,8 +87,9 @@ export default class WidgetInput extends WidgetButton{
 
             input.parentNode.classList.remove(this._elements.input.errorState);
 
-            input.value = e.target.value.replace(/[^0-9.,]/g, '').substring(0,9);
+            let number = e.target.value.replace(/[^0-9,.]/g, '').substring(0,9);
 
+            input.value = number?parseFloat(number, 10):number;
 
         });
     }
@@ -97,11 +98,14 @@ export default class WidgetInput extends WidgetButton{
 
         let message = '';
 
-        if(parseFloat(value) == 0 || !/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
+        if(!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
             message = 'Некорректная сумма';
         }
         if(!value){
             message = 'Введите сумму';
+        }
+        if(parseFloat(value)<1){
+            message = 'Минимальная сумма 1 ₽';
         }
         if(parseFloat(value)>500000){
             message = 'Максимальная сумма 500 000 ₽';
