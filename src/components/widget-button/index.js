@@ -86,9 +86,9 @@ export default class WidgetButton {
 
         const public_key = this._merchantInfo.merchant_public_key;
 
-        const success_url = this._merchantInfo.merchant_success_url_optional || '';
+        const success_url = this._merchantInfo.merchant_success_url || '';
 
-        const fail_url = this._merchantInfo.merchant_fail_url_optional || '';
+        const fail_url = this._merchantInfo.merchant_fail_url || '';
 
 
         if(public_key) {
