@@ -44,9 +44,9 @@ export default class WidgetInput extends WidgetButton{
 
         const public_key = this._merchantInfo.merchant_public_key;
 
-        const success_url = this._merchantInfo.merchant_success_url_optional || '';
+        const success_url = this._merchantInfo.merchant_success_url || '';
 
-        const fail_url = this._merchantInfo.merchant_fail_url_optional || '';
+        const fail_url = this._merchantInfo.merchant_fail_url || '';
 
         if(public_key) {
 
@@ -82,13 +82,17 @@ export default class WidgetInput extends WidgetButton{
 
     _makeInput() {
         const input = document.getElementById(this._elements.input.id);
+        if(this._merchantInfo.merchant_payment_sum_amount[0]) {
+            input.value = this._merchantInfo.merchant_payment_sum_amount[0];
+        }
 
         input.addEventListener('input', (e) => {
 
             input.parentNode.classList.remove(this._elements.input.errorState);
 
-            input.value = e.target.value.replace(/[^0-9.,]/g, '').substring(0,9);
+            let number = e.target.value.replace(/[^0-9,.]/g, '').substring(0,9);
 
+            input.value = number?parseFloat(number, 10):number;
 
         });
     }
@@ -97,11 +101,14 @@ export default class WidgetInput extends WidgetButton{
 
         let message = '';
 
-        if(parseFloat(value) == 0 || !/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
+        if(!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)){
             message = 'Некорректная сумма';
         }
         if(!value){
             message = 'Введите сумму';
+        }
+        if(parseFloat(value)<1){
+            message = 'Минимальная сумма 1 ₽';
         }
         if(parseFloat(value)>500000){
             message = 'Максимальная сумма 500 000 ₽';

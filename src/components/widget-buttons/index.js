@@ -8,7 +8,7 @@ export default class WidgetButtons extends WidgetButton {
 
         this._propsToMethodMap = {
             title: this._makeTitle.bind(this),
-            buttonBlock: this._makeButtons.bind(this),
+            buttonsBlock: this._makeButtons.bind(this),
             link: this._makePartnerLink.bind(this),
             text: this._makeText.bind(this)
         };
@@ -24,9 +24,9 @@ export default class WidgetButtons extends WidgetButton {
 
         const extra_widget_refferer = this._getHostName(document.referrer);
 
-        const success_url = this._merchantInfo.merchant_success_url_optional || '';
+        const success_url = this._merchantInfo.merchant_success_url || '';
 
-        const fail_url = this._merchantInfo.merchant_fail_url_optional || '';
+        const fail_url = this._merchantInfo.merchant_fail_url || '';
 
         [].forEach.call(buttons, (button, index) => {
 
