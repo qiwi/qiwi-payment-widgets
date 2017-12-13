@@ -189,7 +189,7 @@ export default class WidgetButton {
 
     _makeLinkCheckout (params) {
 
-        const url = 'https://oplata.qiwi.com/form/create';
+        const url = 'https://oplata.qiwi.com/create';
         const parsedParams = new URLSearchParams(params);
 
         return `${url}?${parsedParams.toString()}`;
