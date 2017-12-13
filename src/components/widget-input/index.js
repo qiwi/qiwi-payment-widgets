@@ -82,6 +82,9 @@ export default class WidgetInput extends WidgetButton{
 
     _makeInput() {
         const input = document.getElementById(this._elements.input.id);
+        if(this._merchantInfo.merchant_payment_sum_amount[0]) {
+            input.value = this._merchantInfo.merchant_payment_sum_amount[0];
+        }
 
         input.addEventListener('input', (e) => {
 
