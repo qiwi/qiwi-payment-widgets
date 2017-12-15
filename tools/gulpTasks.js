@@ -25,7 +25,7 @@ gulp.task('default', () => {
 
         const config = webpackConfig(scriptsPath, folder, ENV);
 
-        const pathToFolder = path.join('../widgets', folder);
+        const pathToFolder = path.join('../widgets/widgets', folder);
 
         return gulp.src(path.join(scriptsPath, folder, '/main.js'))
             .pipe(plumber())
