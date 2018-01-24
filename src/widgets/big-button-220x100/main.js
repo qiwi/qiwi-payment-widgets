@@ -1,11 +1,10 @@
 import './css/styles.css';
-import WidgetButton from'../../components/widget-button';
-
+import WidgetButton from '../../components/widget-button';
 
 const bigButton220x210 = new WidgetButton();
 
 bigButton220x210.init({
-    button:{
-        id:'make-donation'
+    redirect: {
+        id: 'make-donation'
     }
 });

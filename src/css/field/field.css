@@ -58,19 +58,24 @@
     text-align: left;
     padding: 0 16px 0  0;
     margin: 0;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-appearance:textfield;
+    -webkit-appearance: none;
+    box-sizing: border-box;
     border: 0;
     border-bottom: 1px solid  #d8d8d8;
     box-shadow: none;
     background-color: transparent;
 }
 
+.widget__input::-webkit-outer-spin-button,
+.widget__input::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+    -webkit-appearance: none;
+}
+
 .widget__input:focus {
-
     outline: none;
-
 }
 
 .widget__input:focus ~ .widget__label,

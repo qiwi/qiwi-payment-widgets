@@ -1,9 +1,10 @@
 import './css/styles.css';
+
 import WidgetButton from '../../components/widget-button';
 
-const bigWidget728x200 = new WidgetButton();
+const bigWidgetButtons728x200 = new WidgetButton();
 
-bigWidget728x200.init({
+bigWidgetButtons728x200.init({
     button: {
         id: 'make-donation'
     },
@@ -14,15 +15,25 @@ bigWidget728x200.init({
     text: {
         id: 'text-donation'
     },
+    buttonsBlock: {
+        class: 'set-amount'
+    },
+    link: {
+        id: 'partner-link'
+    },
     message: {
         id: 'error-message'
     },
     input: {
         id: 'donation-amount',
         errorState: 'widget__field--error',
-        defaultValue: true
+        defaultValue: false
     },
-    link: {
-        id: 'partner-link'
+    triggerForm: {
+        id: 'trigger-form',
+        forms: {
+            from: 'make-donation-block',
+            to: 'make-donation-input'
+        }
     }
 });

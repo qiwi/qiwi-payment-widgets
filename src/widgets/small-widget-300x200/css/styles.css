@@ -5,7 +5,7 @@
 
 .widget {
     width: 300px;
-    height: 180px;
+    height: 200px;
 }
 
 .widget__title {
@@ -24,4 +24,8 @@
     width: 203px;
     height: 18px;
     margin: 17px auto 0;
+}
+
+.widget__be-partner {
+    margin-top: 16px;
 }

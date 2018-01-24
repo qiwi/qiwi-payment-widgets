@@ -1,8 +1,8 @@
 import './css/styles.css';
 
-import WidgetInput from '../../components/widget-input';
+import WidgetButton from '../../components/widget-button';
 
-const formInputPreorder = new WidgetInput();
+const formInputPreorder = new WidgetButton();
 
 formInputPreorder.init({
     button: {
@@ -16,8 +16,9 @@ formInputPreorder.init({
     },
     input: {
         id: 'donation-amount',
-        errorState: 'widget__field--error'
-    }/*,
+        errorState: 'widget__field--error',
+        defaultValue: true
+    } /*,
     link: {
         id: 'partner-link'
     }*/

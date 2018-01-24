@@ -1,108 +1,118 @@
 [
-	{
-		"name": "big-button-220x100",
-		"link": "big-button-220x100",
-		"height": 100,
-		"width": 220,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "big-widget-728x200",
-		"link": "big-widget-728x200",
-		"height": 200,
-		"width": 728,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "middle-button-200x80",
-		"link": "middle-button-200x80",
-		"height": 80,
-		"width": 200,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "big-widget-buttons-728x200",
-		"link": "big-widget-buttons-728x200",
-		"height": 200,
-		"width": 728,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},{
-		"name": "big-widget-buttons-728x200 без ключа",
-		"link": "big-widget-buttons-728x200",
-		"height": 200,
-		"width": 728,
-		"type": "widget",
-		"params": {
-		}
-	},
-	{
-		"name": "big-widget-buttons-728x200",
-		"link": "big-widget-buttons-728x200",
-		"height": 200,
-		"width": 728,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "small-button-175x65",
-		"link": "small-button-175x65",
-		"height": 65,
-		"width": 175,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "middle-widget-300x300",
-		"link": "middle-widget-300x300",
-		"height": 300,
-		"width": 300,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "middle-widget-300x270",
-		"link": "middle-widget-300x270",
-		"height": 270,
-		"width": 300,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "small-widget-300x180",
-		"link": "small-widget-300x180",
-		"height": 180,
-		"width": 300,
-		"type": "widget",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	},
-	{
-		"name": "form-preorder",
-		"link": "form-preorder",
-		"type": "form",
-		"params": {
-			"public_key": "Testpublickey"
-		}
-	}
+    {
+        "name": "big-button-220x100",
+        "link": "big-button-220x100",
+        "height": 100,
+        "width": 220,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "big-widget-728x200",
+        "link": "big-widget-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "middle-button-200x80",
+        "link": "middle-button-200x80",
+        "height": 80,
+        "width": 200,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "big-widget-buttons-728x200",
+        "link": "big-widget-buttons-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "big-widget-buttons-728x200 без ключа",
+        "link": "big-widget-buttons-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {}
+    },
+    {
+        "name": "big-widget-buttons-728x200",
+        "link": "big-widget-buttons-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "big-widget-preselect-input-728x200 c предвыбором",
+        "link": "big-widget-preselect-input-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "small-button-175x65",
+        "link": "small-button-175x65",
+        "height": 65,
+        "width": 175,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "middle-widget-300x300",
+        "link": "middle-widget-300x300",
+        "height": 300,
+        "width": 300,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "middle-widget-300x270",
+        "link": "middle-widget-300x270",
+        "height": 270,
+        "width": 300,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "small-widget-300x200",
+        "link": "small-widget-300x200",
+        "height": 200,
+        "width": 300,
+        "type": "widget",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    },
+    {
+        "name": "form-preorder",
+        "link": "form-preorder",
+        "type": "form",
+        "params": {
+            "public_key": "Testpublickey"
+        }
+    }
 ]
