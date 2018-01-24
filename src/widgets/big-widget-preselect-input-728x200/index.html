@@ -18,18 +18,30 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="widget">
+        <h1 class="widget__title" id="merchant-title">Наименование организации</h1>
 
-
-        <div class="widget__field">
-            <input type="number" class="widget__input" id="donation-amount" required>
-            <label class="widget__label" for="donation-amount">Cумма</label>
-            <div class="widget__currency">₽</div>
-            <div class="widget__bar"></div>
-            <div class="widget__message" id="error-message">Введите сумму</div>
+        <div class="widget__text" id="text-donation">
+        Вы можете разместить дополнительную информацию о вашей организации.
         </div>
 
+        <div class="widget__button-block" id="make-donation-block">
+            <button type="button" class="widget__button widget__button--inline set-amount"><span class="amount">10</span>₽</button>
+            <button type="button" class="widget__button widget__button--inline set-amount"><span class="amount">50</span>₽</button>
+            <button type="button" class="widget__button widget__button--inline set-amount"><span class="amount">100</span>₽</button>
+            <button type="button" id="trigger-form" class="widget__button widget__button--inline">Другая сумма</button>
+        </div>
 
-        <button type="button" id="make-donation" class="widget__button">Помочь</button>
+        <div class="widget__form hidden" id="make-donation-input">
+            <div class="widget__field">
+                <input type="number" class="widget__input" id="donation-amount" required>
+                <label class="widget__label" for="donation-amount">Cумма</label>
+                <div class="widget__currency">₽</div>
+                <div class="widget__bar"></div>
+                <div class="widget__message" id="error-message">Введите сумму</div>
+            </div>
+        
+            <button type="button" id="make-donation" class="widget__button widget__button--right">Помочь</button>
+        </div>
 
 
         <div class="widget__footer">
