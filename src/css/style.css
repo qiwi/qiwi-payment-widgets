@@ -9,6 +9,10 @@ body {
     transition: opacity .25s ease-in;
 }
 
+.hidden{
+    display: none;
+}
+
 .widget {
     width: 300px;
     height: 300px;

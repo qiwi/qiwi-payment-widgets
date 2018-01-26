@@ -1,8 +1,8 @@
 import './css/styles.css';
 
-import WidgetInput from '../../components/widget-input';
+import WidgetButton from '../../components/widget-button';
 
-const middleWidget300x270 = new WidgetInput();
+const middleWidget300x270 = new WidgetButton();
 
 middleWidget300x270.init({
     button: {
@@ -13,7 +13,8 @@ middleWidget300x270.init({
     },
     input: {
         id: 'donation-amount',
-        errorState: 'widget__field--error'
+        errorState: 'widget__field--error',
+        defaultValue: true
     },
     link: {
         id: 'partner-link'

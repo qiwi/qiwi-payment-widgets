@@ -1,12 +1,11 @@
 import './css/styles.css';
 
+import WidgetButton from '../../components/widget-button';
 
-import WidgetButtons from '../../components/widget-buttons';
-
-const bigWidgetButtons728x200 = new WidgetButtons();
+const bigWidgetButtons728x200 = new WidgetButton();
 
 bigWidgetButtons728x200.init({
-    button: {
+    redirect: {
         id: 'another-amount'
     },
     title: {
@@ -17,7 +16,7 @@ bigWidgetButtons728x200.init({
         id: 'text-donation'
     },
     buttonsBlock: {
-        id: 'set-amount'
+        class: 'set-amount'
     },
     link: {
         id: 'partner-link'
