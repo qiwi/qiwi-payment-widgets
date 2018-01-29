@@ -22,6 +22,19 @@
     max-height: 30px;
 }
 
+.widget__button--inline {
+    display: inline-block;
+    margin: 0 16px 0 0;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    border: solid 1px rgba(0, 0, 0, 0.14);
+    font-size: 14px;
+    color: #000000;
+}
+
 .widget__field {
     margin: 0;
     position: absolute;
@@ -51,7 +64,7 @@
     right: 0;
 }
 
-.widget__button {
+.widget__button--right {
     position: absolute;
     margin: 0;
     width: 154px;
@@ -62,7 +75,6 @@
     top: 0;
     left: 203px;
 }
-
 
 .widget__footer {
     height: 18px;
