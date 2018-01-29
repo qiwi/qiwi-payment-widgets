@@ -6,7 +6,7 @@
         "width": 220,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -16,8 +16,16 @@
         "width": 728,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
+    },
+    {
+        "name": "big-widget-728x200 без ключа",
+        "link": "big-widget-728x200",
+        "height": 200,
+        "width": 728,
+        "type": "widget",
+        "params": {}
     },
     {
         "name": "middle-button-200x80",
@@ -26,45 +34,7 @@
         "width": 200,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
-        }
-    },
-    {
-        "name": "big-widget-buttons-728x200",
-        "link": "big-widget-buttons-728x200",
-        "height": 200,
-        "width": 728,
-        "type": "widget",
-        "params": {
-            "public_key": "Testpublickey"
-        }
-    },
-    {
-        "name": "big-widget-buttons-728x200 без ключа",
-        "link": "big-widget-buttons-728x200",
-        "height": 200,
-        "width": 728,
-        "type": "widget",
-        "params": {}
-    },
-    {
-        "name": "big-widget-buttons-728x200",
-        "link": "big-widget-buttons-728x200",
-        "height": 200,
-        "width": 728,
-        "type": "widget",
-        "params": {
-            "public_key": "Testpublickey"
-        }
-    },
-    {
-        "name": "big-widget-preselect-input-728x200 c предвыбором",
-        "link": "big-widget-preselect-input-728x200",
-        "height": 200,
-        "width": 728,
-        "type": "widget",
-        "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -74,7 +44,7 @@
         "width": 175,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -84,7 +54,7 @@
         "width": 300,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -94,7 +64,7 @@
         "width": 300,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -104,7 +74,17 @@
         "width": 300,
         "type": "widget",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
+        }
+    },
+    {
+        "name": "small-widget-300x180",
+        "link": "small-widget-300x180",
+        "height": 180,
+        "width": 300,
+        "type": "widget",
+        "params": {
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     },
     {
@@ -112,7 +92,7 @@
         "link": "form-preorder",
         "type": "form",
         "params": {
-            "public_key": "Testpublickey"
+            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
         }
     }
 ]

@@ -9,7 +9,7 @@
 }
 
 .widget__title {
-    margin: 26px auto 0;
+    margin: 17px auto 0;
 }
 
 .widget__button {
@@ -17,11 +17,15 @@
     height: 47px;
     box-shadow: 0 12px 15px 0 rgba(255, 140, 0, 0.2);
     line-height: 47px;
-    margin: 23px auto 0;
+    margin: 16px auto 0;
 }
 
 .widget__payment-block {
     width: 203px;
     height: 18px;
-    margin: 17px auto 0;
+    margin: 16px auto 0;
+}
+
+.widget__be-partner {
+    margin-top: 16px;
 }
