@@ -68,16 +68,6 @@
         }
     },
     {
-        "name": "small-widget-300x200",
-        "link": "small-widget-300x200",
-        "height": 200,
-        "width": 300,
-        "type": "widget",
-        "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
-        }
-    },
-    {
         "name": "small-widget-300x180",
         "link": "small-widget-300x180",
         "height": 180,
