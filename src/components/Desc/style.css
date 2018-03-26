@@ -1,0 +1,10 @@
+.widget__text {
+    font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+    margin: 12px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

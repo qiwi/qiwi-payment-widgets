@@ -1,7 +1,5 @@
-@import url('../../../css/fonts.css');
 @import url('../../../css/style.css');
-@import url('../../../css/button/button.css');
-@import url('../../../css/payment-block/payment-block.css');
+
 
 .widget {
     width: 220px;
