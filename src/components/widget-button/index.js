@@ -1,7 +1,9 @@
+/* global URLSearchParams, fetch */
+
 import 'url-search-params-polyfill';
 
 export default class WidgetButton {
-    constructor() {
+    constructor () {
         this._propsToMethodMap = {
             title: this._makeTitle.bind(this),
             redirect: this._makeRedirect.bind(this),
@@ -14,7 +16,7 @@ export default class WidgetButton {
         };
     }
 
-    async init(elements) {
+    async init (elements) {
         this._elements = elements;
 
         this._merchantId = this._getParameterByName('public_key');
@@ -44,27 +46,27 @@ export default class WidgetButton {
         this._showBody();
     }
 
-    _showBody() {
+    _showBody () {
         document.body.style.opacity = '1';
     }
 
-    _changeTabTitle() {
+    _changeTabTitle () {
         document.title = this._merchantInfo.merchant_name;
     }
 
-    _makeTitle() {
+    _makeTitle () {
         const title = document.getElementById(this._elements.title.id);
 
         title.innerHTML = this._merchantInfo.merchant_name;
     }
 
-    _makeText() {
+    _makeText () {
         const desc = document.getElementById(this._elements.text.id);
 
         desc.innerHTML = this._merchantInfo.merchant_widget_description;
     }
 
-    _makeRedirect() {
+    _makeRedirect () {
         const button = document.getElementById(this._elements.redirect.id);
 
         const buttonText = this._merchantInfo.merchant_button_text;
@@ -95,7 +97,7 @@ export default class WidgetButton {
         }
     }
 
-    _makeButton() {
+    _makeButton () {
         const button = document.getElementById(this._elements.button.id);
 
         const message = document.getElementById(this._elements.message.id);
@@ -144,7 +146,7 @@ export default class WidgetButton {
         }
     }
 
-    _makeInput() {
+    _makeInput () {
         const input = document.getElementById(this._elements.input.id);
         if (
             this._merchantInfo.merchant_payment_sum_amount[0] &&
@@ -164,7 +166,7 @@ export default class WidgetButton {
         });
     }
 
-    _errorMessage(value) {
+    _errorMessage (value) {
         let message = '';
 
         if (!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)) {
@@ -189,7 +191,7 @@ export default class WidgetButton {
         return message;
     }
 
-    _makeButtons() {
+    _makeButtons () {
         const buttons = document.getElementsByClassName(
             this._elements.buttonsBlock.class
         );
@@ -239,7 +241,7 @@ export default class WidgetButton {
         });
     }
 
-    _makeTriggerForm() {
+    _makeTriggerForm () {
         const trigger = document.getElementById(this._elements.triggerForm.id);
         const formFrom = document.getElementById(
             this._elements.triggerForm.forms.from
@@ -255,7 +257,7 @@ export default class WidgetButton {
         });
     }
 
-    _makePartnerLink() {
+    _makePartnerLink () {
         const public_key = this._merchantInfo.merchant_public_key;
 
         const parsedParams = new URLSearchParams({
@@ -267,7 +269,7 @@ export default class WidgetButton {
         ).href = `https://widget.qiwi.com?${parsedParams.toString()}`;
     }
 
-    _getMerchantInfo() {
+    _getMerchantInfo () {
         let url = 'https://my.qiwi.com/partners_api/merchant_widget_info';
 
         if (
@@ -300,18 +302,20 @@ export default class WidgetButton {
             .then((response) => response.json());
     }
 
-    _getHostName(host = '') {
-        const a = document.createElement('a');
-        a.href = host;
+    _getHostName (url = '') {
+        const hostname = url
+            .split('//')[1]
+            .split('/')[0]
+            .split(':')[0];
 
-        return encodeURIComponent(a.hostname.replace(/\./g, '-'));
+        return encodeURIComponent(hostname.replace(/\./g, '-'));
     }
 
-    _getAlias() {
-        return window.location.pathname.match(/([^\/]*)\/*$/)[1];
+    _getAlias () {
+        return window.location.pathname.match(/([^/]*)\/*$/)[1];
     }
 
-    _getParametersValues(enterWidgetParams) {
+    _getParametersValues (enterWidgetParams) {
         let params = {};
 
         enterWidgetParams.forEach((param) => {
@@ -321,20 +325,20 @@ export default class WidgetButton {
         return params;
     }
 
-    _getParameterByName(param, urlSearch = window.location.search) {
+    _getParameterByName (param, urlSearch = window.location.search) {
         const searchParams = new URLSearchParams(urlSearch);
 
         return searchParams.get(param);
     }
 
-    _makeLinkCheckout(params) {
+    _makeLinkCheckout (params) {
         const url = 'https://oplata.qiwi.com/create';
         const parsedParams = new URLSearchParams(params);
 
         return `${url}?${parsedParams.toString()}`;
     }
 
-    _numberWithSpaces(x) {
+    _numberWithSpaces (x) {
         let parts = x.toString().split('.');
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
         return parts.join('.');

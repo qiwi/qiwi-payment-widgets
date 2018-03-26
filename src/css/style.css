@@ -1,15 +1,15 @@
+@import url('./fonts.css');
+
 body {
-    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     font-size: 16px;
     background-color: transparent;
     margin: 0;
     padding: 0;
-    opacity: 0;
-    transition: opacity .25s ease-in;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -21,56 +21,12 @@ body {
     border: solid 1px #e7e7e7;
     position: relative;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
-
-.widget__title {
-    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
-    font-size: 16px;
-    font-weight: 900;
-    text-align: center;
-    color: #000000;
-    margin: 30px auto 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .widget__button-block {
     margin: 16px 0 0;
-}
-
-.widget__link-how-to {
-    display: block;
-    margin: 12px auto 0;
-    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    color: #9b9b9b;
-}
-
-.widget__be-partner {
-    display: block;
-    margin: 27px auto 0;
-    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-    text-decoration: none;
-    color: #0629a3;
-}
-
-.widget__text {
-    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    text-align: left;
-    color: #000000;
-    margin: 12px 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .widget__footer {

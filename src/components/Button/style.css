@@ -1,0 +1,37 @@
+.widget__button {
+    display: block;
+    margin: 30px auto 0;
+    width: 214px;
+    height: 47px;
+    border-radius: 100px;
+    background-color: #ff8c00;
+    line-height: 47px;
+    font-size: 16px;
+    font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget__button--bordered {
+    background-color: transparent;
+    border: solid 1px rgba(0, 0, 0, 0.14);
+    color: #000000;
+}
+
+.widget__button:focus {
+    outline: none;
+}
+
+.widget__button:disabled {
+    background: #E6E6E6;
+    color: #8A8A8A;
+    border: #E6E6E6;
+    cursor: not-allowed;
+    box-shadow: none;
+}

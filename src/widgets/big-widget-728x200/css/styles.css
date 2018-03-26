@@ -1,10 +1,4 @@
-@import url('../../../css/fonts.css');
 @import url('../../../css/style.css');
-@import url('../../../css/button/button.css');
-@import url('../../../css/field/field.css');
-@import url('../../../css/payment-block/payment-block.css');
-
-
 .widget {
     width: 728px;
     height: 200px;
@@ -13,13 +7,16 @@
 
 .widget__title {
     text-align: left;
-    color: #000000;
     margin: 0;
     font-size: 18px;
 }
 
-.widget__text {
-    max-height: 30px;
+.widget__desc {
+    margin-bottom: 15px;
+}
+
+.widget__variants {
+    margin: 16px 0 0;
 }
 
 .widget__button--inline {
@@ -48,14 +45,12 @@
     width: 175px;
 }
 
-.widget__input:focus ~ .widget__label,
-.widget__input:valid ~ .widget__label  {
+.widget__input:focus~.widget__label, .widget__input:valid~.widget__label {
     display: none;
 }
 
-.widget__bar  {
+.widget__bar {
     width: 175px;
-
 }
 
 .widget__currency {
@@ -64,7 +59,7 @@
     right: 0;
 }
 
-.widget__button--right {
+.widget__form .widget__button {
     position: absolute;
     margin: 0;
     width: 154px;

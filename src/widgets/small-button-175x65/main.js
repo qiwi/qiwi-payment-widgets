@@ -1,10 +1,29 @@
+import Widget from '../../modules/widget';
+import { redirection } from '../../modules/parsers';
+
+import PaymentIcons from '../../components/PaymentIcons';
+import Button from '../../components/Button';
+
 import './css/styles.css';
-import WidgetButton from '../../components/widget-button';
 
-const smallButton175x65 = new WidgetButton();
+const widgetPaymentIcons = PaymentIcons();
+const widgetButton = Button();
 
-smallButton175x65.init({
-    redirect: {
-        id: 'make-donation'
+const elements = [widgetButton, widgetPaymentIcons];
+
+const smallButton175x65 = new Widget(elements);
+
+smallButton175x65.init(
+    (data) => {
+        widgetButton.addHandler(() => {
+            redirection('', data);
+        });
+
+        widgetButton.changeText(data.merchant_button_text[0]);
+
+        widgetButton.enable();
+    },
+    () => {
+        widgetButton.disable();
     }
-});
+);

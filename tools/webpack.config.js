@@ -4,8 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-
-module.exports = function(scriptsPath, folder, ENV) {
+module.exports = function (folder, ENV) {
     return {
         output: {
             filename: 'bundle.[hash].js',
@@ -19,12 +18,8 @@ module.exports = function(scriptsPath, folder, ENV) {
                 use: {
                     loader: 'babel-loader'
                 }
-            },{
+            }, {
                 test: /\.css$/,
-                /*use: [
-                    'style-loader',
-                    'css-loader'
-                ],*/
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: 'css-loader'
@@ -34,7 +29,7 @@ module.exports = function(scriptsPath, folder, ENV) {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 37000
+                        limit: 8000
                     }
                 }]
             }, {
@@ -66,7 +61,7 @@ module.exports = function(scriptsPath, folder, ENV) {
                 }
             }),
             new HtmlWebpackPlugin({
-                template: path.join(scriptsPath, folder,'/index.html'),
+                template: '../src/public/index.html',
                 inject: 'body'
             })
         ]
