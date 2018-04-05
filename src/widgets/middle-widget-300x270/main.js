@@ -1,22 +1,31 @@
+
+import Widget from '../../modules/widget';
+
+import PaymentIcons from '../../components/PaymentIcons';
+import Link from '../../components/Link';
+import Form from '../../components/Form';
+
 import './css/styles.css';
 
-import WidgetButton from '../../components/widget-button';
+const widgetPaymentIcons = PaymentIcons();
+const widgetLink = Link();
+const widgetForm = Form();
 
-const middleWidget300x270 = new WidgetButton();
+widgetForm.disable();
 
-middleWidget300x270.init({
-    button: {
-        id: 'make-donation'
+const elements = [widgetForm, widgetPaymentIcons, widgetLink];
+
+const middleWidget300x270 = new Widget(elements);
+
+middleWidget300x270.init(
+    (data) => {
+        widgetForm.addMerchantInfo(data);
+
+        widgetForm.enable();
+
+        widgetLink.addPublicKey(data.merchant_public_key);
     },
-    message: {
-        id: 'error-message'
-    },
-    input: {
-        id: 'donation-amount',
-        errorState: 'widget__field--error',
-        defaultValue: true
-    },
-    link: {
-        id: 'partner-link'
+    () => {
+        widgetTitle.showError();
     }
-});
+);
