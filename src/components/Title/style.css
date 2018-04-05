@@ -1,0 +1,13 @@
+.widget__title {
+    font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.widget__title--error {
+    color: #D0021B;
+}

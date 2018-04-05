@@ -1,10 +1,7 @@
-@import url('../../../css/fonts.css');
 @import url('../../../css/style.css');
-@import url('../../../css/button/button.css');
-@import url('../../../css/field/field.css');
-@import url('../../../css/payment-block/payment-block.css');
-
-
+.widget__title {
+    margin-top: 30px;
+}
 
 .widget__field {
     margin: 26px auto 0;
@@ -15,9 +12,8 @@
     width: 194px;
 }
 
-.widget__bar  {
+.widget__bar {
     width: 194px;
-
 }
 
 .widget__currency {

@@ -1,0 +1,10 @@
+.widget__be-partner {
+    display: block;
+    margin: 27px auto 0;
+    font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    color: #0629a3;
+}
