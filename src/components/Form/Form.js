@@ -26,9 +26,7 @@ export default function Form (data) {
 
     const field = Field(changeFieldValue);
 
-    button.addHandler(() => {
-        redirection(fieldValue, merchantInfo);
-    });
+    button.addHandler(() => redirection(fieldValue, merchantInfo));
 
     button.disable();
 
