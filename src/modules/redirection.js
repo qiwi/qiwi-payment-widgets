@@ -5,14 +5,15 @@ function makeLinkCheckout (params) {
     return `${url}?${parsedParams.toString()}`;
 }
 
-export default function redirection (amount = 0, merchantInfo) {
-    const {
+export default function redirection (
+    amount = 0,
+    {
         merchant_success_url,
         merchant_fail_url,
         merchant_public_key,
         merchant_alias_code
-    } = merchantInfo;
-
+    }
+) {
     const public_key = merchant_public_key;
 
     const success_url = merchant_success_url || '';
