@@ -12,8 +12,6 @@ const widgetPaymentIcons = PaymentIcons();
 const widgetLink = Link();
 const widgetForm = Form();
 
-widgetForm.disable();
-
 const elements = [widgetTitle, widgetForm, widgetPaymentIcons, widgetLink];
 
 const middleWidget300x300 = new Widget(elements);
@@ -30,5 +28,7 @@ middleWidget300x300.init(
     },
     () => {
         widgetTitle.showError();
+
+        widgetForm.disable();
     }
 );

@@ -28,8 +28,6 @@ export default function Form (data) {
 
     button.addHandler(() => redirection(fieldValue, merchantInfo));
 
-    button.disable();
-
     container.appendChild(field.element);
     container.appendChild(button.element);
 
