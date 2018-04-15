@@ -1,4 +1,3 @@
-
 import Widget from '../../modules/widget';
 
 import PaymentIcons from '../../components/PaymentIcons';
@@ -10,8 +9,6 @@ import './css/styles.css';
 const widgetPaymentIcons = PaymentIcons();
 const widgetLink = Link();
 const widgetForm = Form();
-
-widgetForm.disable();
 
 const elements = [widgetForm, widgetPaymentIcons, widgetLink];
 
@@ -27,5 +24,7 @@ middleWidget300x270.init(
     },
     () => {
         widgetTitle.showError();
+
+        widgetForm.disable();
     }
 );
