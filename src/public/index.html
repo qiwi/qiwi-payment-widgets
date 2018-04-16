@@ -12,6 +12,33 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WNSQH4N');</script>
     <!-- End Google Tag Manager -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+          try {
+            w.yaCounter48412196 = new Ya.Metrika({
+              id: 48412196,
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true
+            });
+          } catch (e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <!-- /Yandex.Metrika counter -->
     <style type="text/css" >
         .loader {
             font-size: 14px;
@@ -61,6 +88,11 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNSQH4N"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+      <div>
+        <img src="https://mc.yandex.ru/watch/48412196" style="position:absolute; left:-9999px;" alt="" />
+      </div>
+    </noscript>
     <div class="loader" id="loader">
         <img src="<%= require('../assets/circle.svg') %>" class="loader__pic" alt="loader" >
          Загрузка

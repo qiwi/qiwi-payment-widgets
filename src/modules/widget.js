@@ -20,7 +20,7 @@ export default class widget {
             }
 
             this._changeTabTitle(data.merchant_name);
-
+            this._addMetricCounter(data.merchant_metric);
             success(data);
         } catch (err) {
             error();
@@ -30,6 +30,34 @@ export default class widget {
 
         this._endLoading();
     }
+
+    _addMetricCounter = (counter) => {
+        if (!counter) {
+            return false;
+        }
+
+        try {
+            const yaCounter = `yaCounter${counter}`;
+            window[yaCounter] = new window.Ya.Metrika({
+                id: counter,
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true
+            });
+
+            this._createYandexNoScript(counter);
+        } catch (e) {}
+    };
+
+    _createYandexNoScript = (counter) => {
+        const container = document.createElement('noscript');
+
+        container.innerHTML = `<div>
+            <img src="https://mc.yandex.ru/watch/${counter}" style="position:absolute; left:-9999px;" alt="" />
+        </div>`;
+
+        document.body.appendChild(container);
+    };
 
     _changeTabTitle (title) {
         document.title = title;
