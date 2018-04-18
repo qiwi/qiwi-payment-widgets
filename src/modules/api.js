@@ -17,7 +17,7 @@ function makeRequest (id, type) {
                     eventAction: 'Mechant name load error'
                 });
 
-                throw new Error('LoadError');
+                throw new Error('Loading info error');
             }
             return response;
         })

@@ -3,16 +3,19 @@ import Button from '../Button';
 import redirection from '../../modules/redirection';
 import { numberWithSpaces } from '../../modules/parsers';
 
-export default function Variants (defaultValue) {
+export default function Variants ({
+    defaultValue = [50, 100, 500],
+    redirectionHandler = redirection
+} = {}) {
     const container = document.createElement('div');
 
     container.className = 'widget__variants';
 
     let buttons = defaultValue.map((amount, index) => {
-        const button = Button(
-            'widget__button--inline',
-            numberWithSpaces(amount) + '&#x20bd;'
-        );
+        const button = Button({
+            classes: 'widget__button--inline',
+            title: numberWithSpaces(amount) + '&#x20bd;'
+        });
 
         button.disable();
 
@@ -21,7 +24,7 @@ export default function Variants (defaultValue) {
         return button;
     });
 
-    return {
+    const component = {
         element: container,
         enable: () => {
             buttons.forEach((button) => button.enable());
@@ -43,7 +46,7 @@ export default function Variants (defaultValue) {
 
                 if (merchantInfo) {
                     button.addHandler(() => {
-                        redirection(amount, merchantInfo);
+                        redirectionHandler(amount, merchantInfo);
                     });
                 }
 
@@ -51,6 +54,12 @@ export default function Variants (defaultValue) {
 
                 return button;
             });
+        },
+        onSuccess: (data) => {
+            component.addMerchantInfo(data);
+            component.enable();
         }
     };
+
+    return component;
 }
