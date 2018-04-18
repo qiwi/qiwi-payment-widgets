@@ -1,18 +1,19 @@
 import { getPublicKey } from './parsers';
 import { getMerchantInfoByKey } from './api';
 
-import Widget from '../components/Widget';
+import WidgetComponent from '../components/Widget';
 
-export default class widget {
+export default class Widget {
     constructor (elements) {
+        this._elements = elements;
         this._render(elements);
         this.publicKey = getPublicKey();
     }
 
     async init (success, error) {
-        try {
-            let data = {};
+        let data = {};
 
+        try {
             if (this.publicKey) {
                 data = await getMerchantInfoByKey(this.publicKey);
             } else {
@@ -21,9 +22,26 @@ export default class widget {
 
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
-            success(data);
+
+            this._elements.forEach((element) => {
+                if (element.onSuccess) {
+                    element.onSuccess(data);
+                }
+            });
+
+            if (success) {
+                success(data);
+            }
         } catch (err) {
-            error();
+            this._elements.forEach((element) => {
+                if (element.onError) {
+                    element.onError(data);
+                }
+            });
+
+            if (error) {
+                error(data);
+            }
 
             console.warn('Widget is disabled by: ', err.message);
         }
@@ -64,7 +82,7 @@ export default class widget {
     }
 
     _render (elements) {
-        this.widget = Widget(elements);
+        this.widget = WidgetComponent(elements);
 
         document.body.appendChild(this.widget.element);
     }

@@ -13,15 +13,4 @@ const elements = [widgetButton, widgetPaymentIcons];
 
 const middleButton200x80 = new Widget(elements);
 
-middleButton200x80.init(
-    (data) => {
-        widgetButton.addHandler(() => redirection('', data));
-
-        widgetButton.changeText(data.merchant_button_text[0]);
-
-        widgetButton.enable();
-    },
-    () => {
-        widgetButton.disable();
-    }
-);
+middleButton200x80.init();

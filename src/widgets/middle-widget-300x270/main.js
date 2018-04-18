@@ -14,17 +14,4 @@ const elements = [widgetForm, widgetPaymentIcons, widgetLink];
 
 const middleWidget300x270 = new Widget(elements);
 
-middleWidget300x270.init(
-    (data) => {
-        widgetForm.addMerchantInfo(data);
-
-        widgetForm.enable();
-
-        widgetLink.addPublicKey(data.merchant_public_key);
-    },
-    () => {
-        widgetTitle.showError();
-
-        widgetForm.disable();
-    }
-);
+middleWidget300x270.init();

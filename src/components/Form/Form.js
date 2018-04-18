@@ -4,7 +4,10 @@ import redirection from '../../modules/redirection';
 
 import './style.css';
 
-export default function Form (data) {
+export default function Form ({
+    data = {},
+    redirectionHandler = redirection
+} = {}) {
     let merchantInfo = data;
 
     let fieldValue = '';
@@ -26,12 +29,12 @@ export default function Form (data) {
 
     const field = Field(changeFieldValue);
 
-    button.addHandler(() => redirection(fieldValue, merchantInfo));
+    button.addHandler(() => redirectionHandler(fieldValue, merchantInfo));
 
     container.appendChild(field.element);
     container.appendChild(button.element);
 
-    return {
+    const component = {
         addMerchantInfo: (data) => {
             merchantInfo = data;
 
@@ -44,6 +47,16 @@ export default function Form (data) {
         enable: () => {
             field.enable();
         },
+        onSuccess: (data) => {
+            component.addMerchantInfo(data);
+
+            component.enable();
+        },
+        onError: (data) => {
+            component.disable();
+        },
         element: container
     };
+
+    return component;
 }

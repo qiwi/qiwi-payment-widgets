@@ -7,10 +7,15 @@ export default function Desc () {
 
     desc.innerHTML = ``;
 
-    return {
+    const component = {
         changeText: (text = '') => {
             desc.innerHTML = text;
         },
+        onSuccess: (data) => {
+            component.changeText(data.merchant_widget_description);
+        },
         element: desc
     };
+
+    return component;
 }

@@ -93,3 +93,10 @@
     top: 0;
     margin: 0;
 }
+
+.widget__oferta {
+    position: absolute;
+    left: 220px;
+    top: 3px;
+    font-size: 12px;
+}
