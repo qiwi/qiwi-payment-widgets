@@ -38,3 +38,25 @@
 .widget__be-partner {
     margin: 18px auto 0;
 }
+
+.widget__oferta {
+    width: 202px;
+    font-size: 12px;
+    margin: 14px auto 0;
+}
+
+.block_oferted .widget__field {
+    margin: 18px auto 0;
+}
+
+.block_oferted .widget__payment-block {
+    margin: 12px auto 0;
+}
+
+.block_oferted .widget__be-partner {
+    margin: 12px auto 0;
+}
+
+.block_oferted .widget__button {
+    margin: 20px auto 0;
+}

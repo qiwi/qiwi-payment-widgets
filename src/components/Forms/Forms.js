@@ -7,6 +7,8 @@ export default function Forms (structure, classes = '') {
 
     let trigger = {};
 
+    let components = [];
+
     let forms = structure.map((group, index) => {
         const form = document.createElement('div');
 
@@ -15,6 +17,8 @@ export default function Forms (structure, classes = '') {
         if (index > 0) {
             form.classList.add('hidden');
         }
+
+        components.push(group.form);
 
         form.appendChild(group.form.element);
 
@@ -38,13 +42,33 @@ export default function Forms (structure, classes = '') {
         return form;
     });
 
-    return {
+    const component = {
         element: container,
         enable: () => {
             trigger.element.disabled = false;
         },
         disable: () => {
             trigger.element.disabled = true;
+        },
+        onSuccess: (data) => {
+            component.enable();
+
+            components.forEach((element) => {
+                if (element.onSuccess) {
+                    element.onSuccess(data);
+                }
+            });
+        },
+        onError: (data) => {
+            component.disable();
+
+            components.forEach((element) => {
+                if (element.onError) {
+                    element.onError(data);
+                }
+            });
         }
     };
+
+    return component;
 }
