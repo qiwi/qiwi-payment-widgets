@@ -7,7 +7,7 @@ export default function Title () {
 
     const title = container.firstChild;
 
-    return {
+    const component = {
         changeTitle: (newTitle = 'Наименование организации') => {
             title.innerHTML = newTitle;
         },
@@ -15,6 +15,14 @@ export default function Title () {
             title.innerHTML = newTitle;
             title.classList.add('widget__title--error');
         },
-        element: title
+        element: title,
+        onSuccess: (data) => {
+            component.changeTitle(data.merchant_name);
+        },
+        onError: (data) => {
+            component.showError();
+        }
     };
+
+    return component;
 }

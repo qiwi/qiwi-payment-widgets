@@ -1,27 +1,18 @@
 import Widget from '../../modules/widget';
-import redirection from '../../modules/redirection';
 
 import PaymentIcons from '../../components/PaymentIcons';
 import Button from '../../components/Button';
+
+import Oferta from '../../components/Oferta';
 
 import './css/styles.css';
 
 const widgetPaymentIcons = PaymentIcons();
 const widgetButton = Button();
+const widgetOferta = Oferta();
 
-const elements = [widgetButton, widgetPaymentIcons];
+const elements = [widgetButton, widgetPaymentIcons, widgetOferta];
 
 const bigButton220x100 = new Widget(elements);
 
-bigButton220x100.init(
-    (data) => {
-        widgetButton.addHandler(() => redirection('', data));
-
-        widgetButton.changeText(data.merchant_button_text[0]);
-
-        widgetButton.enable();
-    },
-    () => {
-        widgetButton.disable();
-    }
-);
+bigButton220x100.init();

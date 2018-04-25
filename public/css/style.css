@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 body {
     background-color: #F5F5F5;
     font-family: 'Open Sans', sans-serif;
@@ -9,7 +8,7 @@ body {
 }
 
 iframe {
-    border:none;
+    border: 2px dotted rgba(222, 222, 222, 0.7);
     margin: 20px 0;
     display: block;
 }
@@ -24,8 +23,8 @@ iframe {
     list-style: none;
     padding: 10px;
     margin: 0;
-    overflow-y:scroll;
-    overflow-x:hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .menu li {
@@ -55,11 +54,14 @@ iframe {
     text-align: left;
     color: #000000;
     word-break: break-word;
-    word-break:break-all;
+    word-break: break-all;
     margin-bottom: 35px;
-    -webkit-user-select: all;  /* Chrome all / Safari all */
-    -moz-user-select: all;     /* Firefox all */
-    -ms-user-select: all;      /* IE 10+ */
+    -webkit-user-select: all;
+    /* Chrome all / Safari all */
+    -moz-user-select: all;
+    /* Firefox all */
+    -ms-user-select: all;
+    /* IE 10+ */
     user-select: all;
 }
 
@@ -80,7 +82,7 @@ iframe {
     line-height: 16px;
     margin: 20px 0;
     padding: 10px;
-    background-color: rgb(247,247,247);
+    background-color: rgb(247, 247, 247);
     font-weight: 700;
     letter-spacing: -0.2px;
     text-align: center;

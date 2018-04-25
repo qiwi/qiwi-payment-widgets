@@ -1,5 +1,4 @@
 @import url('../../../css/style.css');
-
 .widget {
     width: 300px;
     height: 180px;
@@ -21,4 +20,17 @@
     width: 203px;
     height: 18px;
     margin: 20px auto 0;
+}
+
+.block_oferted .widget__button {
+    margin: 16px auto 0;
+}
+
+.widget__oferta {
+    width: 200px;
+}
+.block_oferted .widget__payment-block {
+    width: 203px;
+    height: 18px;
+    margin: 10px auto;
 }

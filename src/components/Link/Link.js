@@ -9,10 +9,15 @@ export default function Link (public_key = '') {
 
     const link = container.firstChild;
 
-    return {
+    const component = {
         element: link,
         addPublicKey: (public_key) => {
             link.href = `${widgetLink}?public_key=${public_key}`;
+        },
+        onSuccess: (data) => {
+            component.addPublicKey(data.merchant_public_key);
         }
     };
+
+    return component;
 }
