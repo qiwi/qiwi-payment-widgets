@@ -1,3 +1,5 @@
+import { getHostName } from './parsers';
+
 function makeLinkCheckout (params) {
     const url = 'https://oplata.qiwi.com/create';
     const parsedParams = new URLSearchParams(params);
@@ -22,6 +24,8 @@ export default function redirection (
 
     const extra_widget_alias = merchant_alias_code || '';
 
+    const extra_widget_refferer = getHostName(document.referrer);
+
     if (public_key) {
         const checkoutParams = {
             public_key,
@@ -29,7 +33,7 @@ export default function redirection (
             success_url,
             fail_url,
             extra_widget_alias,
-            extra_widget_refferer: 'my-qiwi-com'
+            extra_widget_refferer
         };
 
         let link = makeLinkCheckout(checkoutParams);
