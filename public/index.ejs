@@ -42,7 +42,11 @@
 
 
                 <% if(widget.type === 'widget'){ %>
+                <h2>Локальный виджет</h2>
                 <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.link %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+                <h2>Виджет на тесте</h2>
+                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" allowtransparency="true"
+                    scrolling="no" frameborder="0"></iframe>
                 <% } %>
 
 
@@ -53,7 +57,7 @@
                 <% if(widget.type === 'widget'){ %>
                 <h2>Код для вставки</h2>
 
-                <div class="code"> &lt;iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="<a href="https://widget.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" target="_blank">https://widget.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %></a>" allowtransparency="true" scrolling="no" frameborder="0"&gt;&lt;/iframe&gt; </div>
+                <div class="code"> &lt;iframe  width="<%= widget.width %>" height="<%= widget.height %>"src="<a href="https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" target="_blank">https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %></a>" allowtransparency="true" scrolling="no" frameborder="0"&gt;&lt;/iframe&gt; </div>
                 <% } %>
 
             </div>
