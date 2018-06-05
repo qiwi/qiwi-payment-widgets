@@ -1,7 +1,11 @@
 /* global URLSearchParams */
 import 'url-search-params-polyfill';
 
-export function getHostName (url) {
+export function getHostName (url = '') {
+    if (!url.length) {
+        return url;
+    }
+
     let hostname = url
         .split('//')[1]
         .split('/')[0]

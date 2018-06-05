@@ -24,7 +24,7 @@ export default function redirection (
 
     const extra_widget_alias = merchant_alias_code || '';
 
-    const extra_widget_refferer = getHostName(document.referrer) || '';
+    const extra_widget_refferer = getHostName(document.referrer);
 
     if (public_key) {
         const checkoutParams = {
