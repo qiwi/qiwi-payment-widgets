@@ -1,6 +1,6 @@
 const path = require('path');
 const gulp = require('gulp');
-const clean = require('gulp-clean');
+const del = require('del');
 const gls = require('gulp-live-server');
 const plumber = require('gulp-plumber');
 const webpack = require('webpack-stream');
@@ -18,12 +18,13 @@ gulp.task('default', () => {
 
     const folders = getFolders(scriptsPath);
 
-    const buildTasks = folders.map(folder => {
+    const buildTasks = folders.map((folder) => {
         const config = webpackConfig(folder, ENV);
 
         const pathToFolder = path.join('../widgets/widgets', folder);
 
-        return gulp.src(path.join(scriptsPath, folder, '/main.js'))
+        return gulp
+            .src(path.join(scriptsPath, folder, '/main.js'))
             .pipe(plumber())
             .pipe(webpack(config))
             .pipe(gulp.dest(pathToFolder));
@@ -35,12 +36,13 @@ gulp.task('default', () => {
 gulp.task('watch', () => {
     const server = gls.new('../server.js');
 
-    gulp.watch('../src/**/**/**/*.*', ['clean', 'default']);
+    gulp.watch('../src/**/**/**/*.*', gulp.parallel('clean', 'default'));
 
     server.start();
 });
 
 gulp.task('clean', function () {
-    return gulp.src('../widgets')
-        .pipe(clean({force: true}));
+    return del([
+        '../widgets'
+    ], { force: true });
 });
