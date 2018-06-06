@@ -44,14 +44,15 @@
                 <% if(widget.type === 'widget'){ %>
                 <h2>Локальный виджет</h2>
                 <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="<%= widget.link %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+                <a href="<%= widget.link %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button">Открыть в отдельном окне</a>
                 <h2>Виджет на тесте</h2>
-                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" allowtransparency="true"
-                    scrolling="no" frameborder="0"></iframe>
+                <iframe width="<%= widget.width %>" height="<%= widget.height %>" src="https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
+                <a href="https://widget-test.qiwi.com/widgets/<%= widget.link %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button">Открыть в отдельном окне</a>
                 <% } %>
 
 
 
-                <a href="<%= widget.link %>?<%= widget.params %>" target="_blank" class="widget-info__get-code-button" >Открыть в отдельном окне</a>
+                
 
 
                 <% if(widget.type === 'widget'){ %>
