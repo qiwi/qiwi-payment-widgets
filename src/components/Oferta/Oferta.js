@@ -5,7 +5,7 @@ export default function Oferta (link = '') {
 
     container.className = 'widget__oferta';
 
-    container.innerHTML = `Совершая оплату, вы соглашаетесь с <a href="${link}" target="_blank" class="widget__oferta-link" id="partner-link">офертой</a>`;
+    container.innerHTML = `Совершая оплату, вы соглашаетесь с <a href="${link}" target="_blank" class="widget__oferta-link" id="oferta-link">офертой</a>`;
 
     const anchor = container.querySelector('a');
 
