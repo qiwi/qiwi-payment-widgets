@@ -39,6 +39,9 @@ export default function Form ({
             merchantInfo = data;
 
             button.changeText(data.merchant_button_text[0]);
+            if (data.merchant_button_color) {
+                button.changeBackgroundColor(data.merchant_button_color);
+            }
         },
         disable: () => {
             button.disable();

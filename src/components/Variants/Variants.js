@@ -41,7 +41,9 @@ export default function Variants ({
                 const button = buttons[index];
 
                 button.changeText(numberWithSpaces(amount) + '&#x20bd;');
-
+                if (merchantInfo.merchant_button_color) {
+                    button.changeBackgroundColor(merchantInfo.merchant_button_color);
+                }
                 button.disable();
 
                 if (merchantInfo) {

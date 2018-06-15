@@ -15,7 +15,8 @@ export default class Widget {
 
         try {
             if (this.publicKey) {
-                data = await getMerchantInfoByKey(this.publicKey);
+                data = await getMerchantInfoByKey(this.publicKey); // TODO data.merchant_button_color
+                // TODO - нужно с бэка сделать получение цвета сюда
             } else {
                 throw new Error('No public key or alias in url');
             }

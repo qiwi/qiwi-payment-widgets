@@ -12,6 +12,7 @@ export default function Forms (structure, classes = '') {
     let forms = structure.map((group, index) => {
         const form = document.createElement('div');
 
+        console.log(group);
         form.className = 'widget__form-state';
 
         if (index > 0) {
@@ -52,7 +53,9 @@ export default function Forms (structure, classes = '') {
         },
         onSuccess: (data) => {
             component.enable();
-
+            if (trigger.changeBackgroundColor && data.merchant_button_color) {
+                trigger.changeBackgroundColor(data.merchant_button_color);
+            }
             components.forEach((element) => {
                 if (element.onSuccess) {
                     element.onSuccess(data);

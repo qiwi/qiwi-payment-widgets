@@ -20,6 +20,9 @@ export default function Button ({
         changeText: (text = 'Помочь') => {
             button.innerHTML = text;
         },
+        changeBackgroundColor: (color) => {
+            button.style.backgroundColor = color;
+        },
         disable: () => {
             button.disabled = true;
         },
@@ -29,7 +32,9 @@ export default function Button ({
         onSuccess: (data) => {
             component.addHandler(() => redirectionHandler('', data));
             component.changeText(data.merchant_button_text[0]);
-
+            if (data.merchant_button_color) {
+                component.changeBackgroundColor(data.merchant_button_color);
+            }
             component.enable();
         },
         onError: (data) => {
