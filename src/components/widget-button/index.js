@@ -1,6 +1,7 @@
 /* global URLSearchParams, fetch */
 
 import 'url-search-params-polyfill';
+import config from '../../config/default';
 
 export default class WidgetButton {
     constructor () {
@@ -270,15 +271,7 @@ export default class WidgetButton {
     }
 
     _getMerchantInfo () {
-        let url = 'https://my.qiwi.com/partners_api/merchant_widget_info';
-
-        if (
-            process.env.NODE_ENV === 'development' ||
-            process.env.NODE_ENV === 'test'
-        ) {
-            url = 'http://s3705.qiwi.com/partners_api/merchant_widget_info';
-        }
-
+        let url = config.url;
         let param = `merchant_public_key=${this._merchantId}`;
 
         if (this._merchantAlias && !this._merchantId) {

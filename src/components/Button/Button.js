@@ -34,8 +34,8 @@ export default function Button ({
         onSuccess: (data) => {
             component.addHandler(() => redirectionHandler('', data));
             component.changeText(data.merchant_button_text[0]);
-            if (data.merchant_button_color) {
-                component.changeBackgroundColor(data.merchant_button_color);
+            if (data.merchant_button_background) {
+                component.changeBackgroundColor(data.merchant_button_background);
             }
             component.enable();
         },

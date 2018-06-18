@@ -40,6 +40,5 @@ function getParametersValues (enterWidgetParams) {
 
 function getParameterByName (param, urlSearch = window.location.search) {
     const searchParams = new URLSearchParams(urlSearch);
-
     return searchParams.get(param);
 }
