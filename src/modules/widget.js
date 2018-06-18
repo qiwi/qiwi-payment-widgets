@@ -15,7 +15,7 @@ export default class Widget {
 
         try {
             if (this.publicKey) {
-                data = await getMerchantInfoByKey(this.publicKey); // TODO data.merchant_button_color
+                data = await getMerchantInfoByKey(this.publicKey); // TODO data.merchant_button_color data.merchant_widget_background
                 // TODO - нужно с бэка сделать получение цвета сюда
             } else {
                 throw new Error('No public key or alias in url');
@@ -23,7 +23,7 @@ export default class Widget {
 
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
-
+            this._addBackground(data.merchant_widget_background);
             this._elements.forEach((element) => {
                 if (element.onSuccess) {
                     element.onSuccess(data);
@@ -80,6 +80,12 @@ export default class Widget {
 
     _changeTabTitle (title) {
         document.title = title;
+    }
+
+    _addBackground (color) {
+        if (color) {
+            this.widget.element.style.backgroundColor = color;
+        }
     }
 
     _render (elements) {
