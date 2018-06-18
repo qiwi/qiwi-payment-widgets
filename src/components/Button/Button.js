@@ -1,5 +1,6 @@
 import './style.css';
 import redirection from '../../modules/redirection';
+import {getTextColorByBackground} from '../../modules/helpers';
 
 export default function Button ({
     classes = '',
@@ -22,6 +23,7 @@ export default function Button ({
         },
         changeBackgroundColor: (color) => {
             button.style.backgroundColor = color;
+            button.style.color = getTextColorByBackground(color);
         },
         disable: () => {
             button.disabled = true;

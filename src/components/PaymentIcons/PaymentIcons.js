@@ -1,6 +1,6 @@
 import './style.css';
 
-export default function PaymentIcons() {
+export default function PaymentIcons () {
     const paymentIcons = document.createElement('div');
 
     paymentIcons.className = 'widget__payment-block';

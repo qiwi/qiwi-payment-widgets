@@ -1,4 +1,5 @@
 import './style.css';
+import {getTextColorByBackground} from '../../modules/helpers';
 
 export default function Oferta (link = '') {
     const container = document.createElement('div');
@@ -20,9 +21,13 @@ export default function Oferta (link = '') {
         hide: (public_key) => {
             container.style.display = 'none';
         },
+        changeColor: (backgroundColor) => {
+            container.style.color = getTextColorByBackground(backgroundColor);
+        },
         onSuccess: (data) => {
             if (data.merchant_offer) {
                 component.addLink(data.merchant_offer);
+                component.changeColor(data.merchant_widget_background);
                 component.show();
                 document.body.classList.add('block_oferted');
             } else {
