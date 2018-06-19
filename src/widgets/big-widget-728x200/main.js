@@ -6,7 +6,7 @@ import Desc from '../../components/Desc';
 import Link from '../../components/Link';
 import Forms from '../../components/Forms';
 import Form from '../../components/Form';
-import Button from '../../components/Button';
+import AnotherAmountButton from '../../components/Trigger';
 import Variants from '../../components/Variants';
 import Block from '../../components/Block';
 import Oferta from '../../components/Oferta';
@@ -20,10 +20,7 @@ const widgetPaymentIcons = PaymentIcons();
 const widgetDesc = Desc();
 const widgetLink = Link();
 const widgetOferta = Oferta();
-const widgetFormTrigger = Button({
-    classes: 'widget__button--inline',
-    title: 'Другая сумма'
-});
+const widgetFormTrigger = AnotherAmountButton();
 const widgetBlock = Block([widgetPaymentIcons, widgetOferta, widgetLink], 'widget__footer');
 
 const widgetVariants = Variants({ defaultVariants });

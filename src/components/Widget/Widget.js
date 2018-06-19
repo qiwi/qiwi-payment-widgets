@@ -3,12 +3,19 @@ import './style.css';
 import Block from '../Block';
 
 export default function Widget (elements) {
-    const container = Block(elements, 'widget').element;
+    const container = new Block(elements, 'widget');
 
-    return {
-        element: container,
+    const component = {
+        element: container.element,
+        init: (data) => {
+            container.init(data);
+        },
         show: () => {
-            container.style.display = 'block';
+            component.element.style.display = 'block';
+        },
+        dispose: () => {
+            container.dispose();
         }
     };
+    return component;
 }

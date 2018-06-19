@@ -1,22 +1,24 @@
-import { getPublicKey } from './parsers';
-import { getMerchantInfoByKey } from './api';
+import {getPublicKey} from './parsers';
+import {getMerchantInfoByKey} from './api';
 
 import WidgetComponent from '../components/Widget';
 
 export default class Widget {
     constructor (elements) {
-        this._elements = elements;
         this._render(elements);
         this.publicKey = getPublicKey();
     }
 
-    async init (success, error) {
+    async init () {
         let data = {};
 
         try {
             if (this.publicKey) {
                 data = await getMerchantInfoByKey(this.publicKey);
-                data.merchant_button_background = null;
+                // у кнопки может быть задано несколько текстов от мерчанта
+                // непонятно зачем, везде использовался 0, поэтому переопределяем
+                // в точке входа данных
+                data.merchant_button_text = data.merchant_button_text[0];
             } else {
                 throw new Error('No public key or alias in url');
             }
@@ -24,26 +26,9 @@ export default class Widget {
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
             this._addBackground(data.merchant_widget_background);
-            this._elements.forEach((element) => {
-                if (element.onSuccess) {
-                    element.onSuccess(data);
-                }
-            });
-
-            if (success) {
-                success(data);
-            }
+            this.widget.init(data);
         } catch (err) {
-            this._elements.forEach((element) => {
-                if (element.onError) {
-                    element.onError(data);
-                }
-            });
-
-            if (error) {
-                error(data);
-            }
-
+            this.widget.dispose();
             console.warn('Widget is disabled by: ', err.message);
         }
 
@@ -65,7 +50,8 @@ export default class Widget {
             });
 
             this._createYandexNoScript(counter);
-        } catch (e) {}
+        } catch (e) {
+        }
     };
 
     _createYandexNoScript = (counter) => {
@@ -89,8 +75,7 @@ export default class Widget {
     }
 
     _render (elements) {
-        this.widget = WidgetComponent(elements);
-
+        this.widget = new WidgetComponent(elements);
         document.body.appendChild(this.widget.element);
     }
 

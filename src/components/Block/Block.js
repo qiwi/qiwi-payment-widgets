@@ -1,3 +1,5 @@
+import redirection from '../../modules/redirection';
+
 import './style.css';
 
 export default function Block (elements, classes = '') {
@@ -7,23 +9,25 @@ export default function Block (elements, classes = '') {
 
     const components = elements.map((item) => {
         container.appendChild(item.element);
-
         return item;
     });
 
     const component = {
         element: container,
-        onSuccess: (data) => {
+        init: (data) => {
             components.forEach((element) => {
-                if (element.onSuccess) {
-                    element.onSuccess(data);
+                if (element.init) {
+                    element.init(data);
+                }
+                if (element.setClickHandler) {
+                    element.setClickHandler(() => redirection('', data));
                 }
             });
         },
-        onError: (data) => {
+        dispose: (data) => {
             components.forEach((element) => {
-                if (element.onError) {
-                    element.onError(data);
+                if (element.dispose) {
+                    element.dispose(data);
                 }
             });
         }

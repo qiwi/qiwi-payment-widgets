@@ -1,11 +1,9 @@
 import './style.css';
-import redirection from '../../modules/redirection';
 import {getTextColorByBackground} from '../../modules/helpers';
 
 export default function Button ({
     classes = '',
-    title = 'Помочь',
-    redirectionHandler = redirection
+    title = 'Помочь'
 } = {}) {
     const container = document.createElement('div');
 
@@ -15,31 +13,30 @@ export default function Button ({
 
     const component = {
         element: button,
-        addHandler: (handler) => {
-            button.addEventListener('click', handler);
+        setClickHandler: (handler) => {
+            component.element.addEventListener('click', handler);
         },
-        changeText: (text = 'Помочь') => {
-            button.innerHTML = text;
+        _changeText: (text = 'Помочь') => {
+            component.element.innerHTML = text;
         },
-        changeBackgroundColor: (color) => {
-            button.style.backgroundColor = color;
-            button.style.color = getTextColorByBackground(color);
+        _changeBackgroundColor: (color) => {
+            component.element.style.backgroundColor = color;
+            component.element.style.color = getTextColorByBackground(color);
         },
         disable: () => {
-            button.disabled = true;
+            component.element.disabled = true;
         },
         enable: () => {
-            button.disabled = false;
+            component.element.disabled = false;
         },
-        onSuccess: (data) => {
-            component.addHandler(() => redirectionHandler('', data));
-            component.changeText(data.merchant_button_text[0]);
+        init: (data) => {
+            component._changeText(data.merchant_button_text || title);
             if (data.merchant_button_background) {
-                component.changeBackgroundColor(data.merchant_button_background);
+                component._changeBackgroundColor(data.merchant_button_background);
             }
             component.enable();
         },
-        onError: (data) => {
+        dispose: () => {
             component.disable();
         }
     };

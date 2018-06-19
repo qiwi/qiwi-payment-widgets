@@ -50,23 +50,19 @@ export default function Forms (structure, classes = '') {
         disable: () => {
             trigger.element.disabled = true;
         },
-        onSuccess: (data) => {
+        init: (data) => {
             component.enable();
-            if (trigger.changeBackgroundColor && data.merchant_button_background) {
-                trigger.changeBackgroundColor(data.merchant_button_background);
-            }
+            trigger.init(data);
             components.forEach((element) => {
-                if (element.onSuccess) {
-                    element.onSuccess(data);
-                }
+                element.init(data);
             });
         },
-        onError: (data) => {
+        dispose: (data) => {
             component.disable();
 
             components.forEach((element) => {
-                if (element.onError) {
-                    element.onError(data);
+                if (element.dispose) {
+                    element.dispose(data);
                 }
             });
         }

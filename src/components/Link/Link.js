@@ -14,7 +14,7 @@ export default function Link (public_key = '') {
         addPublicKey: (public_key) => {
             link.href = `${widgetLink}?public_key=${public_key}`;
         },
-        onSuccess: (data) => {
+        init: (data) => {
             component.addPublicKey(data.merchant_public_key);
         }
     };

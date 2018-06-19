@@ -20,13 +20,13 @@ export default function Title () {
             title.classList.add('widget__title--error');
         },
         element: title,
-        onSuccess: (data) => {
+        init: (data) => {
             component.changeTitle(data.merchant_name);
             if (data.merchant_widget_background) {
                 component.changeColor(data.merchant_widget_background);
             }
         },
-        onError: (data) => {
+        dispose: (data) => {
             component.showError();
         }
     };

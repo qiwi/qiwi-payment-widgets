@@ -11,7 +11,7 @@ export default function Variants ({
 
     container.className = 'widget__variants';
 
-    let buttons = defaultValue.map((amount, index) => {
+    let buttons = defaultValue.map((amount) => {
         const button = Button({
             classes: 'widget__button--inline',
             title: numberWithSpaces(amount) + '&#x20bd;'
@@ -32,23 +32,21 @@ export default function Variants ({
         disable: () => {
             buttons.forEach((button) => button.disable());
         },
-        addMerchantInfo: (merchantInfo = {}) => {
+        init: (data) => {
+            data = Object.assign({}, data);
             const amounts =
-                merchantInfo.merchant_payment_sum_amount.reverse() ||
+                data.merchant_payment_sum_amount.reverse() ||
                 defaultValue;
 
             buttons = amounts.map((amount, index) => {
                 const button = buttons[index];
-
-                button.changeText(numberWithSpaces(amount) + '&#x20bd;');
-                if (merchantInfo.merchant_button_background) {
-                    button.changeBackgroundColor(merchantInfo.merchant_button_background);
-                }
+                data.merchant_button_text = numberWithSpaces(amount) + '&#x20bd;';
+                button.init(data);
                 button.disable();
 
-                if (merchantInfo) {
-                    button.addHandler(() => {
-                        redirectionHandler(amount, merchantInfo);
+                if (data) {
+                    button.setClickHandler(() => {
+                        redirectionHandler(amount, data);
                     });
                 }
 
@@ -56,9 +54,6 @@ export default function Variants ({
 
                 return button;
             });
-        },
-        onSuccess: (data) => {
-            component.addMerchantInfo(data);
             component.enable();
         }
     };

@@ -24,7 +24,7 @@ export default function Oferta (link = '') {
         changeColor: (backgroundColor) => {
             container.style.color = getTextColorByBackground(backgroundColor);
         },
-        onSuccess: (data) => {
+        init: (data) => {
             if (data.merchant_offer) {
                 component.addLink(data.merchant_offer);
                 component.changeColor(data.merchant_widget_background);
@@ -34,7 +34,7 @@ export default function Oferta (link = '') {
                 component.hide();
             }
         },
-        onError: (data) => {
+        dispose: (data) => {
             component.hide();
         }
     };

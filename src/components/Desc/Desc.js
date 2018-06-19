@@ -15,7 +15,7 @@ export default function Desc () {
         changeColor: (backgroundColor) => {
             desc.style.color = getTextColorByBackground(backgroundColor);
         },
-        onSuccess: (data) => {
+        init: (data) => {
             component.changeText(data.merchant_widget_description);
             if (data.merchant_widget_background) {
                 component.changeColor(data.merchant_widget_background);
