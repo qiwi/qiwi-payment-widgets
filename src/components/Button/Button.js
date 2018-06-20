@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground} from '../../modules/helpers';
+import {getTextColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Button ({
     classes = '',
@@ -31,8 +31,8 @@ export default function Button ({
         },
         init: (data) => {
             component._changeText(data.merchant_button_text || title);
-            if (data.merchant_button_background) {
-                component._changeBackgroundColor(data.merchant_button_background);
+            if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
+                component._changeBackgroundColor(data.merchant_styles[styleCode.BUTTON_BACKGROUND]);
             }
             component.enable();
         },

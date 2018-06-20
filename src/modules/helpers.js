@@ -1,6 +1,11 @@
-const COLOR = {
+const color = {
     BLACK: '#000000',
     WHITE: '#FFFFFF'
+};
+
+export const styleCode = {
+    BUTTON_BACKGROUND: 'BUTTON_BACKGROUND',
+    WIDGET_BACKGROUND: 'WIDGET_BACKGROUND'
 };
 
 function convertHexToRgb (hex) {
@@ -21,6 +26,14 @@ export function getTextColorByBackground (backgroundColor) {
     const rgbBackgroundColor = convertHexToRgb(backgroundColor);
     if (rgbBackgroundColor) {
         let a = 1 - (0.299 * rgbBackgroundColor.r + 0.587 * rgbBackgroundColor.g + 0.114 * rgbBackgroundColor.b) / 255;
-        return a < 0.5 ? COLOR.BLACK : COLOR.WHITE;
+        return a < 0.5 ? color.BLACK : color.WHITE;
     } else return null;
+}
+
+export function stylesArrayToObject (styles) {
+    if (!styles) return {};
+    return styles.reduce((acc, item) => {
+        acc[item.merchant_style_code] = item.merchant_style_value;
+        return acc;
+    }, {});
 }

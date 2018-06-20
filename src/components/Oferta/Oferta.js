@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground} from '../../modules/helpers';
+import {getTextColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Oferta (link = '') {
     const container = document.createElement('div');
@@ -15,10 +15,10 @@ export default function Oferta (link = '') {
         addLink: (link) => {
             anchor.href = link;
         },
-        show: (public_key) => {
+        show: () => {
             container.style.display = 'block';
         },
-        hide: (public_key) => {
+        hide: () => {
             container.style.display = 'none';
         },
         changeColor: (backgroundColor) => {
@@ -27,14 +27,16 @@ export default function Oferta (link = '') {
         init: (data) => {
             if (data.merchant_offer) {
                 component.addLink(data.merchant_offer);
-                component.changeColor(data.merchant_widget_background);
+                if (data.merchant_styles[styleCode.WIDGET_BACKGROUND]) {
+                    component.changeColor(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+                }
                 component.show();
                 document.body.classList.add('block_oferted');
             } else {
                 component.hide();
             }
         },
-        dispose: (data) => {
+        dispose: () => {
             component.hide();
         }
     };

@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground} from '../../modules/helpers';
+import {getTextColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Title () {
     const container = document.createElement('div');
@@ -22,11 +22,11 @@ export default function Title () {
         element: title,
         init: (data) => {
             component.changeTitle(data.merchant_name);
-            if (data.merchant_widget_background) {
-                component.changeColor(data.merchant_widget_background);
+            if (data.merchant_styles[styleCode.WIDGET_BACKGROUND]) {
+                component.changeColor(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
             }
         },
-        dispose: (data) => {
+        dispose: () => {
             component.showError();
         }
     };

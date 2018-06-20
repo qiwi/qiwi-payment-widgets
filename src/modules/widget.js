@@ -1,15 +1,15 @@
 import {getPublicKey} from './parsers';
 import {getMerchantInfoByKey} from './api';
-
 import WidgetComponent from '../components/Widget';
+import {styleCode, stylesArrayToObject} from './helpers';
 
 export default class Widget {
-    constructor (elements) {
+    constructor(elements) {
         this._render(elements);
         this.publicKey = getPublicKey();
     }
 
-    async init () {
+    async init() {
         let data = {};
 
         try {
@@ -19,13 +19,14 @@ export default class Widget {
                 // непонятно зачем, везде использовался 0, поэтому переопределяем
                 // в точке входа данных
                 data.merchant_button_text = data.merchant_button_text[0];
+                data.merchant_styles = stylesArrayToObject(data.merchant_styles);
             } else {
                 throw new Error('No public key or alias in url');
             }
 
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
-            this._addBackground(data.merchant_widget_background);
+            this._addBackground(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
             this.widget.dispose();
@@ -64,22 +65,22 @@ export default class Widget {
         document.body.appendChild(container);
     };
 
-    _changeTabTitle (title) {
+    _changeTabTitle(title) {
         document.title = title;
     }
 
-    _addBackground (color) {
+    _addBackground(color) {
         if (color) {
             this.widget.element.style.backgroundColor = color;
         }
     }
 
-    _render (elements) {
+    _render(elements) {
         this.widget = new WidgetComponent(elements);
         document.body.appendChild(this.widget.element);
     }
 
-    _endLoading () {
+    _endLoading() {
         document.querySelector('#loader').style.display = 'none';
 
         this.widget.show();
