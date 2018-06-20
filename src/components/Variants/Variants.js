@@ -24,7 +24,7 @@ export default function Variants ({
         init: (data) => {
             data = Object.assign({}, data);
             const amounts = data.merchant_payment_sum_amount && data.merchant_payment_sum_amount.length
-                ? data.merchant_payment_sum_amount.reverse()
+                ? data.merchant_payment_sum_amount
                 : defaultValue;
 
             buttons = amounts.map((amount) => {
