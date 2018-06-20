@@ -1,3 +1,3 @@
 export default {
-    url: 'https://my.qiwi.com/partners_api/merchant_widget_info'
+    url: 'http://localhost:9922/partners_api/merchant_widget_info'
 }

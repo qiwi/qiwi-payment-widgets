@@ -1,7 +1,7 @@
 import './style.css';
 import Button from '../Button';
 import redirection from '../../modules/redirection';
-import { numberWithSpaces } from '../../modules/parsers';
+import {numberWithSpaces} from '../../modules/parsers';
 
 export default function Variants ({
     defaultValue = [50, 100, 500],
@@ -11,18 +11,7 @@ export default function Variants ({
 
     container.className = 'widget__variants';
 
-    let buttons = defaultValue.map((amount) => {
-        const button = Button({
-            classes: 'widget__button--inline',
-            title: numberWithSpaces(amount) + '&#x20bd;'
-        });
-
-        button.disable();
-
-        container.appendChild(button.element);
-
-        return button;
-    });
+    let buttons = [];
 
     const component = {
         element: container,
@@ -34,12 +23,14 @@ export default function Variants ({
         },
         init: (data) => {
             data = Object.assign({}, data);
-            const amounts =
-                data.merchant_payment_sum_amount.reverse() ||
-                defaultValue;
+            const amounts = data.merchant_payment_sum_amount && data.merchant_payment_sum_amount.length
+                ? data.merchant_payment_sum_amount.reverse()
+                : defaultValue;
 
-            buttons = amounts.map((amount, index) => {
-                const button = buttons[index];
+            buttons = amounts.map((amount) => {
+                const button = Button({
+                    classes: 'widget__button--inline'
+                });
                 data.merchant_button_text = numberWithSpaces(amount) + '&#x20bd;';
                 button.init(data);
                 button.disable();
