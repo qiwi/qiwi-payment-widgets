@@ -6,7 +6,7 @@ import Desc from '../../components/Desc';
 import Link from '../../components/Link';
 import Forms from '../../components/Forms';
 import Form from '../../components/Form';
-import AnotherAmountButton from '../../components/Trigger';
+import AnotherAmountButton from '../../components/AnotherAmountButton';
 import Variants from '../../components/Variants';
 import Block from '../../components/Block';
 import Oferta from '../../components/Oferta';
