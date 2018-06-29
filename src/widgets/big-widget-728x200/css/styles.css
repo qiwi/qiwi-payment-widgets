@@ -5,6 +5,14 @@
     padding: 25px 30px 0;
 }
 
+.widget--row {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+
 .widget__title {
     text-align: left;
     margin: 0;
@@ -69,6 +77,12 @@
     font-size: 14px;
     top: 0;
     left: 203px;
+}
+
+.widget__main {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .widget__footer {

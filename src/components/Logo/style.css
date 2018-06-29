@@ -1,0 +1,8 @@
+.widget__image{
+    background: url('./assets/default.svg') no-repeat top center;
+    background-size: contain;
+    margin-right: 35px;
+    width: 116px;
+    height: 100%;
+    margin-bottom: 35px;
+}

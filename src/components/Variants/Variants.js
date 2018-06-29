@@ -4,7 +4,7 @@ import redirection from '../../modules/redirection';
 import {numberWithSpaces} from '../../modules/parsers';
 
 export default function Variants ({
-    defaultValue = [50, 100, 500],
+    defaultValue = [100, 500],
     redirectionHandler = redirection
 } = {}) {
     const container = document.createElement('div');

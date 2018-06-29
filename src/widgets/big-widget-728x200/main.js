@@ -3,7 +3,7 @@ import Widget from '../../modules/widget';
 import Title from '../../components/Title';
 import PaymentIcons from '../../components/PaymentIcons';
 import Desc from '../../components/Desc';
-import Link from '../../components/Link';
+import Logo from '../../components/Logo';
 import Forms from '../../components/Forms';
 import Form from '../../components/Form';
 import AnotherAmountButton from '../../components/AnotherAmountButton';
@@ -13,15 +13,15 @@ import Oferta from '../../components/Oferta';
 
 import './css/styles.css';
 
-let defaultVariants = [50, 100, 500];
+let defaultVariants = [100, 500];
 
 const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
 const widgetDesc = Desc();
-const widgetLink = Link();
+const widgetImage = Logo();
 const widgetOferta = Oferta();
 const widgetFormTrigger = AnotherAmountButton();
-const widgetBlock = Block([widgetPaymentIcons, widgetOferta, widgetLink], 'widget__footer');
+const widgetFooter = Block([widgetPaymentIcons, widgetOferta], 'widget__footer');
 
 const widgetVariants = Variants({ defaultVariants });
 
@@ -37,7 +37,10 @@ const widgetForms = Forms([
     }
 ]);
 
-const elements = [widgetTitle, widgetDesc, widgetForms, widgetBlock];
+const widgetBlock = Block([widgetTitle, widgetDesc, widgetForms, widgetFooter], 'widget__main');
+const widgetContainer = Block([widgetImage, widgetBlock], 'widget--row');
+
+const elements = [widgetContainer];
 
 const bigWidget728x200 = new Widget(elements);
 
