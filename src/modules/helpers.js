@@ -37,3 +37,24 @@ export function stylesArrayToObject (styles) {
         return acc;
     }, {});
 }
+
+export function isURLWithImageValid (url) {
+    return new Promise(function (resolve) {
+        let testImg = new Image(0, 0);
+
+        let timedOut = false;
+        let timer;
+        testImg.onload = function () {
+            if (!timedOut) {
+                clearTimeout(timer);
+                testImg = null;
+                resolve('success');
+            }
+        };
+        testImg.src = url;
+        timer = setTimeout(function () {
+            timedOut = true;
+            testImg.src = '??/invalidUrl.jpg';
+        }, 5000);
+    })
+}
