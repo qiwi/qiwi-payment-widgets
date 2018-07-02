@@ -1,7 +1,6 @@
 .widget__image{
     background: url('./assets/default.svg') no-repeat top center;
-    background-size: contain;
     border-radius: 10px 0 0 10px;
     width: 200px;
-    height: 200px;
+    max-height: 200px;
 }
