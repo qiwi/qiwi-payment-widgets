@@ -1,11 +1,12 @@
-import {getPublicKey} from './parsers';
-import {getMerchantInfoByKey} from './api';
+import {getAlias, getPublicKey} from './parsers';
+import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
 import {styleCode, stylesArrayToObject} from './helpers';
 
 export default class Widget {
     constructor(elements) {
         this._render(elements);
+        this.alias = getAlias();
         this.publicKey = getPublicKey();
     }
 
@@ -13,7 +14,14 @@ export default class Widget {
         let data = {};
 
         try {
-            if (this.publicKey) {
+            if (this.alias) {
+                data = await getMerchantInfoByAlias(this.alias);
+                // у кнопки может быть задано несколько текстов от мерчанта
+                // непонятно зачем, везде использовался 0, поэтому переопределяем
+                // в точке входа данных
+                data.merchant_button_text = data.merchant_button_text[0];
+                data.merchant_styles = stylesArrayToObject(data.merchant_styles);
+            } else if (this.publicKey) {
                 data = await getMerchantInfoByKey(this.publicKey);
                 // у кнопки может быть задано несколько текстов от мерчанта
                 // непонятно зачем, везде использовался 0, поэтому переопределяем

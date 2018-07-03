@@ -5,7 +5,7 @@ function makeRequest (id, type) {
     let param = `merchant_public_key=${id}`;
 
     if (type === 'alias') {
-        param = `merchant_alias_code=${merchantAlias}`;
+        param = `merchant_alias_code=${id}`;
     }
 
     return fetch(`${url}?${param}`, {

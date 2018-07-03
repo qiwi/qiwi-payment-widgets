@@ -15,7 +15,8 @@ export function getHostName (url = '') {
 }
 
 export function getAlias () {
-    return window.location.pathname.match(/([^/]*)\/*$/)[1];
+    return getParameterByName('alias');
+    // return window.location.pathname.match(/([^/]*)\/*$/)[1];
 }
 
 export function getPublicKey () {
