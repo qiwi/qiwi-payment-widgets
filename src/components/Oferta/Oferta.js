@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Oferta (link = '') {
     const container = document.createElement('div');
@@ -22,7 +22,7 @@ export default function Oferta (link = '') {
             container.style.display = 'none';
         },
         changeColor: (backgroundColor) => {
-            container.style.color = getTextColorByBackground(backgroundColor);
+            container.style.color = getContrastColorByBackground(backgroundColor);
         },
         init: (data) => {
             if (data.merchant_offer) {

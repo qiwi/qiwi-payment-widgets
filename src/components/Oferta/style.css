@@ -9,6 +9,6 @@
 }
 
 .widget__oferta-link {
-    text-decoration: none;
-    color: #0629a3;
+    text-decoration: underline;
+    color: inherit;
 }
