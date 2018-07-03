@@ -1,4 +1,4 @@
-const color = {
+export const color = {
     BLACK: '#000000',
     WHITE: '#FFFFFF'
 };
@@ -22,7 +22,7 @@ function convertHexToRgb (hex) {
     } : null;
 }
 
-export function getTextColorByBackground (backgroundColor) {
+export function getContrastColorByBackground (backgroundColor) {
     const rgbBackgroundColor = convertHexToRgb(backgroundColor);
     if (rgbBackgroundColor) {
         let a = 1 - (0.299 * rgbBackgroundColor.r + 0.587 * rgbBackgroundColor.g + 0.114 * rgbBackgroundColor.b) / 255;

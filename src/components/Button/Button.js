@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Button ({
     classes = '',
@@ -21,7 +21,7 @@ export default function Button ({
         },
         _changeBackgroundColor: (color) => {
             component.element.style.backgroundColor = color;
-            component.element.style.color = getTextColorByBackground(color);
+            component.element.style.color = getContrastColorByBackground(color);
         },
         disable: () => {
             component.element.disabled = true;

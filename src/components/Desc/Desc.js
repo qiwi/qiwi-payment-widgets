@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Desc () {
     const desc = document.createElement('div');
@@ -13,7 +13,7 @@ export default function Desc () {
             desc.innerHTML = text;
         },
         changeColor: (backgroundColor) => {
-            desc.style.color = getTextColorByBackground(backgroundColor);
+            desc.style.color = getContrastColorByBackground(backgroundColor);
         },
         init: (data) => {
             component.changeText(data.merchant_widget_description);

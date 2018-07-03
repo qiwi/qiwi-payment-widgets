@@ -1,5 +1,5 @@
 import './style.css';
-import {getTextColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Title () {
     const container = document.createElement('div');
@@ -13,7 +13,7 @@ export default function Title () {
             title.innerHTML = newTitle;
         },
         changeColor: (backgroundColor) => {
-            title.style.color = getTextColorByBackground(backgroundColor);
+            title.style.color = getContrastColorByBackground(backgroundColor);
         },
         showError: (newTitle = 'ОШИБКА!') => {
             title.innerHTML = newTitle;
