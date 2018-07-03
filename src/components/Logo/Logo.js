@@ -9,7 +9,7 @@ export default function Logo () {
     const component = {
         element: container,
         init: (data) => {
-            component.changeImage(data.merchant_icon_small_url);
+            component.changeImage(data.merchant_logo_url);
         },
         changeImage: (url) => {
             isURLWithImageValid(url).then(function () {
