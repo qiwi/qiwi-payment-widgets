@@ -36,9 +36,10 @@ export default class Widget {
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
             if (this.isTransparent) {
-                console.log(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+                if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
+                    data.merchant_styles[styleCode.BUTTON_BACKGROUND] = data.merchant_styles[styleCode.WIDGET_BACKGROUND];
+                }
                 delete data.merchant_styles[styleCode.WIDGET_BACKGROUND];
-                console.log(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
             }
             this._addBackground(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
