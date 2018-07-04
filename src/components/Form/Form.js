@@ -3,6 +3,7 @@ import Button from '../Button';
 import redirection from '../../modules/redirection';
 
 import './style.css';
+import {getContrastColorByBackground, styleCode} from "../../modules/helpers";
 
 export default function Form () {
     let merchantInfo = {};
@@ -44,6 +45,9 @@ export default function Form () {
             field.enable();
         },
         init: (data) => {
+            if (data.merchant_styles[styleCode.WIDGET_BACKGROUND]) {
+                container.style.color = getContrastColorByBackground(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+            }
             component._addMerchantInfo(data);
             button.init(data);
             component.enable();

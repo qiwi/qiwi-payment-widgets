@@ -1,4 +1,5 @@
 import './style.css';
+import {getContrastColorByBackground, styleCode} from "../../modules/helpers";
 
 const template = `
     <input type="number" class="widget__input" id="donation-amount" required>
@@ -59,8 +60,7 @@ export default function Field (transmitValue) {
 
         transmitValue(field.value, error);
     });
-
-    return {
+    const component = {
         element: container,
         disable: () => {
             field.disabled = true;
@@ -71,4 +71,6 @@ export default function Field (transmitValue) {
             container.classList.remove('widget__field--disabled');
         }
     };
+
+    return component;
 }
