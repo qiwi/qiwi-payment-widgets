@@ -15,7 +15,7 @@ export default function Title () {
         changeColor: (backgroundColor) => {
             title.style.color = getContrastColorByBackground(backgroundColor);
         },
-        showError: (newTitle = 'ОШИБКА!') => {
+        showError: (newTitle = 'Ошибка при загрузке информации о фонде, пожалуйста, попробуйте позднее.') => {
             title.innerHTML = newTitle;
             title.classList.add('widget__title--error');
         },

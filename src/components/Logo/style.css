@@ -1,5 +1,5 @@
 .widget__image{
-    background: url('./assets/default.svg') no-repeat top center;
+    background: url('./assets/default.svg') no-repeat center;
     border-radius: 10px 0 0 10px;
     width: 200px;
     max-height: 200px;
