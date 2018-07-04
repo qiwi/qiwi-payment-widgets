@@ -10,7 +10,8 @@ const widgetPaymentIcons = PaymentIcons();
 const widgetButton = Button();
 
 const elements = [widgetButton, widgetPaymentIcons];
+const isTransparent = true;
 
-const middleButton200x80 = new Widget(elements);
+const middleButton200x80 = new Widget(elements, isTransparent);
 
 middleButton200x80.init();

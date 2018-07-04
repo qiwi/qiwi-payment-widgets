@@ -13,6 +13,8 @@ const widgetOferta = Oferta();
 
 const elements = [widgetButton, widgetPaymentIcons, widgetOferta];
 
-const bigButton220x100 = new Widget(elements);
+const isTransparent = true;
+
+const bigButton220x100 = new Widget(elements, isTransparent);
 
 bigButton220x100.init();

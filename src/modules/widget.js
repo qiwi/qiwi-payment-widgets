@@ -4,9 +4,10 @@ import WidgetComponent from '../components/Widget';
 import {styleCode, stylesArrayToObject} from './helpers';
 
 export default class Widget {
-    constructor(elements) {
+    constructor(elements, isTransparent = false) {
         this._render(elements);
         this.alias = getAlias();
+        this.isTransparent = isTransparent;
         this.publicKey = getPublicKey();
     }
 
@@ -34,6 +35,11 @@ export default class Widget {
 
             this._changeTabTitle(data.merchant_name);
             this._addMetricCounter(data.merchant_metric);
+            if (this.isTransparent) {
+                console.log(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+                delete data.merchant_styles[styleCode.WIDGET_BACKGROUND];
+                console.log(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+            }
             this._addBackground(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
