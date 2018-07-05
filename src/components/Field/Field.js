@@ -69,7 +69,6 @@ export default function Field (transmitValue) {
         },
         init: (data) => {
             if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
-                console.log(container.getElementsByClassName('widget__bar').toString());
                 container.querySelector('div.widget__field div.widget__bar').style.background = data.merchant_styles[styleCode.BUTTON_BACKGROUND];
             }
         }

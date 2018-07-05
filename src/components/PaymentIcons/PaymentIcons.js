@@ -1,5 +1,5 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers.js';
+import {getContrastColorByBackground, styleCode, color, isBrowserSupportsSvg, imgSrcOrder} from '../../modules/helpers.js';
 
 export default function PaymentIcons () {
     const paymentIcons = document.createElement('div');
@@ -20,12 +20,14 @@ export default function PaymentIcons () {
         },
         setBackground: (widgetBackground) => {
             const contrastColor = getContrastColorByBackground(widgetBackground);
-            const bgIndexInStyle = contrastColor === color.WHITE ? 0 : 1;
+            const bgImageIndex = isBrowserSupportsSvg() ? imgSrcOrder.SVG : imgSrcOrder.PNG;
+            const bgIndexInStyle = (contrastColor === color.WHITE ? 0 : 2) + bgImageIndex; // look in paymentIcons/style.css there are 4 backgrounds to choose
+
             const paymentMethods = component.element.querySelectorAll('[class*=widget__payment-block-]');
 
             paymentMethods.forEach(function (paymentMethod) {
                 const backgrounds = window.getComputedStyle(paymentMethod).getPropertyValue('background-image').split(', url(');
-                if (bgIndexInStyle === 1) {
+                if (bgIndexInStyle > 0) {
                     backgrounds[bgIndexInStyle] = `url(${backgrounds[bgIndexInStyle]}`;
                 }
                 paymentMethod.style.backgroundImage = backgrounds[bgIndexInStyle];

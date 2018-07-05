@@ -3,6 +3,11 @@ export const color = {
     WHITE: '#FFFFFF'
 };
 
+export const imgSrcOrder = {
+    SVG: 0,
+    PNG: 1
+};
+
 export const styleCode = {
     BUTTON_BACKGROUND: 'BUTTON_BACKGROUND',
     WIDGET_BACKGROUND: 'WIDGET_BACKGROUND'
@@ -57,4 +62,8 @@ export function isURLWithImageValid (url) {
             testImg.src = '??/invalidUrl.jpg';
         }, 5000);
     })
+}
+
+export function isBrowserSupportsSvg () {
+    return typeof SVGRect !== 'undefined';
 }
