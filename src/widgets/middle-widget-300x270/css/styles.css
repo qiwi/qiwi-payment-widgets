@@ -32,6 +32,10 @@
     box-shadow: 0 12px 15px 0 rgba(255, 140, 0, 0.2);
 }
 
+.widget__be-partner{
+    margin-top: 10px;
+}
+
 .widget__payment-block {
     width: 203px;
     height: 18px;

@@ -1,5 +1,5 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
 
 export default function Oferta (link = '') {
     const container = document.createElement('div');
@@ -27,9 +27,8 @@ export default function Oferta (link = '') {
         init: (data) => {
             if (data.merchant_offer) {
                 component.addLink(data.merchant_offer);
-                if (data.merchant_styles[styleCode.WIDGET_BACKGROUND]) {
-                    component.changeColor(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
-                }
+                const bgColor = data.merchant_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+                component.changeColor(bgColor);
                 component.show();
                 document.body.classList.add('block_oferted');
             } else {

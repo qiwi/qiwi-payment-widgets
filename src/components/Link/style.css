@@ -1,8 +1,9 @@
 .widget__be-partner {
     display: block;
-    margin: 27px auto 0;
+    height: 12px;
     font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-size: 13px;
+    font-size: 10px;
+    opacity: 0.6;
     font-weight: 300;
     text-align: center;
     text-decoration: underline;

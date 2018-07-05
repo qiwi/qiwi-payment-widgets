@@ -1,21 +1,18 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode} from "../../modules/helpers";
+import {styleCode} from '../../modules/helpers';
 
 const template = `
     <input type="number" class="widget__input" id="donation-amount" required>
     <label class="widget__label" for="donation-amount">Cумма</label>
     <div class="widget__currency">₽</div>
     <div class="widget__bar"></div>
-    <div class="widget__message" id="error-message">Введите сумму</div>`;
+    <div class="widget__message" id="error-message"></div>`;
 
 const errorMessage = (value) => {
     let message = '';
 
     if (!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)) {
         message = 'Некорректная сумма';
-    }
-    if (!value) {
-        message = 'Введите сумму';
     }
     if (parseFloat(value) < 1) {
         message = 'Минимальная сумма 1 ₽';
@@ -69,6 +66,12 @@ export default function Field (transmitValue) {
         enable: () => {
             field.disabled = false;
             container.classList.remove('widget__field--disabled');
+        },
+        init: (data) => {
+            if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
+                console.log(container.getElementsByClassName('widget__bar').toString());
+                container.querySelector('div.widget__field div.widget__bar').style.background = data.merchant_styles[styleCode.BUTTON_BACKGROUND];
+            }
         }
     };
 

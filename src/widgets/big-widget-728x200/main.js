@@ -4,6 +4,7 @@ import Title from '../../components/Title';
 import PaymentIcons from '../../components/PaymentIcons';
 import Desc from '../../components/Desc';
 import Logo from '../../components/Logo';
+import Link from '../../components/Link'
 import Forms from '../../components/Forms';
 import Form from '../../components/Form';
 import AnotherAmountButton from '../../components/AnotherAmountButton';
@@ -18,7 +19,8 @@ let defaultVariants = [100, 500];
 const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
 const widgetDesc = Desc();
-const widgetImage = Logo();
+const widgetLogo = Logo();
+const widgetLink = Link();
 const widgetOferta = Oferta();
 const widgetFormTrigger = AnotherAmountButton();
 const widgetFooter = Block([widgetPaymentIcons, widgetOferta], 'widget__footer');
@@ -37,8 +39,9 @@ const widgetForms = Forms([
     }
 ]);
 
-const widgetBlock = Block([widgetTitle, widgetDesc, widgetForms, widgetFooter], 'widget__main');
-const widgetContainer = Block([widgetImage, widgetBlock], 'widget--row');
+const widgetMainBlock = Block([widgetTitle, widgetDesc, widgetForms, widgetFooter], 'widget__main-block');
+const widgetLogoBlock = Block([widgetLogo, widgetLink], 'widget__image-block');
+const widgetContainer = Block([widgetLogoBlock, widgetMainBlock], 'widget--row');
 
 const elements = [widgetContainer];
 

@@ -1,5 +1,5 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
+import {color, getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Desc () {
     const desc = document.createElement('div');
@@ -17,9 +17,8 @@ export default function Desc () {
         },
         init: (data) => {
             component.changeText(data.merchant_widget_description);
-            if (data.merchant_styles[styleCode.WIDGET_BACKGROUND]) {
-                component.changeColor(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
-            }
+            const bgColor = data.merchant_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            component.changeColor(bgColor);
         },
         element: desc
     };
