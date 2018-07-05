@@ -28,39 +28,9 @@
         "params": {}
     },
     {
-        "name": "middle-button-200x80",
-        "link": "middle-button-200x80",
-        "height": 80,
-        "width": 200,
-        "type": "widget",
-        "params": {
-            "public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
-        }
-    },
-    {
-        "name": "small-button-175x65",
-        "link": "small-button-175x65",
-        "height": 65,
-        "width": 175,
-        "type": "widget",
-        "params": {
-            "public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
-        }
-    },
-    {
         "name": "middle-widget-300x300",
         "link": "middle-widget-300x300",
         "height": 300,
-        "width": 300,
-        "type": "widget",
-        "params": {
-            "public_key": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
-        }
-    },
-    {
-        "name": "middle-widget-300x270",
-        "link": "middle-widget-300x270",
-        "height": 270,
         "width": 300,
         "type": "widget",
         "params": {
