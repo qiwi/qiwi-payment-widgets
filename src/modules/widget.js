@@ -31,7 +31,7 @@ export default class Widget {
                 }
                 delete data.widget_styles[styleCode.WIDGET_BACKGROUND];
             }
-            console.log(data);
+
             this._addBackground(data.widget_styles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {

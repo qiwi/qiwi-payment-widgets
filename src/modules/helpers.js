@@ -37,7 +37,7 @@ export function getContrastColorByBackground (backgroundColor) {
 
 export function stylesArrayToObject (styles) {
     if (!styles) return {};
-    console.log(styles);
+
     return styles.reduce((acc, item) => {
         acc[item.widget_style_code] = item.widget_style_value;
         return acc;
