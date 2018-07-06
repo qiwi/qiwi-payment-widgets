@@ -3,7 +3,7 @@ import { getHostName } from './parsers';
 function makeLinkCheckout (params) {
     const url = 'https://oplata.qiwi.com/create';
     const parsedParams = new URLSearchParams(params);
-
+    console.log(parsedParams.toString());
     return `${url}?${parsedParams.toString()}`;
 }
 
@@ -16,24 +16,24 @@ export default function redirection (
         widget_alias_code
     }
 ) {
-    const public_key = merchant_site_public_key;
+    const publicKey = merchant_site_public_key;
 
-    const success_url = widget_success_url || '';
+    const successUrl = widget_success_url || '';
 
-    const fail_url = widget_fail_url || '';
+    const failUrl = widget_fail_url || '';
 
-    const extra_widget_alias = widget_alias_code || '';
+    const extra_widgetAlias = widget_alias_code || '';
 
-    const extra_widget_refferer = getHostName(document.referrer);
+    const extra_widgetRefferer = getHostName(document.referrer);
 
-    if (public_key) {
+    if (publicKey) {
         const checkoutParams = {
-            public_key,
+            publicKey,
             amount,
-            success_url,
-            fail_url,
-            extra_widget_alias,
-            extra_widget_refferer
+            successUrl,
+            failUrl,
+            extra_widgetAlias,
+            extra_widgetRefferer
         };
 
         let link = makeLinkCheckout(checkoutParams);
