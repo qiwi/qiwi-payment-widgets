@@ -31,7 +31,7 @@ export default function Variants ({
                 const button = Button({
                     classes: 'widget__button--inline'
                 });
-                data.merchant_button_text = numberWithSpaces(amount) + '&#x20bd;';
+                data.widget_button_text = numberWithSpaces(amount) + '&#x20bd;';
                 button.init(data);
                 button.disable();
 

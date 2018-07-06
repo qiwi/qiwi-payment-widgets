@@ -30,9 +30,9 @@ export default function Button ({
             component.element.disabled = false;
         },
         init: (data) => {
-            component._changeText(data.merchant_button_text || title);
-            if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
-                component._changeBackgroundColor(data.merchant_styles[styleCode.BUTTON_BACKGROUND]);
+            component._changeText(data.widget_button_text || title);
+            if (data.widget_styles[styleCode.BUTTON_BACKGROUND]) {
+                component._changeBackgroundColor(data.widget_styles[styleCode.BUTTON_BACKGROUND]);
             }
             component.enable();
         },

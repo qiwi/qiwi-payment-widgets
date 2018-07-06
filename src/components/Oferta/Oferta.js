@@ -25,9 +25,9 @@ export default function Oferta (link = '') {
             container.style.color = getContrastColorByBackground(backgroundColor);
         },
         init: (data) => {
-            if (data.merchant_offer) {
-                component.addLink(data.merchant_offer);
-                const bgColor = data.merchant_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            if (data.widget_merchant_offer) {
+                component.addLink(data.widget_merchant_offer);
+                const bgColor = data.widget_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
                 component.changeColor(bgColor);
                 component.show();
                 document.body.classList.add('block_oferted');

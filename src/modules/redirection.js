@@ -10,19 +10,19 @@ function makeLinkCheckout (params) {
 export default function redirection (
     amount = 0,
     {
-        merchant_success_url,
-        merchant_fail_url,
-        merchant_public_key,
-        merchant_alias_code
+        widget_success_url,
+        widget_fail_url,
+        merchant_site_public_key,
+        widget_alias_code
     }
 ) {
-    const public_key = merchant_public_key;
+    const public_key = merchant_site_public_key;
 
-    const success_url = merchant_success_url || '';
+    const success_url = widget_success_url || '';
 
-    const fail_url = merchant_fail_url || '';
+    const fail_url = widget_fail_url || '';
 
-    const extra_widget_alias = merchant_alias_code || '';
+    const extra_widget_alias = widget_alias_code || '';
 
     const extra_widget_refferer = getHostName(document.referrer);
 

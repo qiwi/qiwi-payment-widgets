@@ -1,7 +1,7 @@
 import {getAlias, getPublicKey} from './parsers';
 import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
-import {styleCode, stylesArrayToObject} from './helpers';
+import {styleCode, stylesArrayToObject, isBrowserSupportsSvg} from './helpers';
 
 export default class Widget {
     constructor(elements, isTransparent = false) {
@@ -17,31 +17,22 @@ export default class Widget {
         try {
             if (this.alias) {
                 data = await getMerchantInfoByAlias(this.alias);
-                // у кнопки может быть задано несколько текстов от мерчанта
-                // непонятно зачем, везде использовался 0, поэтому переопределяем
-                // в точке входа данных
-                data.merchant_button_text = data.merchant_button_text[0];
-                data.merchant_styles = stylesArrayToObject(data.merchant_styles);
             } else if (this.publicKey) {
                 data = await getMerchantInfoByKey(this.publicKey);
-                // у кнопки может быть задано несколько текстов от мерчанта
-                // непонятно зачем, везде использовался 0, поэтому переопределяем
-                // в точке входа данных
-                data.merchant_button_text = data.merchant_button_text[0];
-                data.merchant_styles = stylesArrayToObject(data.merchant_styles);
             } else {
                 throw new Error('No public key or alias in url');
             }
-
-            this._changeTabTitle(data.merchant_name);
-            this._addMetricCounter(data.merchant_metric);
+            data.widget_styles = stylesArrayToObject(data.widget_styles);
+            this._changeTabTitle(data.widget_merchant_name);
+            this._addMetricCounter(data.widget_merchant_metric);
             if (this.isTransparent) {
-                if (data.merchant_styles[styleCode.BUTTON_BACKGROUND]) {
-                    data.merchant_styles[styleCode.BUTTON_BACKGROUND] = data.merchant_styles[styleCode.WIDGET_BACKGROUND];
+                if (data.widget_styles[styleCode.BUTTON_BACKGROUND]) {
+                    data.widget_styles[styleCode.BUTTON_BACKGROUND] = data.widget_styles[styleCode.WIDGET_BACKGROUND];
                 }
-                delete data.merchant_styles[styleCode.WIDGET_BACKGROUND];
+                delete data.widget_styles[styleCode.WIDGET_BACKGROUND];
             }
-            this._addBackground(data.merchant_styles[styleCode.WIDGET_BACKGROUND]);
+            console.log(data);
+            this._addBackground(data.widget_styles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
             this.widget.dispose();

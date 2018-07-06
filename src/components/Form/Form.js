@@ -45,7 +45,7 @@ export default function Form () {
             field.enable();
         },
         init: (data) => {
-            const bgColor = data.merchant_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            const bgColor = data.widget_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             container.style.color = getContrastColorByBackground(bgColor);
             field.init(data);
             component._addMerchantInfo(data);
