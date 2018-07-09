@@ -15,7 +15,7 @@ export default function PaymentIcons () {
     const component = {
         element: paymentIcons,
         init: (data) => {
-            const bgColor = data.widget_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             component.setBackground(bgColor);
         },
         setBackground: (widgetBackground) => {

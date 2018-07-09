@@ -15,7 +15,7 @@ let dataWithPublicKey = JSON.parse(JSON.stringify(widgetTemps));
 
 dataWithAlias = dataWithAlias.map((temp) => {
     temp.params.alias = '';
-    delete temp.params.public_key;
+    delete temp.params.publicKey;
     temp.params = querystring.stringify(temp.params);
     return temp;
 });

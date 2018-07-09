@@ -21,8 +21,8 @@ export default function Title () {
         },
         element: title,
         init: (data) => {
-            component.changeTitle(data.widget_merchant_name);
-            const bgColor = data.widget_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            component.changeTitle(data.widgetMerchantName);
+            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             component.changeColor(bgColor);
         },
         dispose: () => {

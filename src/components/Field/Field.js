@@ -68,8 +68,8 @@ export default function Field (transmitValue) {
             container.classList.remove('widget__field--disabled');
         },
         init: (data) => {
-            if (data.widget_styles[styleCode.BUTTON_BACKGROUND]) {
-                container.querySelector('div.widget__field div.widget__bar').style.background = data.widget_styles[styleCode.BUTTON_BACKGROUND];
+            if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
+                container.querySelector('div.widget__field div.widget__bar').style.background = data.widgetStyles[styleCode.BUTTON_BACKGROUND];
             }
         }
     };

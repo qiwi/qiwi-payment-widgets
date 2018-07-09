@@ -19,7 +19,7 @@ export function getAlias () {
 }
 
 export function getPublicKey () {
-    return getParameterByName('public_key');
+    return getParameterByName('publicKey');
 }
 
 export function numberWithSpaces (number) {

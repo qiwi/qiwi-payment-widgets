@@ -17,7 +17,7 @@ export default function Desc () {
         },
         init: (data) => {
             component.changeText(data.widget_description);
-            const bgColor = data.widget_styles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             component.changeColor(bgColor);
         },
         element: desc

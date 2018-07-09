@@ -23,15 +23,15 @@ export default function Variants ({
         },
         init: (data) => {
             data = Object.assign({}, data);
-            const amounts = data.merchant_payment_sum_amount && data.merchant_payment_sum_amount.length
-                ? data.merchant_payment_sum_amount
+            const amounts = data.merchantPaymentSumAmount && data.merchantPaymentSumAmount.length && data.merchantPaymentSumAmount.length > 0
+                ? data.merchantPaymentSumAmount
                 : defaultValue;
 
             buttons = amounts.map((amount) => {
                 const button = Button({
                     classes: 'widget__button--inline'
                 });
-                data.widget_button_text = numberWithSpaces(amount) + '&#x20bd;';
+                data.widgetButtonText = numberWithSpaces(amount) + '&#x20bd;';
                 button.init(data);
                 button.disable();
 

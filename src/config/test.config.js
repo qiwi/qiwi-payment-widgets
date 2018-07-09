@@ -1,3 +1,3 @@
 export default {
-    url: 'https://my-test.qiwi.com/partners_api/widget_info'
+    url: 'https://my-test.qiwi.com/api/widgets/widget-info'
 }

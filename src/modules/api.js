@@ -2,10 +2,10 @@ import config from '../config/default';
 
 function makeRequest (id, type) {
     let url = config.url;
-    let param = `merchant_site_public_key=${id}`;
+    let param = `merchantSitePublicKey=${id}`;
 
     if (type === 'alias') {
-        param = `widget_alias_code=${id}`;
+        param = `widgetAliasCode=${id}`;
     }
 
     return fetch(`${url}?${param}`, {

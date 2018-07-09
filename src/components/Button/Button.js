@@ -30,9 +30,9 @@ export default function Button ({
             component.element.disabled = false;
         },
         init: (data) => {
-            component._changeText(data.widget_button_text || title);
-            if (data.widget_styles[styleCode.BUTTON_BACKGROUND]) {
-                component._changeBackgroundColor(data.widget_styles[styleCode.BUTTON_BACKGROUND]);
+            component._changeText(data.widgetButtonText || title);
+            if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
+                component._changeBackgroundColor(data.widgetStyles[styleCode.BUTTON_BACKGROUND]);
             }
             component.enable();
         },

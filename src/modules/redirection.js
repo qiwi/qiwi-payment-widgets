@@ -14,18 +14,18 @@ export default function redirection(
     amount = 0,
     {
         widget_success_url,
-        widget_fail_url,
-        merchant_site_public_key,
-        widget_alias_code
+        widgetFailUrl,
+        merchantSitePublicKey,
+        widgetAliasCode
     }
 ) {
-    const publicKey = merchant_site_public_key;
+    const publicKey = merchantSitePublicKey;
 
     const successUrl = widget_success_url || '';
 
-    const failUrl = widget_fail_url || '';
+    const failUrl = widgetFailUrl || '';
 
-    const widgetAlias = widget_alias_code || '';
+    const widgetAlias = widgetAliasCode || '';
 
     const widgetRefferer = getHostName(document.referrer);
 

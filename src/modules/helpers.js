@@ -39,7 +39,7 @@ export function stylesArrayToObject (styles) {
     if (!styles) return {};
 
     return styles.reduce((acc, item) => {
-        acc[item.widget_style_code] = item.widget_style_value;
+        acc[item.widgetStyleCode] = item.widgetStyleValue;
         return acc;
     }, {});
 }

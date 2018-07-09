@@ -22,17 +22,17 @@ export default class Widget {
             } else {
                 throw new Error('No public key or alias in url');
             }
-            data.widget_styles = stylesArrayToObject(data.widget_styles);
-            this._changeTabTitle(data.widget_merchant_name);
-            this._addMetricCounter(data.widget_merchant_metric);
+            data.widgetStyles = stylesArrayToObject(data.widgetStyles);
+            this._changeTabTitle(data.widgetMerchantName);
+            this._addMetricCounter(data.widgetMerchantMetric);
             if (this.isTransparent) {
-                if (data.widget_styles[styleCode.BUTTON_BACKGROUND]) {
-                    data.widget_styles[styleCode.BUTTON_BACKGROUND] = data.widget_styles[styleCode.WIDGET_BACKGROUND];
+                if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
+                    data.widgetStyles[styleCode.BUTTON_BACKGROUND] = data.widgetStyles[styleCode.WIDGET_BACKGROUND];
                 }
-                delete data.widget_styles[styleCode.WIDGET_BACKGROUND];
+                delete data.widgetStyles[styleCode.WIDGET_BACKGROUND];
             }
 
-            this._addBackground(data.widget_styles[styleCode.WIDGET_BACKGROUND]);
+            this._addBackground(data.widgetStyles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
             this.widget.dispose();
