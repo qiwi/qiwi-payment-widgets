@@ -1,13 +1,16 @@
-import { getHostName } from './parsers';
+import {getHostName} from './parsers';
 
-function makeLinkCheckout (params) {
+function makeLinkCheckout(params, extras) {
     const url = 'https://oplata.qiwi.com/create';
     const parsedParams = new URLSearchParams(params);
-    console.log(parsedParams.toString());
+    Object.getOwnPropertyNames(extras).forEach(extraName => {
+        parsedParams.append(`extras[${extraName}]`, `${extras[extraName]}`);
+    });
+
     return `${url}?${parsedParams.toString()}`;
 }
 
-export default function redirection (
+export default function redirection(
     amount = 0,
     {
         widget_success_url,
@@ -22,21 +25,26 @@ export default function redirection (
 
     const failUrl = widget_fail_url || '';
 
-    const extra_widgetAlias = widget_alias_code || '';
+    const widgetAlias = widget_alias_code || '';
 
-    const extra_widgetRefferer = getHostName(document.referrer);
+    const widgetRefferer = getHostName(document.referrer);
 
     if (publicKey) {
         const checkoutParams = {
             publicKey,
             amount,
             successUrl,
-            failUrl,
-            extra_widgetAlias,
-            extra_widgetRefferer
+            failUrl
         };
 
-        let link = makeLinkCheckout(checkoutParams);
+
+        const extras = {
+            widgetAlias,
+            widgetRefferer
+        };
+
+
+        let link = makeLinkCheckout(checkoutParams, extras);
 
         window.open(link, '_blank');
     }
