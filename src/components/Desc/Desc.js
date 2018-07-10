@@ -16,7 +16,7 @@ export default function Desc () {
             desc.style.color = getContrastColorByBackground(backgroundColor);
         },
         init: (data) => {
-            component.changeText(data.widget_description);
+            component.changeText(data.widgetDescription);
             const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             component.changeColor(bgColor);
         },

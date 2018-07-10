@@ -1,7 +1,7 @@
 import {getAlias, getPublicKey} from './parsers';
 import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
-import {styleCode, stylesArrayToObject, isBrowserSupportsSvg} from './helpers';
+import {styleCode, stylesArrayToObject} from './helpers';
 
 export default class Widget {
     constructor(elements, isTransparent = false) {
@@ -26,7 +26,7 @@ export default class Widget {
             this._changeTabTitle(data.widgetMerchantName);
             this._addMetricCounter(data.widgetMerchantMetric);
             if (this.isTransparent) {
-                if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
+                if (data.widgetStyles[styleCode.BUTTON_BACKGROUND] && data.widgetStyles[styleCode.WIDGET_BACKGROUND]) {
                     data.widgetStyles[styleCode.BUTTON_BACKGROUND] = data.widgetStyles[styleCode.WIDGET_BACKGROUND];
                 }
                 delete data.widgetStyles[styleCode.WIDGET_BACKGROUND];
