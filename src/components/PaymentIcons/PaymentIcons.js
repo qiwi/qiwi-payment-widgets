@@ -32,6 +32,9 @@ export default function PaymentIcons () {
                 }
                 paymentMethod.style.backgroundImage = backgrounds[bgIndexInStyle];
             })
+        },
+        dispose: () => {
+            component.element.style.display = 'none';
         }
     };
 

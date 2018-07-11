@@ -45,10 +45,10 @@ export default function Forms (structure, classes = '') {
     const component = {
         element: container,
         enable: () => {
-            trigger.element.disabled = false;
+            trigger.enable();
         },
         disable: () => {
-            trigger.element.disabled = true;
+            trigger.disable();
         },
         init: (data) => {
             component.enable();

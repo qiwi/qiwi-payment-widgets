@@ -14,7 +14,7 @@ const errorMessage = (value) => {
     if (!/^[0-9]{1,6}([,.][0-9]{1,2})?$/.test(value)) {
         message = 'Некорректная сумма';
     }
-    if (parseFloat(value) < 1) {
+    if (parseFloat(value) < 1 || !value) {
         message = 'Минимальная сумма 1 ₽';
     }
     if (parseFloat(value) > 500000) {
@@ -33,9 +33,11 @@ export default function Field (transmitValue) {
 
     const field = container.querySelector('#donation-amount');
 
-    field.addEventListener('input', (e) => {
-        field.parentNode.classList.remove('widget__field--error');
+    const messageBox = container.querySelector('#error-message');
 
+    field.addEventListener('input', (e) => {
+        messageBox.innerHTML = '';
+        field.parentNode.classList.remove('widget__field--error');
         let number = e.target.value.replace(/[^0-9,.]/g, '').substring(0, 9);
 
         field.value = number ? parseFloat(number, 10) : number;
@@ -43,8 +45,6 @@ export default function Field (transmitValue) {
         const error = errorMessage(field.value);
 
         if (error) {
-            const messageBox = container.querySelector('#error-message');
-
             messageBox.innerHTML = error;
 
             window.dataLayer.push({
