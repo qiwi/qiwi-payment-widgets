@@ -8,7 +8,7 @@
     "start": "node server.js",
     "dev": "cross-env NODE_ENV=development npm run build && cross-env NODE_ENV=development gulp watch --gulpfile tools/gulpTasks.js",
     "test-build": "npm run clean && cross-env NODE_ENV=test gulp --gulpfile tools/gulpTasks.js",
-    "clean": "rimraf widgets",
+    "clean": "rm -rf widgets",
     "build": "npm run clean && gulp --gulpfile tools/gulpTasks.js",
     "lint": "./node_modules/.bin/eslint src/**"
   },
