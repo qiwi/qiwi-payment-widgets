@@ -15,11 +15,11 @@ export function getHostName (url = '') {
 }
 
 export function getAlias () {
-    return window.location.pathname.match(/([^/]*)\/*$/)[1];
+    return getParameterByName('alias');
 }
 
 export function getPublicKey () {
-    return getParameterByName('public_key');
+    return getParameterByName('publicKey');
 }
 
 export function numberWithSpaces (number) {
@@ -40,6 +40,5 @@ function getParametersValues (enterWidgetParams) {
 
 function getParameterByName (param, urlSearch = window.location.search) {
     const searchParams = new URLSearchParams(urlSearch);
-
     return searchParams.get(param);
 }

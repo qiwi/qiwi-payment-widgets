@@ -1,10 +1,11 @@
-function makeRequest (id, type) {
-    let url = 'https://my.qiwi.com/partners_api/merchant_widget_info';
+import config from '../config/default';
 
-    let param = `merchant_public_key=${id}`;
+function makeRequest (id, type) {
+    let url = config.url;
+    let param = `merchantSitePublicKey=${id}`;
 
     if (type === 'alias') {
-        param = `merchant_alias_code=${merchantAlias}`;
+        param = `widgetAliasCode=${id}`;
     }
 
     return fetch(`${url}?${param}`, {

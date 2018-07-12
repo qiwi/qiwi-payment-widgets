@@ -6,7 +6,7 @@
         "width": 220,
         "type": "widget",
         "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
+            "publicKey": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
         }
     },
     {
@@ -16,7 +16,7 @@
         "width": 728,
         "type": "widget",
         "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
+            "publicKey": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
         }
     },
     {
@@ -28,43 +28,13 @@
         "params": {}
     },
     {
-        "name": "middle-button-200x80",
-        "link": "middle-button-200x80",
-        "height": 80,
-        "width": 200,
-        "type": "widget",
-        "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
-        }
-    },
-    {
-        "name": "small-button-175x65",
-        "link": "small-button-175x65",
-        "height": 65,
-        "width": 175,
-        "type": "widget",
-        "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
-        }
-    },
-    {
         "name": "middle-widget-300x300",
         "link": "middle-widget-300x300",
         "height": 300,
         "width": 300,
         "type": "widget",
         "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
-        }
-    },
-    {
-        "name": "middle-widget-300x270",
-        "link": "middle-widget-300x270",
-        "height": 270,
-        "width": 300,
-        "type": "widget",
-        "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
+            "publicKey": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
         }
     },
     {
@@ -74,7 +44,7 @@
         "width": 300,
         "type": "widget",
         "params": {
-            "public_key": "2tbp1WQvsgQeziGY9vTLe9vDZNg7tmCymb4Lh6STQokqKrpCC6qrUUKEDZAJ7mvTWBSQ6dfdCjBz7g7hH6MYUdV1fGemC9fiQArEZHpPnrV9r9rCiVjgrpKfVQwSz"
+            "publicKey": "5nAq6abtyCz4tcDj89e5w7Y5i524LAFmzrsN6bQTQ3ceEvMvCq55ToeErzhxNemD6rMzCtzRx9jhV5kUUUyG2BC9sqbKjkRVuFjWXicbby5XJjUAnKNcNDdfEZ"
         }
     }
 ]

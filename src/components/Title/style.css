@@ -10,4 +10,5 @@
 
 .widget__title--error {
     color: #D0021B;
+    font-weight: 300;
 }

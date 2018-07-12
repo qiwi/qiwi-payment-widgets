@@ -1,4 +1,5 @@
 import './style.css';
+import {color, getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Title () {
     const container = document.createElement('div');
@@ -11,15 +12,20 @@ export default function Title () {
         changeTitle: (newTitle = 'Наименование организации') => {
             title.innerHTML = newTitle;
         },
-        showError: (newTitle = 'ОШИБКА!') => {
+        changeColor: (backgroundColor) => {
+            title.style.color = getContrastColorByBackground(backgroundColor);
+        },
+        showError: (newTitle = 'Ошибка загрузки информации о партнере') => {
             title.innerHTML = newTitle;
             title.classList.add('widget__title--error');
         },
         element: title,
-        onSuccess: (data) => {
-            component.changeTitle(data.merchant_name);
+        init: (data) => {
+            component.changeTitle(data.widgetMerchantName);
+            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            component.changeColor(bgColor);
         },
-        onError: (data) => {
+        dispose: () => {
             component.showError();
         }
     };

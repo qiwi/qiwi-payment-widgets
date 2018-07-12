@@ -3,12 +3,13 @@
     margin: 0 auto;
     font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 10px;
+    opacity: 0.6;
     line-height: 1.1;
     font-weight: 300;
     text-align: center;
 }
 
 .widget__oferta-link {
-    text-decoration: none;
-    color: #0629a3;
+    text-decoration: underline;
+    color: inherit;
 }

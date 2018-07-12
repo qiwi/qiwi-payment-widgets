@@ -1,6 +1,4 @@
 import Widget from '../../modules/widget';
-import redirection from '../../modules/redirection';
-
 import PaymentIcons from '../../components/PaymentIcons';
 import Button from '../../components/Button';
 import Title from '../../components/Title';

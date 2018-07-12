@@ -10,11 +10,19 @@ const widgetTemps = require('./public/widgetTemps.json');
 const scriptsPath = 'widgets';
 
 
-const tempData = widgetTemps.map((temp) => {
+let dataWithAlias = JSON.parse(JSON.stringify(widgetTemps));
+let dataWithPublicKey = JSON.parse(JSON.stringify(widgetTemps));
+
+dataWithAlias = dataWithAlias.map((temp) => {
+    temp.params.alias = '';
+    delete temp.params.publicKey;
     temp.params = querystring.stringify(temp.params);
     return temp;
 });
-
+dataWithPublicKey = dataWithPublicKey.map((temp) => {
+    temp.params = querystring.stringify(temp.params);
+    return temp;
+});
 
 
 const app = express();
@@ -29,12 +37,26 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/widgets/widgets'));
 
-app.get('*', (req, res) =>{
+
+app.get('/', (req, res) => {
     res.render('index.ejs', {
-        widgets: tempData
+        widgets: dataWithPublicKey
     });
 });
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
+app.get('/:alias', (req, res) => {
+    const alias = req.params.alias;
+    dataWithAlias.forEach(function (temp) {
+        temp.params = querystring.parse(temp.params);
+        temp.params.alias = alias;
+        temp.params = querystring.stringify(temp.params);
+    });
+    res.render('index.ejs', {
+        widgets: dataWithAlias
+    });
+});
 
 app.use('/proxy', function(req, res) {
     const url = req.url.replace('/?url=','');
@@ -49,3 +71,4 @@ app.listen(port, (err) =>  {
 
     console.log('Project is running at', '\x1b[34m', 'http://localhost:' + port, '\x1b[39m');
 });
+

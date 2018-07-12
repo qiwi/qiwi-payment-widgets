@@ -5,6 +5,34 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = function (folder, ENV) {
+    let plugins = [
+        new ExtractTextPlugin('[name].[hash].css'),
+        new OptimizeCssAssetsPlugin(),
+        new webpack.ProvidePlugin({
+            'Promise': 'es6-promise',
+            'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(ENV)
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: '../src/public/index.html',
+            inject: 'body'
+        })
+    ];
+    if (process.env.NODE_ENV === 'production') {
+        plugins.unshift(new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false
+            },
+            compress: {
+                warnings: false
+            }
+        }));
+    }
     return {
         output: {
             filename: 'bundle.[hash].js',
@@ -39,31 +67,6 @@ module.exports = function (folder, ENV) {
                 ]
             }]
         },
-        plugins: [
-            new webpack.optimize.UglifyJsPlugin({
-                output: {
-                    comments: false
-                },
-                compress: {
-                    warnings: false
-                }
-            }),
-            new ExtractTextPlugin('[name].[hash].css'),
-            new OptimizeCssAssetsPlugin(),
-            new webpack.ProvidePlugin({
-                'Promise': 'es6-promise',
-                'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
-            }),
-            new webpack.NamedModulesPlugin(),
-            new webpack.DefinePlugin({
-                'process.env': {
-                    'NODE_ENV': JSON.stringify(ENV)
-                }
-            }),
-            new HtmlWebpackPlugin({
-                template: '../src/public/index.html',
-                inject: 'body'
-            })
-        ]
+        plugins
     };
 };

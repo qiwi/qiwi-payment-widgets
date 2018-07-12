@@ -2,8 +2,16 @@
 .widget {
     width: 728px;
     height: 200px;
-    padding: 25px 30px 0;
+    overflow: hidden;
+    padding: 24px 36px 24px 36px;
 }
+
+.widget--row {
+    display: flex;
+    flex-direction: row;
+    height: 152px;
+}
+
 
 .widget__title {
     text-align: left;
@@ -34,9 +42,6 @@
 
 .widget__field {
     margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 175px;
     height: 34px;
 }
@@ -71,32 +76,40 @@
     left: 203px;
 }
 
+.widget__main-block {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 26px;
+}
+
+.widget__image-block{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 128px;
+}
+
 .widget__footer {
-    height: 18px;
-    position: absolute;
-    bottom: 20px;
-    width: 668px;
+    height: 17px;
+    width: inherit;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
 }
 
 .widget__payment-block {
-    width: 203px;
-    height: 18px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 0;
-}
-
-.widget__be-partner {
-    position: absolute;
-    right: 0;
-    top: 0;
+    width: 185px;
+    height: 17px;
     margin: 0;
 }
 
 .widget__oferta {
-    position: absolute;
-    left: 220px;
-    top: 3px;
-    font-size: 12px;
+    text-align: center;
+}
+
+.widget__be-partner {
+    margin-top: 11px;
+    width: inherit;
+    text-align: left;
 }

@@ -24,25 +24,25 @@
 }
 
 .widget__payment-block-visa {
-    background-image: url('./assets/visa.svg');
+    background-image: url('assets/white/visa.svg'), url('assets/white/visa.png'), url('assets/black/visa.svg'), url('assets/black/visa.png');
     width: 35px;
     height: 12px;
 }
 
 .widget__payment-block-mir {
-    background-image: url('./assets/mir.svg');
+    background-image: url('assets/white/mir.svg'), url('assets/white/mir.png'), url('assets/black/mir.svg'), url('assets/black/mir.png');
     width: 30px;
     height: 11px;
 }
 
-.widget__payment-block-master-card {
-    background-image: url('./assets/master-card.svg');
+.widget__payment-block-mastercard {
+    background-image: url('assets/white/mastercard.svg'), url('assets/white/mastercard.png'), url('assets/black/mastercard.svg'), url('assets/black/mastercard.png');
     width: 24px;
     height: 16px;
 }
 
 .widget__payment-block-qiwi {
-    background-image: url('./assets/qiwi.svg');
+    background-image: url('assets/white/qiwi.svg'), url('assets/white/qiwi.png'), url('assets/black/qiwi.svg'), url('assets/black/qiwi.png');
     width: 45px;
     height: 17px;
 }

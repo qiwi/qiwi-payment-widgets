@@ -3,13 +3,10 @@ import Button from '../Button';
 import redirection from '../../modules/redirection';
 
 import './style.css';
+import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
 
-export default function Form ({
-    data = {},
-    redirectionHandler = redirection
-} = {}) {
-    let merchantInfo = data;
-
+export default function Form () {
+    let merchantInfo = {};
     let fieldValue = '';
 
     const container = document.createElement('div');
@@ -29,16 +26,16 @@ export default function Form ({
 
     const field = Field(changeFieldValue);
 
-    button.addHandler(() => redirectionHandler(fieldValue, merchantInfo));
+    button.setClickHandler(() => {
+        redirection(fieldValue, merchantInfo)
+    });
 
     container.appendChild(field.element);
     container.appendChild(button.element);
 
     const component = {
-        addMerchantInfo: (data) => {
+        _addMerchantInfo: (data) => {
             merchantInfo = data;
-
-            button.changeText(data.merchant_button_text[0]);
         },
         disable: () => {
             button.disable();
@@ -47,12 +44,15 @@ export default function Form ({
         enable: () => {
             field.enable();
         },
-        onSuccess: (data) => {
-            component.addMerchantInfo(data);
-
+        init: (data) => {
+            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+            container.style.color = getContrastColorByBackground(bgColor);
+            field.init(data);
+            component._addMerchantInfo(data);
+            button.init(data);
             component.enable();
         },
-        onError: (data) => {
+        dispose: (data) => {
             component.disable();
         },
         element: container

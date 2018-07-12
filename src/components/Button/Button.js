@@ -1,38 +1,47 @@
 import './style.css';
-import redirection from '../../modules/redirection';
+import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
 
 export default function Button ({
     classes = '',
-    title = 'Помочь',
-    redirectionHandler = redirection
+    title = 'Помочь'
 } = {}) {
     const container = document.createElement('div');
 
-    container.innerHTML = `<button type="button" id="make-donation" class="widget__button ${classes}">${title}</button>`;
+    container.innerHTML = `<button type="button" id="make-donation" class="widget__button ${classes}"></button>`;
 
     const button = container.firstChild;
+    button.innerHTML = title;
 
     const component = {
         element: button,
-        addHandler: (handler) => {
-            button.addEventListener('click', handler);
+        text: title,
+        setClickHandler: (handler) => {
+            component.element.addEventListener('click', handler);
         },
-        changeText: (text = 'Помочь') => {
-            button.innerHTML = text;
+        _changeText: (text = 'Помочь') => {
+            component.element.innerHTML = text;
+        },
+        _changeBackgroundColor: (color) => {
+            component.element.style.backgroundColor = color;
+            component.element.style.color = getContrastColorByBackground(color);
         },
         disable: () => {
-            button.disabled = true;
+            component._changeText('Ошибка');
+            component.element.disabled = true;
         },
         enable: () => {
-            button.disabled = false;
+            component._changeText(component.text);
+            component.element.disabled = false;
         },
-        onSuccess: (data) => {
-            component.addHandler(() => redirectionHandler('', data));
-            component.changeText(data.merchant_button_text[0]);
-
+        init: (data) => {
+            component.text = data.widgetButtonText || title;
+            component._changeText(component.text);
+            if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
+                component._changeBackgroundColor(data.widgetStyles[styleCode.BUTTON_BACKGROUND]);
+            }
             component.enable();
         },
-        onError: (data) => {
+        dispose: () => {
             component.disable();
         }
     };

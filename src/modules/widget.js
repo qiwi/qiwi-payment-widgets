@@ -1,48 +1,41 @@
-import { getPublicKey } from './parsers';
-import { getMerchantInfoByKey } from './api';
-
+import {getAlias, getPublicKey} from './parsers';
+import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
+import {styleCode, stylesArrayToObject} from './helpers';
 
 export default class Widget {
-    constructor (elements) {
-        this._elements = elements;
+    constructor(elements, isTransparent = false) {
         this._render(elements);
+        this.alias = getAlias();
+        this.isTransparent = isTransparent;
         this.publicKey = getPublicKey();
     }
 
-    async init (success, error) {
+    async init() {
         let data = {};
 
         try {
-            if (this.publicKey) {
+            if (this.alias) {
+                data = await getMerchantInfoByAlias(this.alias);
+            } else if (this.publicKey) {
                 data = await getMerchantInfoByKey(this.publicKey);
             } else {
                 throw new Error('No public key or alias in url');
             }
-
-            this._changeTabTitle(data.merchant_name);
-            this._addMetricCounter(data.merchant_metric);
-
-            this._elements.forEach((element) => {
-                if (element.onSuccess) {
-                    element.onSuccess(data);
+            data.widgetStyles = stylesArrayToObject(data.widgetStyles);
+            this._changeTabTitle(data.widgetMerchantName);
+            this._addMetricCounter(data.widgetMerchantMetric);
+            if (this.isTransparent) {
+                if (data.widgetStyles[styleCode.BUTTON_BACKGROUND] && data.widgetStyles[styleCode.WIDGET_BACKGROUND]) {
+                    data.widgetStyles[styleCode.BUTTON_BACKGROUND] = data.widgetStyles[styleCode.WIDGET_BACKGROUND];
                 }
-            });
-
-            if (success) {
-                success(data);
+                delete data.widgetStyles[styleCode.WIDGET_BACKGROUND];
             }
+
+            this._addBackground(data.widgetStyles[styleCode.WIDGET_BACKGROUND]);
+            this.widget.init(data);
         } catch (err) {
-            this._elements.forEach((element) => {
-                if (element.onError) {
-                    element.onError(data);
-                }
-            });
-
-            if (error) {
-                error(data);
-            }
-
+            this.widget.dispose();
             console.warn('Widget is disabled by: ', err.message);
         }
 
@@ -64,7 +57,8 @@ export default class Widget {
             });
 
             this._createYandexNoScript(counter);
-        } catch (e) {}
+        } catch (e) {
+        }
     };
 
     _createYandexNoScript = (counter) => {
@@ -77,17 +71,22 @@ export default class Widget {
         document.body.appendChild(container);
     };
 
-    _changeTabTitle (title) {
+    _changeTabTitle(title) {
         document.title = title;
     }
 
-    _render (elements) {
-        this.widget = WidgetComponent(elements);
+    _addBackground(color) {
+        if (color) {
+            this.widget.element.style.backgroundColor = color;
+        }
+    }
 
+    _render(elements) {
+        this.widget = new WidgetComponent(elements);
         document.body.appendChild(this.widget.element);
     }
 
-    _endLoading () {
+    _endLoading() {
         document.querySelector('#loader').style.display = 'none';
 
         this.widget.show();

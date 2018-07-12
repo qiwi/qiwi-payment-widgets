@@ -45,26 +45,24 @@ export default function Forms (structure, classes = '') {
     const component = {
         element: container,
         enable: () => {
-            trigger.element.disabled = false;
+            trigger.enable();
         },
         disable: () => {
-            trigger.element.disabled = true;
+            trigger.disable();
         },
-        onSuccess: (data) => {
+        init: (data) => {
             component.enable();
-
+            trigger.init(data);
             components.forEach((element) => {
-                if (element.onSuccess) {
-                    element.onSuccess(data);
-                }
+                element.init(data);
             });
         },
-        onError: (data) => {
+        dispose: (data) => {
             component.disable();
 
             components.forEach((element) => {
-                if (element.onError) {
-                    element.onError(data);
+                if (element.dispose) {
+                    element.dispose(data);
                 }
             });
         }
