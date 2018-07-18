@@ -26,6 +26,9 @@
     display: block;
     margin: 22px auto 0;
     width: 200px;
+}
+
+.widget__button-shadow {
     box-shadow: 0 12px 15px 0 rgba(255, 140, 0, 0.2);
 }
 

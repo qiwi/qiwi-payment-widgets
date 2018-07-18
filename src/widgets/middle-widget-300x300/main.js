@@ -12,7 +12,7 @@ const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
 const widgetLink = Link();
 const widgetOferta = Oferta();
-const widgetForm = Form();
+const widgetForm = Form({buttonClasses: 'widget__button-shadow'});
 
 const elements = [widgetTitle, widgetForm, widgetPaymentIcons, widgetOferta, widgetLink];
 

@@ -95,6 +95,8 @@
     width: inherit;
     align-items: flex-end;
     display: flex;
+    bottom: 24px;
+    position: fixed;
     flex-direction: row;
 }
 

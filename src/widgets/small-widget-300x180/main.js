@@ -7,7 +7,7 @@ import Oferta from '../../components/Oferta';
 import './css/styles.css';
 
 const widgetPaymentIcons = PaymentIcons();
-const widgetButton = Button();
+const widgetButton = Button({classes: 'widget__button-shadow'});
 const widgetTitle = Title();
 const widgetOferta = Oferta();
 

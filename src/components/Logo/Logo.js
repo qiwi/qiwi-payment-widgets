@@ -13,7 +13,16 @@ export default function Logo () {
         },
         changeImage: (url) => {
             isURLWithImageValid(url).then(function () {
-                component.element.style.backgroundImage = `url(${url})`;
+                let img = new Image();
+                img.onload = function () {
+                    if (this.width >= 128) {
+                        component.element.style.backgroundSize = 'contain';
+                    } else {
+                        component.element.style.backgroundSize = 'auto';
+                    }
+                    component.element.style.backgroundImage = `url(${url})`;
+                };
+                img.src = url;
             });
         }
     };

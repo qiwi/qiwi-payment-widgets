@@ -5,7 +5,7 @@ import redirection from '../../modules/redirection';
 import './style.css';
 import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
 
-export default function Form () {
+export default function Form ({buttonClasses = ''} = {}) {
     let merchantInfo = {};
     let fieldValue = '';
 
@@ -13,7 +13,7 @@ export default function Form () {
 
     container.className = 'widget__form';
 
-    const button = Button();
+    const button = Button({classes: buttonClasses});
 
     const changeFieldValue = (newFieldValue, error) => {
         if (error) {
