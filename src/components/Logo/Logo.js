@@ -15,7 +15,7 @@ export default function Logo () {
             isURLWithImageValid(url).then(function () {
                 let img = new Image();
                 img.onload = function () {
-                    if (this.width >= 128) {
+                    if (this.width >= 128 || this.height >= 128) {
                         component.element.style.backgroundSize = 'contain';
                     } else {
                         component.element.style.backgroundSize = 'auto';
