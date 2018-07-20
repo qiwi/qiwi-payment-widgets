@@ -44,7 +44,7 @@ export function stylesArrayToObject (styles) {
     }, {});
 }
 
-export function isURLWithImageValid (url) {
+export function getImageByURL (url) {
     return new Promise(function (resolve) {
         let testImg = new Image(0, 0);
 
@@ -53,8 +53,7 @@ export function isURLWithImageValid (url) {
         testImg.onload = function () {
             if (!timedOut) {
                 clearTimeout(timer);
-                testImg = null;
-                resolve('success');
+                resolve({width: testImg.width, height: testImg.height});
             }
         };
         testImg.src = url;

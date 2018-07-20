@@ -3,18 +3,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PolyfillInjectorPlugin = require('webpack-polyfill-injector');
 
 module.exports = function (folder, ENV) {
     let plugins = [
         new ExtractTextPlugin('[name].[hash].css'),
         new OptimizeCssAssetsPlugin(),
-        new PolyfillInjectorPlugin({
-            polyfills: [
-                'Promise',
-                'Array.prototype.find',
-            ]
-        }),
         new webpack.ProvidePlugin({
             'Promise': 'es6-promise',
             'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'

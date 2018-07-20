@@ -1,3 +1,4 @@
+import '../../modules/polyfill'
 import Widget from '../../modules/widget';
 
 import Title from '../../components/Title';

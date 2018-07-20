@@ -51,7 +51,6 @@
     "vinyl-paths": "^2.1.0",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-polyfill-injector": "^2.0.2",
     "webpack-stream": "^4.0.0"
   },
   "dependencies": {

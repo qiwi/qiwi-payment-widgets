@@ -1,3 +1,4 @@
+import '../../modules/polyfill'
 import Widget from '../../modules/widget';
 import PaymentIcons from '../../components/PaymentIcons';
 import Button from '../../components/Button';

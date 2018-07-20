@@ -1,7 +1,7 @@
 import './style.css'
-import {isURLWithImageValid} from '../../modules/helpers';
+import {getImageByURL} from '../../modules/helpers';
 
-export default function Logo () {
+export default function Logo() {
     const container = document.createElement('div');
 
     container.className = 'widget__image';
@@ -12,17 +12,13 @@ export default function Logo () {
             component.changeImage(data.widgetLogoUrl);
         },
         changeImage: (url) => {
-            isURLWithImageValid(url).then(function () {
-                let img = new Image();
-                img.onload = function () {
-                    if (this.width >= 128 || this.height >= 128) {
-                        component.element.style.backgroundSize = 'contain';
-                    } else {
-                        component.element.style.backgroundSize = 'auto';
-                    }
-                    component.element.style.backgroundImage = `url(${url})`;
-                };
-                img.src = url;
+            getImageByURL(url).then(function (imgProps) {
+                if (imgProps.width >= 128 || imgProps.height >= 128) {
+                    component.element.style.backgroundSize = 'contain';
+                } else {
+                    component.element.style.backgroundSize = 'auto';
+                }
+                component.element.style.backgroundImage = `url(${url})`;
             });
         }
     };
