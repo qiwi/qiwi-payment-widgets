@@ -12,8 +12,8 @@ export default function Logo() {
             component.changeImage(data.widgetLogoUrl);
         },
         changeImage: (url) => {
-            getImageByURL(url).then(function (imgProps) {
-                if (imgProps.width >= 128 || imgProps.height >= 128) {
+            getImageByURL(url).then(function (img) {
+                if (img.width >= 128 || img.height >= 128) {
                     component.element.style.backgroundSize = 'contain';
                 } else {
                     component.element.style.backgroundSize = 'auto';

@@ -53,7 +53,7 @@ export function getImageByURL (url) {
         testImg.onload = function () {
             if (!timedOut) {
                 clearTimeout(timer);
-                resolve({width: testImg.width, height: testImg.height});
+                resolve(testImg);
             }
         };
         testImg.src = url;
