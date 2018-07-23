@@ -1,5 +1,6 @@
 import './style.css';
-import {color, getContrastColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
+import {color, styleCode} from '../../modules/styles';
 
 export default function Title () {
     const container = document.createElement('div');

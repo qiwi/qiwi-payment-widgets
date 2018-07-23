@@ -1,5 +1,6 @@
 import './style.css';
-import {getContrastColorByBackground, convertHexToRgb, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, convertHexToRgb} from '../../modules/helpers';
+import {styleCode} from '../../modules/styles';
 
 export default function Button ({
     classes = '',

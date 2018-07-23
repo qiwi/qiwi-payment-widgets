@@ -3,7 +3,8 @@ import Button from '../Button';
 import redirection from '../../modules/redirection';
 
 import './style.css';
-import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
+import {styleCode, color} from '../../modules/styles'
 
 export default function Form ({buttonClasses = ''} = {}) {
     let merchantInfo = {};

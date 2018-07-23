@@ -1,5 +1,5 @@
 import Button from '../Button';
-import {styleCode} from '../../modules/helpers';
+import {styleCode} from '../../modules/styles';
 
 export default function AnotherAmountButton () {
     const anotherAmountButton = Button({classes: 'widget__button--inline kk', title: 'Другая сумма'});

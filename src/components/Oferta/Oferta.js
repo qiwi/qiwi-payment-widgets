@@ -1,5 +1,6 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
+import {styleCode, color} from '../../modules/styles';
 
 export default function Oferta (link = '') {
     const container = document.createElement('div');

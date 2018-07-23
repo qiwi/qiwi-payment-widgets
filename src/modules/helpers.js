@@ -1,19 +1,6 @@
-export const color = {
-    BLACK: '#000000',
-    WHITE: '#FFFFFF'
-};
+import {color} from './styles';
 
-export const imgSrcOrder = {
-    SVG: 0,
-    PNG: 1
-};
-
-export const styleCode = {
-    BUTTON_BACKGROUND: 'BUTTON_BACKGROUND',
-    WIDGET_BACKGROUND: 'WIDGET_BACKGROUND'
-};
-
-export function convertHexToRgb (hex) {
+export function convertHexToRgb(hex) {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, function (m, r, g, b) {
         return r + r + g + g + b + b;
@@ -27,7 +14,7 @@ export function convertHexToRgb (hex) {
     } : null;
 }
 
-export function getContrastColorByBackground (backgroundColor) {
+export function getContrastColorByBackground(backgroundColor) {
     const rgbBackgroundColor = convertHexToRgb(backgroundColor);
     if (rgbBackgroundColor) {
         let a = 1 - (0.299 * rgbBackgroundColor.r + 0.587 * rgbBackgroundColor.g + 0.114 * rgbBackgroundColor.b) / 255;
@@ -35,7 +22,7 @@ export function getContrastColorByBackground (backgroundColor) {
     } else return null;
 }
 
-export function stylesArrayToObject (styles) {
+export function stylesArrayToObject(styles) {
     if (!styles) return {};
 
     return styles.reduce((acc, item) => {
@@ -44,7 +31,7 @@ export function stylesArrayToObject (styles) {
     }, {});
 }
 
-export function getImageByURL (url) {
+export function getImageByURL(url) {
     return new Promise(function (resolve) {
         let testImg = new Image(0, 0);
 
@@ -64,6 +51,6 @@ export function getImageByURL (url) {
     })
 }
 
-export function isBrowserSupportsSvg () {
+export function isBrowserSupportsSvg() {
     return typeof SVGRect !== 'undefined';
 }

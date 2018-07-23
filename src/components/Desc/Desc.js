@@ -1,5 +1,6 @@
 import './style.css';
-import {color, getContrastColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
+import {styleCode, color} from '../../modules/styles';
 
 export default function Desc () {
     const desc = document.createElement('div');

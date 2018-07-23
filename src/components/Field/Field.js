@@ -1,5 +1,5 @@
 import './style.css';
-import {styleCode} from '../../modules/helpers';
+import {styleCode} from '../../modules/styles';
 
 const template = `
     <input type="number" class="widget__input" id="donation-amount" required>
