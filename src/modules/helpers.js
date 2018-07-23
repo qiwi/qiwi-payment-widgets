@@ -33,7 +33,7 @@ export function stylesArrayToObject(styles) {
 
 export function getImageByURL(url) {
     return new Promise(function (resolve) {
-        let testImg = new Image(0, 0);
+        let testImg = new Image();
 
         let timedOut = false;
         let timer;

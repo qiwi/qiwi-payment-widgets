@@ -1,5 +1,6 @@
 import './style.css'
 import {getImageByURL} from '../../modules/helpers';
+import {styleCode} from '../../modules/styles';
 
 export default function Logo() {
     const container = document.createElement('div');
@@ -9,7 +10,9 @@ export default function Logo() {
     const component = {
         element: container,
         init: (data) => {
-            component.changeImage(data.widgetLogoUrl);
+            if (data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]) {
+                component.changeImage(data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]);
+            }
         },
         changeImage: (url) => {
             getImageByURL(url).then(function (img) {
