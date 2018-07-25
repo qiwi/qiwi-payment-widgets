@@ -27,9 +27,5 @@ export default function AnotherAmountButton () {
         anotherAmountButton.element.disabled = false;
     };
 
-    anotherAmountButton.dispose = () => {
-        anotherAmountButton.disable();
-    };
-
     return anotherAmountButton;
 }

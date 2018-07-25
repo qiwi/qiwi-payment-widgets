@@ -48,6 +48,7 @@ export default function Button ({
         },
         dispose: () => {
             component.disable();
+            component.element.style.display = 'none';
         }
     };
 

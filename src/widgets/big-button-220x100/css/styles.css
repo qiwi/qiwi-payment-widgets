@@ -40,3 +40,11 @@
     height: 18px;
     margin: 5px auto;
 }
+
+.widget__title {
+    margin: 0 0 8px 0;
+}
+
+.widget__desc--error {
+    margin: 0 !important;
+}

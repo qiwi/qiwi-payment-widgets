@@ -1,3 +1,8 @@
 .widget {
     display: none;
 }
+
+.widget__error {
+    align-items: center;
+    justify-content: center;
+}

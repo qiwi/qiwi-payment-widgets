@@ -6,6 +6,11 @@
     padding: 24px 36px 24px 36px;
 }
 
+.widget__error {
+    align-items: unset;
+    justify-content: unset;
+}
+
 .widget--row {
     display: flex;
     flex-direction: row;

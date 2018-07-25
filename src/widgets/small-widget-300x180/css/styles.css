@@ -8,6 +8,10 @@
     margin: 20px auto 0;
 }
 
+.widget__title--error {
+    margin: 0;
+}
+
 .widget__button {
     width: 200px;
     height: 47px;
@@ -36,4 +40,12 @@
     width: 203px;
     height: 18px;
     margin: 10px auto;
+}
+
+.widget__text{
+    margin: 0;
+}
+
+.widget__desc--error {
+    margin: 12px 0 0;
 }

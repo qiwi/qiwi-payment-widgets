@@ -8,3 +8,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.widget__desc--error {
+    text-align: center;
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 10px;
+    line-height: 11px;
+    max-width: 178px;
+}

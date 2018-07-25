@@ -2,7 +2,7 @@ import './style.css';
 import {getContrastColorByBackground} from '../../modules/helpers';
 import {styleCode, color} from '../../modules/styles';
 
-export default function Desc () {
+export default function Desc ({showFromStart = true} = {}) {
     const desc = document.createElement('div');
 
     desc.className = 'widget__text';
@@ -17,9 +17,19 @@ export default function Desc () {
             desc.style.color = getContrastColorByBackground(backgroundColor);
         },
         init: (data) => {
-            component.changeText(data.widgetDescription);
-            const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
-            component.changeColor(bgColor);
+            if (showFromStart) {
+                component.changeText(data.widgetDescription);
+                const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
+                component.changeColor(bgColor);
+            } else {
+                component.element.style.display = 'none';
+            }
+        },
+        dispose: (data) => {
+            if (!showFromStart) {
+                component.element.classList.add('widget__desc--error');
+            }
+            component.changeText(`Свяжитесь с администратором сайта или <a href="mailto:widget@qiwi.com">напишите в поддержку</a>`);
         },
         element: desc
     };

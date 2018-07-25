@@ -55,6 +55,7 @@ export default function Form ({buttonClasses = ''} = {}) {
         },
         dispose: (data) => {
             component.disable();
+            component.element.style.display = 'none';
         },
         element: container
     };

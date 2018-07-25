@@ -2,7 +2,7 @@ import './style.css'
 import {getImageByURL} from '../../modules/helpers';
 import {styleCode} from '../../modules/styles';
 
-export default function Logo() {
+export default function Logo () {
     const container = document.createElement('div');
 
     container.className = 'widget__image';
@@ -23,6 +23,9 @@ export default function Logo() {
                 }
                 component.element.style.backgroundImage = `url(${url})`;
             });
+        },
+        dispose: () => {
+            component.element.style.display = 'none';
         }
     };
 

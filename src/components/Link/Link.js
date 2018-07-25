@@ -23,6 +23,9 @@ export default function Link (publicKey = '') {
         },
         changeColor: (backgroundColor) => {
             component.element.style.color = getContrastColorByBackground(backgroundColor);
+        },
+        dispose: () => {
+            component.element.style.display = 'none';
         }
     };
 

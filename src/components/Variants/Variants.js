@@ -49,6 +49,9 @@ export default function Variants ({
                 return button;
             });
             component.enable();
+        },
+        dispose: () => {
+            buttons.forEach((button) => button.dispose());
         }
     };
 
