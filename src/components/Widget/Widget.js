@@ -11,9 +11,11 @@ export default function Widget (elements) {
             container.init(data);
         },
         show: () => {
-            component.element.style.display = 'block';
+            component.element.style.display = 'flex';
+            component.element.style.flexDirection = 'column';
         },
         dispose: () => {
+            component.element.classList.add('widget__error');
             container.dispose();
         }
     };

@@ -1,5 +1,7 @@
 # Платежные виджеты
 
+Виджеты, которые затем отображаются через iframe в widget.qiwi.com
+
 ## Сборка приложения 
 ~~~shell
 git clone https://github.com/QIWI-API/qiwi-widgets.git

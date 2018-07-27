@@ -59,7 +59,9 @@ export default function Forms (structure, classes = '') {
         },
         dispose: (data) => {
             component.disable();
-
+            if (trigger.dispose) {
+                trigger.dispose(data);
+            }
             components.forEach((element) => {
                 if (element.dispose) {
                     element.dispose(data);

@@ -1,5 +1,6 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode, color, isBrowserSupportsSvg, imgSrcOrder} from '../../modules/helpers.js';
+import {getContrastColorByBackground, isBrowserSupportsSvg} from '../../modules/helpers.js';
+import {styleCode, color, imgSrcOrder} from '../../modules/styles';
 
 export default function PaymentIcons () {
     const paymentIcons = document.createElement('div');

@@ -1,3 +1,4 @@
+import '../../modules/polyfill'
 import Widget from '../../modules/widget';
 
 import PaymentIcons from '../../components/PaymentIcons';
@@ -6,12 +7,16 @@ import Button from '../../components/Button';
 import Oferta from '../../components/Oferta';
 
 import './css/styles.css';
+import Desc from '../../components/Desc';
+import Title from '../../components/Title';
 
 const widgetPaymentIcons = PaymentIcons();
+const widgetTitle = Title({showFromStart: false});
+const widgetErrorDesc = Desc({showFromStart: false});
 const widgetButton = Button();
 const widgetOferta = Oferta();
 
-const elements = [widgetButton, widgetPaymentIcons, widgetOferta];
+const elements = [widgetTitle, widgetErrorDesc, widgetButton, widgetPaymentIcons, widgetOferta];
 
 const isTransparent = true;
 

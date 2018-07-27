@@ -1,6 +1,11 @@
 @import url('../../../css/style.css');
 .widget__title {
     margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.widget__title--error {
+    margin: 0;
 }
 
 .widget__field {
@@ -10,6 +15,10 @@
 
 .widget__input {
     width: 194px;
+}
+
+.widget__form {
+    margin: 0;
 }
 
 .widget__bar {
@@ -26,6 +35,9 @@
     display: block;
     margin: 22px auto 0;
     width: 200px;
+}
+
+.widget__button-shadow {
     box-shadow: 0 12px 15px 0 rgba(255, 140, 0, 0.2);
 }
 
@@ -43,6 +55,14 @@
     width: 202px;
     font-size: 12px;
     margin: 14px auto 0;
+}
+
+.widget__text {
+    margin: 0;
+}
+
+.widget__desc--error {
+    margin: 12px 0 0;
 }
 
 .block_oferted .widget__field {

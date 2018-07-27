@@ -1,7 +1,8 @@
 import {getAlias, getPublicKey} from './parsers';
 import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
-import {styleCode, stylesArrayToObject} from './helpers';
+import {stylesArrayToObject} from './helpers';
+import {styleCode} from './styles'
 
 export default class Widget {
     constructor(elements, isTransparent = false) {
