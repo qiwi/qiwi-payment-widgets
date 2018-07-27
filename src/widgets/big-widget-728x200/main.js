@@ -1,3 +1,4 @@
+import '../../modules/polyfill'
 import Widget from '../../modules/widget';
 
 import Title from '../../components/Title';
@@ -41,6 +42,12 @@ const widgetForms = Forms([
 
 const widgetMainBlock = Block([widgetTitle, widgetDesc, widgetForms, widgetFooter], 'widget__main-block');
 const widgetLogoBlock = Block([widgetLogo, widgetLink], 'widget__image-block');
+widgetLogoBlock.disposeChildren = widgetLogoBlock.dispose;
+widgetLogoBlock.dispose = (data) => {
+    widgetLogoBlock.disposeChildren();
+    widgetLogoBlock.element.style.display = 'none';
+};
+
 const widgetContainer = Block([widgetLogoBlock, widgetMainBlock], 'widget--row');
 
 const elements = [widgetContainer];

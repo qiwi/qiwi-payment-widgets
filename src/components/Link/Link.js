@@ -1,5 +1,6 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode, color} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
+import {styleCode, color} from '../../modules/styles';
 
 export default function Link (publicKey = '') {
     const container = document.createElement('div');
@@ -22,6 +23,9 @@ export default function Link (publicKey = '') {
         },
         changeColor: (backgroundColor) => {
             component.element.style.color = getContrastColorByBackground(backgroundColor);
+        },
+        dispose: () => {
+            component.element.style.display = 'none';
         }
     };
 

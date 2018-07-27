@@ -23,10 +23,13 @@ export default function Variants ({
         },
         init: (data) => {
             data = Object.assign({}, data);
-            const amounts = data.merchantPaymentSumAmount && data.merchantPaymentSumAmount.length && data.merchantPaymentSumAmount.length > 0
+            let amounts = data.merchantPaymentSumAmount && data.merchantPaymentSumAmount.length && data.merchantPaymentSumAmount.length > 0
                 ? data.merchantPaymentSumAmount
                 : defaultValue;
 
+            if (amounts.length > 2) {
+                amounts = amounts.slice(0, 3);
+            }
             buttons = amounts.map((amount) => {
                 const button = Button({
                     classes: 'widget__button--inline'
@@ -46,6 +49,9 @@ export default function Variants ({
                 return button;
             });
             component.enable();
+        },
+        dispose: () => {
+            buttons.forEach((button) => button.dispose());
         }
     };
 

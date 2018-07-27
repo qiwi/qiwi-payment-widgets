@@ -1,5 +1,6 @@
 import './style.css';
-import {getContrastColorByBackground, styleCode} from '../../modules/helpers';
+import {getContrastColorByBackground, convertHexToRgb} from '../../modules/helpers';
+import {styleCode} from '../../modules/styles';
 
 export default function Button ({
     classes = '',
@@ -38,11 +39,16 @@ export default function Button ({
             component._changeText(component.text);
             if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
                 component._changeBackgroundColor(data.widgetStyles[styleCode.BUTTON_BACKGROUND]);
+                if (classes.includes('widget__button-shadow') && convertHexToRgb(data.widgetStyles[styleCode.BUTTON_BACKGROUND])) {
+                    const rgbColor = convertHexToRgb(data.widgetStyles[styleCode.BUTTON_BACKGROUND]);
+                    component.element.style.boxShadow = `0 12px 15px 0 rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, 0.2)`;
+                }
             }
             component.enable();
         },
         dispose: () => {
             component.disable();
+            component.element.style.display = 'none';
         }
     };
 
