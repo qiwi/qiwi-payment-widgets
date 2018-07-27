@@ -26,10 +26,12 @@ export default function Desc ({showFromStart = true} = {}) {
             }
         },
         dispose: (data) => {
+            let text = `Свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`;
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
+                text = `Свяжитесь <br>с администратором сайта <br>или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`
             }
-            component.changeText(`Свяжитесь с администратором сайта или <a href="mailto:widget@qiwi.com">напишите в поддержку</a>`);
+            component.changeText(text);
         },
         element: desc
     };
