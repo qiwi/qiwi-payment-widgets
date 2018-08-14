@@ -9,7 +9,7 @@ function makeRequest (id, type, noCache) {
     }
 
     if (noCache) {
-        params += '&noCache=1';
+        params += `&noCache=${noCache}`;
     }
 
     return fetch(`${url}?${params}`, {
