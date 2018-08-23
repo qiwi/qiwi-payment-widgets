@@ -22,6 +22,10 @@ export function getPublicKey () {
     return getParameterByName('publicKey') || getParameterByName('public_key'); // legacy public_key
 }
 
+export function getNoCacheFlag () {
+    return getParameterByName('noCache');
+}
+
 export function numberWithSpaces (number) {
     let parts = number.toString().split('.');
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
