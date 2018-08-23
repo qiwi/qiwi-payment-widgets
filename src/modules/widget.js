@@ -1,4 +1,4 @@
-import {getAlias, getPublicKey} from './parsers';
+import {getAlias, getPublicKey, getNoCacheFlag} from './parsers';
 import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
 import {stylesArrayToObject} from './helpers';
@@ -10,6 +10,7 @@ export default class Widget {
         this.alias = getAlias();
         this.isTransparent = isTransparent;
         this.publicKey = getPublicKey();
+        this.noCache = getNoCacheFlag();
     }
 
     async init() {
@@ -17,9 +18,9 @@ export default class Widget {
 
         try {
             if (this.alias) {
-                data = await getMerchantInfoByAlias(this.alias);
+                data = await getMerchantInfoByAlias(this.alias, this.noCache);
             } else if (this.publicKey) {
-                data = await getMerchantInfoByKey(this.publicKey);
+                data = await getMerchantInfoByKey(this.publicKey, this.noCache);
             } else {
                 throw new Error('No public key or alias in url');
             }
@@ -27,9 +28,6 @@ export default class Widget {
             this._changeTabTitle(data.widgetMerchantName);
             this._addMetricCounter(data.widgetMerchantMetric);
             if (this.isTransparent) {
-                if (data.widgetStyles[styleCode.BUTTON_BACKGROUND] && data.widgetStyles[styleCode.WIDGET_BACKGROUND]) {
-                    data.widgetStyles[styleCode.BUTTON_BACKGROUND] = data.widgetStyles[styleCode.WIDGET_BACKGROUND];
-                }
                 delete data.widgetStyles[styleCode.WIDGET_BACKGROUND];
             }
 

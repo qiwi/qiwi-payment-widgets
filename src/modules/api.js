@@ -1,14 +1,18 @@
 import config from '../config/default';
 
-function makeRequest (id, type) {
+function makeRequest (id, type, noCache) {
     let url = config.url;
-    let param = `merchantSitePublicKey=${id}`;
+    let params = `merchantSitePublicKey=${id}`;
 
     if (type === 'alias') {
-        param = `widgetAliasCode=${id}`;
+        params = `widgetAliasCode=${id}`;
     }
 
-    return fetch(`${url}?${param}`, {
+    if (noCache) {
+        params += `&noCache=${noCache}`;
+    }
+
+    return fetch(`${url}?${params}`, {
         mode: 'cors'
     })
         .then((response) => {
@@ -25,9 +29,9 @@ function makeRequest (id, type) {
         .then((response) => response.json());
 }
 
-export async function getMerchantInfoByAlias (alias) {
+export async function getMerchantInfoByAlias (alias, noCache) {
     try {
-        const data = await makeRequest(alias, 'alias');
+        const data = await makeRequest(alias, 'alias', noCache);
 
         return data.result;
     } catch (err) {
@@ -35,9 +39,9 @@ export async function getMerchantInfoByAlias (alias) {
     }
 }
 
-export async function getMerchantInfoByKey (key) {
+export async function getMerchantInfoByKey (key, noCache) {
     try {
-        const data = await makeRequest(key, 'key');
+        const data = await makeRequest(key, 'key', noCache);
 
         return data.result;
     } catch (err) {
