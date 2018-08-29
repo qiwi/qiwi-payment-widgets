@@ -11,8 +11,8 @@ export default function Desc ({showFromStart = true} = {}) {
     desc.innerHTML = ``;
 
     const component = {
-        changeText: (text = '', text_Error = '') => {
-            desc.innerHTML = text + text_Error;
+        changeText: (text = '', textError = '') => {
+            desc.innerHTML = text + textError;
         },
         changeColor: (backgroundColor) => {
             desc.style.color = getContrastColorByBackground(backgroundColor);
@@ -28,13 +28,13 @@ export default function Desc ({showFromStart = true} = {}) {
         },
         dispose: (data) => {
             let text = `Свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`;
-            let text_Error = `<br>Описание ошибки: ${data.erroreText || data + ' (вероятнее всего, ошибка в коде)'}</br> <br>Код статуса: ${data.errorStatus}</br> <br>Описание кода ошибки: ${data.errorStatusText}</br><br>Url: ${data.errorUrl}</br>  `;
+            let textError = `<br>Описание ошибки: ${data.errorText || data}</br> <br>Код статуса: ${data.errorStatus}</br> <br>Описание кода ошибки: ${data.errorStatusText}</br><br>Url: ${data.errorUrl}</br>  `;
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
                 text = `Свяжитесь <br>с администратором сайта <br>или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`
-                text_Error = `<br>${data.erroreText}</br>`
+                textError = `<br>${data.errorText || data}</br>`
             }
-            component.changeText(text, text_Error);
+            component.changeText(text, textError);
         },
         element: desc
     };
