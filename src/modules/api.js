@@ -1,7 +1,7 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-function makeRequest(id, type, noCache) {
+function makeRequest (id, type, noCache) {
     let url = config.url;
     let params = `merchantSitePublicKey=${id}`;
 
@@ -28,17 +28,17 @@ function makeRequest(id, type, noCache) {
             return response;
         })
         .then((response) => response.json(),
-            (response) => response.json()
+        // если приходит ошибка (если resolve, то строкой выше вернется response.json()):
+            (response) => response.json() // это нужно, чтобы потом обратиться к полю error (в котором содержится код ошибки, использующийся для локализации)
                 .then((response) => {
-                    return fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`)
-                        .then((response) => response.json())
+                    return fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`) // с помощью return мы передаем выше reject c promise в котором выброс ошибки, которую ловит catch в файле widget.js                        .then((response) => response.json())
                         .then((result) => {
                             throw new ErrorInfo(errorInfoResponse, result.result.text);
                         });
                 }))
 }
 
-export async function getMerchantInfoByAlias(alias, noCache) {
+export async function getMerchantInfoByAlias (alias, noCache) {
     try {
         const data = await makeRequest(alias, 'alias', noCache);
 
@@ -48,7 +48,7 @@ export async function getMerchantInfoByAlias(alias, noCache) {
     }
 }
 
-export async function getMerchantInfoByKey(key, noCache) {
+export async function getMerchantInfoByKey (key, noCache) {
     try {
         const data = await makeRequest(key, 'key', noCache);
 
