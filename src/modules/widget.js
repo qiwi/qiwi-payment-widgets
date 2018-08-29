@@ -13,7 +13,7 @@ export default class Widget {
         this.noCache = getNoCacheFlag();
     }
 
-    async init() {
+    async init () {
         let data = {};
 
         try {
@@ -34,8 +34,8 @@ export default class Widget {
             this._addBackground(data.widgetStyles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
-            this.widget.dispose();
-            console.warn('Widget is disabled by: ', err.message);
+            console.warn(err.erroreText);
+            this.widget.dispose(err);
         }
 
         this._endLoading();
