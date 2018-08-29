@@ -1,7 +1,7 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-export function makeRequest(id, type, noCache) {
+function makeRequest (id, type, noCache) {
     let url = config.url;
     let params = `merchantSitePublicKey=${id}`;
 
@@ -37,7 +37,7 @@ export function makeRequest(id, type, noCache) {
             }))
 }
 
-export async function getMerchantInfoByAlias(alias, noCache) {
+export async function getMerchantInfoByAlias (alias, noCache) {
     try {
         const data = await makeRequest(alias, 'alias', noCache);
 
@@ -47,7 +47,7 @@ export async function getMerchantInfoByAlias(alias, noCache) {
     }
 }
 
-export async function getMerchantInfoByKey(key, noCache) {
+export async function getMerchantInfoByKey (key, noCache) {
     try {
         const data = await makeRequest(key, 'key', noCache);
 

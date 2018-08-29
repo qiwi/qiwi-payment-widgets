@@ -34,7 +34,7 @@ export default class Widget {
             this._addBackground(data.widgetStyles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
-            console.warn(err.erroreText);
+            console.warn('Widget is disabled by: ', err.erroreText);
             this.widget.dispose(err);
         }
 
