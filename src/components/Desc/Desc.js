@@ -32,7 +32,7 @@ export default function Desc ({showFromStart = true} = {}) {
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
                 text = `Свяжитесь <br>с администратором сайта <br>или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`
-                text_Error = `<br>${ErrorInfo.errorText}</br>`
+                text_Error = `<br>${data.erroreText}</br>`
             }
             component.changeText(text, text_Error);
         },
