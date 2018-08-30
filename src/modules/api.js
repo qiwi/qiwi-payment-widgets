@@ -1,7 +1,15 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-function makeRequest (id, type, noCache) {
+let errorInfoResponse;
+
+async function errorFetch(response) {
+    let newResponse = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`);
+    let data = await newResponse.json();
+    throw new ErrorInfo(errorInfoResponse, data.result.text)
+}
+
+function makeRequest(id, type, noCache) {
     let url = config.url;
     let params = `merchantSitePublicKey=${id}`;
 
@@ -12,7 +20,7 @@ function makeRequest (id, type, noCache) {
     if (noCache) {
         params += `&noCache=${noCache}`;
     }
-    let errorInfoResponse;
+
     return fetch(`${url}?${params}`, {
         mode: 'cors'
     })
@@ -28,17 +36,13 @@ function makeRequest (id, type, noCache) {
             return response;
         })
         .then((response) => response.json(),
-        // если приходит ошибка (если resolve, то строкой выше вернется response.json()):
-            (response) => response.json() // это нужно, чтобы потом обратиться к полю error (в котором содержится код ошибки, использующийся для локализации)
+            (response) => response.json()
                 .then((response) => {
-                    return fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`) // с помощью return мы передаем выше reject c promise в котором выброс ошибки, которую ловит catch в файле widget.js                        .then((response) => response.json())
-                        .then((result) => {
-                            throw new ErrorInfo(errorInfoResponse, result.result.text);
-                        });
+                    return errorFetch(response)
                 }))
 }
 
-export async function getMerchantInfoByAlias (alias, noCache) {
+export async function getMerchantInfoByAlias(alias, noCache) {
     try {
         const data = await makeRequest(alias, 'alias', noCache);
 
@@ -48,7 +52,7 @@ export async function getMerchantInfoByAlias (alias, noCache) {
     }
 }
 
-export async function getMerchantInfoByKey (key, noCache) {
+export async function getMerchantInfoByKey(key, noCache) {
     try {
         const data = await makeRequest(key, 'key', noCache);
 
