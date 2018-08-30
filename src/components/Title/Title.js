@@ -6,6 +6,7 @@ export default function Title ({showFromStart = true} = {}) {
     const container = document.createElement('div');
 
     container.innerHTML = `<h1 class="widget__title" id="merchant-title">Наименование организации</h1>`;
+
     const title = container.firstChild;
 
     const component = {
