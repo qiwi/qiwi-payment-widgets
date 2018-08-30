@@ -2,13 +2,22 @@ import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
 async function _fetchErrorLocale (response) {
-    let newResponse = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`);
-    let data = await newResponse.json();
-    return data.result.text;
+    try {
+        let responseFromLocalization = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`);
+        let data = await responseFromLocalization.json();
+        return data.result.text;
+    } catch (e) {
+        throw new Error('ошибка с подключением к сервису локализации')
+    }
 }
 
 async function _makeRequest (url, params) {
-    let response = await fetch(`${url}?${params}`, {mode: 'cors'});
+    let response;
+    try {
+        response = await fetch(`${url}?${params}`, {mode: 'cors'});
+    } catch (e) {
+        throw new Error('ошибка с подключением')
+    }
     let responseBody = await response.json();
     if (response.status >= 400) {
         window.dataLayer.push({
