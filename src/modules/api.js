@@ -1,34 +1,28 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-let errorInfoResponse;
-
-async function errorFetch (response) {
-    let errorResponse = await response;
-    let newResponse = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${errorResponse.error}&application_code=WIDGETS`);
+async function _fetchErrorLocale (response) {
+    let newResponse = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`);
     let data = await newResponse.json();
-    throw new ErrorInfo(errorInfoResponse, data.result.text)
+    return data.result.text;
 }
 
-async function makeRequestFetch (url, params) {
-    let response = await fetch(`${url}?${params}`, {mode: 'cors'})
-    try {
-        if (response.status >= 400) {
-            window.dataLayer.push({
-                event: 'load.error',
-                eventAction: 'Mechant name load error'
-            });
-            errorInfoResponse = response;
-            throw response;
-        } else {
-            return response.json();
-        }
-    } catch (response) {
-        return errorFetch(response.json())
+async function _makeRequest (url, params) {
+    let response = await fetch(`${url}?${params}`, {mode: 'cors'});
+    let responseBody = await response.json();
+    if (response.status >= 400) {
+        window.dataLayer.push({
+            event: 'load.error',
+            eventAction: 'Mechant name load error'
+        });
+        let errorLocaleText = await _fetchErrorLocale(responseBody);
+        throw new ErrorInfo(response, errorLocaleText);
+    } else {
+        return responseBody;
     }
 }
 
-async function makeRequest(id, type, noCache) {
+function _getWidgetInfo (id, type, noCache) {
     let url = config.url;
     let params = `merchantSitePublicKey=${id}`;
 
@@ -39,14 +33,12 @@ async function makeRequest(id, type, noCache) {
     if (noCache) {
         params += `&noCache=${noCache}`;
     }
-
-    let resultFetch = await makeRequestFetch(url, params);
-    return resultFetch;
+    return _makeRequest(url, params);
 }
 
-export async function getMerchantInfoByAlias(alias, noCache) {
+export async function getWidgetInfoByAlias (alias, noCache) {
     try {
-        const data = await makeRequest(alias, 'alias', noCache);
+        const data = await _getWidgetInfo(alias, 'alias', noCache);
 
         return data.result;
     } catch (err) {
@@ -54,9 +46,9 @@ export async function getMerchantInfoByAlias(alias, noCache) {
     }
 }
 
-export async function getMerchantInfoByKey(key, noCache) {
+export async function getWidgetInfoByKey (key, noCache) {
     try {
-        const data = await makeRequest(key, 'key', noCache);
+        const data = await _getWidgetInfo(key, 'key', noCache);
 
         return data.result;
     } catch (err) {

@@ -1,5 +1,5 @@
 import {getAlias, getPublicKey, getNoCacheFlag} from './parsers';
-import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
+import {getWidgetInfoByAlias, getWidgetInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
 import {stylesArrayToObject} from './helpers';
 import {styleCode} from './styles'
@@ -18,9 +18,9 @@ export default class Widget {
 
         try {
             if (this.alias) {
-                data = await getMerchantInfoByAlias(this.alias, this.noCache);
+                data = await getWidgetInfoByAlias(this.alias, this.noCache);
             } else if (this.publicKey) {
-                data = await getMerchantInfoByKey(this.publicKey, this.noCache);
+                data = await getWidgetInfoByKey(this.publicKey, this.noCache);
             } else {
                 throw new Error('No public key or alias in url');
             }
