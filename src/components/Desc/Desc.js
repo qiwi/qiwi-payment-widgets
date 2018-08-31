@@ -5,7 +5,7 @@ import {styleCode, color} from '../../modules/styles';
 export default function Desc ({showFromStart = true} = {}) {
     const desc = document.createElement('div');
 
-    desc.className = 'widget__text' + '';
+    desc.className = 'widget__text';
 
     desc.innerHTML = ``;
 

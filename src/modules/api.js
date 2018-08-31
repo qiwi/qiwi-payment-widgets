@@ -1,13 +1,21 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-async function _fetchErrorLocale (response) {
+function _testErrorCode (responseBody) {
+    if (responseBody.error) {
+        return responseBody.error;
+    } else if (responseBody.error_code) {
+        return responseBody.error_code;
+    }
+}
+
+async function _fetchErrorLocale (errorCode) {
     try {
-        let responseFromLocalization = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response}&application_code=WIDGETS`);
+        let responseFromLocalization = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${errorCode}&application_code=WIDGETS`);
         let data = await responseFromLocalization.json();
         return data.result.text;
     } catch (e) {
-        throw new Error('ОШИБКА ПОДКЛЮЧЕНИЯ')
+        throw new Error('Ошибка подключения к сервису локализации')
     }
 }
 
@@ -16,7 +24,7 @@ async function _makeRequest (url, params) {
     try {
         response = await fetch(`${url}?${params}`, {mode: 'cors'});
     } catch (e) {
-        throw new Error('ОШИБКА ПОДКЛЮЧЕНИЯ')
+        throw new Error('Ошибка подключения')
     }
     let responseBody = await response.json();
     if (response.status >= 400) {
@@ -24,7 +32,8 @@ async function _makeRequest (url, params) {
             event: 'load.error',
             eventAction: 'Mechant name load error'
         });
-        let errorLocaleText = await _fetchErrorLocale(responseBody.error);
+        let errorCode = _testErrorCode(responseBody);
+        let errorLocaleText = await _fetchErrorLocale(errorCode);
         throw new ErrorInfo(response, errorLocaleText);
     } else {
         return responseBody;
