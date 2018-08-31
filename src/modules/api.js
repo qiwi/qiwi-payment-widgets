@@ -3,11 +3,11 @@ import ErrorInfo from './ErrorInfo'
 
 async function _fetchErrorLocale (response) {
     try {
-        let responseFromLocalization = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response.error}&application_code=WIDGETS`);
+        let responseFromLocalization = await fetch(`https://kassa.qiwi.com/rnd_locale/message?text_code=${response}&application_code=WIDGETS`);
         let data = await responseFromLocalization.json();
         return data.result.text;
     } catch (e) {
-        throw new Error('ошибка с подключением к сервису локализации')
+        throw new Error('ОШИБКА ПОДКЛЮЧЕНИЯ')
     }
 }
 
@@ -16,7 +16,7 @@ async function _makeRequest (url, params) {
     try {
         response = await fetch(`${url}?${params}`, {mode: 'cors'});
     } catch (e) {
-        throw new Error('ошибка с подключением')
+        throw new Error('ОШИБКА ПОДКЛЮЧЕНИЯ')
     }
     let responseBody = await response.json();
     if (response.status >= 400) {
@@ -24,7 +24,7 @@ async function _makeRequest (url, params) {
             event: 'load.error',
             eventAction: 'Mechant name load error'
         });
-        let errorLocaleText = await _fetchErrorLocale(responseBody);
+        let errorLocaleText = await _fetchErrorLocale(responseBody.error);
         throw new ErrorInfo(response, errorLocaleText);
     } else {
         return responseBody;

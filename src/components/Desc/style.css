@@ -16,6 +16,10 @@
     font-size: 10px;
 }
 
+.widget__text--error {
+    color: rgba(51,51,51,.6);
+}
+
 .widget__mail {
     color: rgb(0, 85, 187);
     text-decoration: none;

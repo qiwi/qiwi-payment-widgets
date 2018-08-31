@@ -49,14 +49,7 @@
     font-size: 12px;
 }
 
-.widget__text--error{
-    font-size: 12px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 11px;
-    color: rgba(51,51,51,.6);
-}
-
 .widget__desc--error {
     margin: 12px 0 0;
+    font-size: 12px;
 }

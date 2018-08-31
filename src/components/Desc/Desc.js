@@ -1,12 +1,11 @@
 import './style.css';
 import {getContrastColorByBackground} from '../../modules/helpers';
 import {styleCode, color} from '../../modules/styles';
-import ErrorInfo from '../../modules/ErrorInfo'
 
-export default function Desc ({showFromStart = true, classes = ''} = {}) {
+export default function Desc ({showFromStart = true} = {}) {
     const desc = document.createElement('div');
 
-    desc.className = 'widget__text';
+    desc.className = 'widget__text' + '';
 
     desc.innerHTML = ``;
 
@@ -29,13 +28,11 @@ export default function Desc ({showFromStart = true, classes = ''} = {}) {
         dispose: (data) => {
             let text = `<br><br>Пожалуйста, свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></<br>`;
             let textError = `${data.errorText || data}`;
+            component.element.classList.add('widget__text--error');
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
                 text = `<br><br>Пожалуйста, свяжитесь с администратором <br> сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></br></br>`;
                 textError = `${data.errorText || data}`
-            }
-            if (classes !== '') {
-                desc.className = classes
             }
             component.changeText(text, textError);
         },
