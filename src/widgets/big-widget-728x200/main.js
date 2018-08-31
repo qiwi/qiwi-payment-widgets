@@ -19,7 +19,7 @@ let defaultVariants = [100, 500];
 
 const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
-const widgetDesc = Desc();
+const widgetDesc = Desc({classes: 'widget__text--error'});
 const widgetLogo = Logo();
 const widgetLink = Link();
 const widgetOferta = Oferta();

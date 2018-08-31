@@ -5,7 +5,7 @@ import {stylesArrayToObject} from './helpers';
 import {styleCode} from './styles'
 
 export default class Widget {
-    constructor(elements, isTransparent = false) {
+    constructor (elements, isTransparent = false) {
         this._render(elements);
         this.alias = getAlias();
         this.isTransparent = isTransparent;

@@ -11,7 +11,7 @@ import Desc from '../../components/Desc';
 const widgetPaymentIcons = PaymentIcons();
 const widgetButton = Button({classes: 'widget__button-shadow'});
 const widgetTitle = Title();
-const widgetErrorDesc = Desc({showFromStart: false});
+const widgetErrorDesc = Desc({showFromStart: false, classes: 'widget__text--error'});
 const widgetOferta = Oferta();
 
 const elements = [widgetTitle, widgetErrorDesc, widgetButton, widgetPaymentIcons, widgetOferta];
