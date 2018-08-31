@@ -1,7 +1,7 @@
 import config from '../config/default';
 import ErrorInfo from './ErrorInfo'
 
-function _testErrorCode (responseBody) {
+function _getResponseErrorCode (responseBody) {
     if (responseBody.error) {
         return responseBody.error;
     } else if (responseBody.error_code) {
@@ -32,7 +32,7 @@ async function _makeRequest (url, params) {
             event: 'load.error',
             eventAction: 'Mechant name load error'
         });
-        let errorCode = _testErrorCode(responseBody);
+        let errorCode = _getResponseErrorCode(responseBody);
         let errorLocaleText = await _fetchErrorLocale(errorCode);
         throw new ErrorInfo(response, errorLocaleText);
     } else {
