@@ -27,21 +27,15 @@ export default function Desc ({showFromStart = true, classes = ''} = {}) {
             }
         },
         dispose: (data) => {
-            let text;
-            let textError
+            let text = `<br><br>Пожалуйста, свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></<br>`;
+            let textError = `${data.errorText || data}`;
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
-                if (classes !== '') {
-                    desc.className = classes;
-                }
                 text = `<br><br>Пожалуйста, свяжитесь с администратором <br> сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></br></br>`;
                 textError = `${data.errorText || data}`
-            } else {
-                if (classes !== '') {
-                    desc.className = classes
-                }
-                text = `<br><br>Пожалуйста, свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></<br>`;
-                textError = `${data.errorText || data}`;
+            }
+            if (classes !== '') {
+                desc.className = classes
             }
             component.changeText(text, textError);
         },
