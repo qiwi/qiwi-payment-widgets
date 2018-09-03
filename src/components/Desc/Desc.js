@@ -10,8 +10,8 @@ export default function Desc ({showFromStart = true} = {}) {
     desc.innerHTML = ``;
 
     const component = {
-        changeText: (text = '') => {
-            desc.innerHTML = text;
+        changeText: (text = '', textError = '') => {
+            desc.innerHTML = textError + text;
         },
         changeColor: (backgroundColor) => {
             desc.style.color = getContrastColorByBackground(backgroundColor);
@@ -26,12 +26,15 @@ export default function Desc ({showFromStart = true} = {}) {
             }
         },
         dispose: (data) => {
-            let text = `Свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`;
+            let text = `<br><br>Пожалуйста, свяжитесь с администратором сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></<br>`;
+            let textError = `${data.errorText || data}`;
+            component.element.classList.add('widget__text--error');
             if (!showFromStart) {
                 component.element.classList.add('widget__desc--error');
-                text = `Свяжитесь <br>с администратором сайта <br>или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a>`
+                text = `<br><br>Пожалуйста, свяжитесь с администратором <br> сайта или <a class="widget__mail" href="mailto:widget@qiwi.com">напишите в поддержку</a></br></br></br>`;
+                textError = `${data.errorText || data}`
             }
-            component.changeText(text);
+            component.changeText(text, textError);
         },
         element: desc
     };

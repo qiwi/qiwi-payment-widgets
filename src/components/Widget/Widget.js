@@ -14,9 +14,9 @@ export default function Widget (elements) {
             component.element.style.display = 'flex';
             component.element.style.flexDirection = 'column';
         },
-        dispose: () => {
+        dispose: (data) => {
             component.element.classList.add('widget__error');
-            container.dispose();
+            container.dispose(data);
         }
     };
     return component;
