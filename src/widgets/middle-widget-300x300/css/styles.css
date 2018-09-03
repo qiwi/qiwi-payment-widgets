@@ -2,10 +2,12 @@
 .widget__title {
     margin-top: 30px;
     margin-bottom: 0;
+    font-size: 16px;
 }
 
 .widget__title--error {
     margin: 0;
+    font-weight: 500;
 }
 
 .widget__field {
@@ -59,6 +61,7 @@
 
 .widget__text {
     margin: 0;
+    font-size: 12px;
 }
 
 .widget__desc--error {

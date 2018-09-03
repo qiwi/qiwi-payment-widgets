@@ -1,11 +1,11 @@
 import {getAlias, getPublicKey, getNoCacheFlag} from './parsers';
-import {getMerchantInfoByAlias, getMerchantInfoByKey} from './api';
+import {getWidgetInfoByAlias, getWidgetInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
 import {stylesArrayToObject} from './helpers';
 import {styleCode} from './styles'
 
 export default class Widget {
-    constructor(elements, isTransparent = false) {
+    constructor (elements, isTransparent = false) {
         this._render(elements);
         this.alias = getAlias();
         this.isTransparent = isTransparent;
@@ -13,14 +13,14 @@ export default class Widget {
         this.noCache = getNoCacheFlag();
     }
 
-    async init() {
+    async init () {
         let data = {};
 
         try {
             if (this.alias) {
-                data = await getMerchantInfoByAlias(this.alias, this.noCache);
+                data = await getWidgetInfoByAlias(this.alias, this.noCache);
             } else if (this.publicKey) {
-                data = await getMerchantInfoByKey(this.publicKey, this.noCache);
+                data = await getWidgetInfoByKey(this.publicKey, this.noCache);
             } else {
                 throw new Error('No public key or alias in url');
             }
@@ -34,8 +34,8 @@ export default class Widget {
             this._addBackground(data.widgetStyles[styleCode.WIDGET_BACKGROUND]);
             this.widget.init(data);
         } catch (err) {
-            this.widget.dispose();
-            console.warn('Widget is disabled by: ', err.message);
+            console.warn('Widget is disabled by: ', err.errorText);
+            this.widget.dispose(err);
         }
 
         this._endLoading();
@@ -70,22 +70,22 @@ export default class Widget {
         document.body.appendChild(container);
     };
 
-    _changeTabTitle(title) {
+    _changeTabTitle (title) {
         document.title = title;
     }
 
-    _addBackground(color) {
+    _addBackground (color) {
         if (color) {
             this.widget.element.style.backgroundColor = color;
         }
     }
 
-    _render(elements) {
+    _render (elements) {
         this.widget = new WidgetComponent(elements);
         document.body.appendChild(this.widget.element);
     }
 
-    _endLoading() {
+    _endLoading () {
         document.querySelector('#loader').style.display = 'none';
 
         this.widget.show();
