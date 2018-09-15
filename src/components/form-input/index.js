@@ -69,7 +69,7 @@ export default class FormInput{
         const input = document.getElementById(this._elements.input.id);
 
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const public_key = this._merchantInfo.merchant_public_key;
 

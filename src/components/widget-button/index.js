@@ -75,7 +75,7 @@ export default class WidgetButton {
             button.innerHTML = buttonText[0];
         }
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const public_key = this._merchantInfo.merchant_public_key;
 
@@ -110,7 +110,7 @@ export default class WidgetButton {
             button.innerHTML = buttonText[0];
         }
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const public_key = this._merchantInfo.merchant_public_key;
 
@@ -200,7 +200,7 @@ export default class WidgetButton {
 
         const sumAmount = this._merchantInfo.merchant_payment_sum_amount;
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const success_url = this._merchantInfo.merchant_success_url || '';
 
@@ -312,7 +312,7 @@ export default class WidgetButton {
     }
 
     _getAlias () {
-        return window.location.pathname.match(/([^/]*)\/*$/)[1];
+        return window.location.pathname.match(/([^/]*)\/*$/)[1].toLowerCase();
     }
 
     _getParametersValues (enterWidgetParams) {

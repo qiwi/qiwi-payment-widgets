@@ -22,7 +22,7 @@ export default class WidgetButtons extends WidgetButton {
 
         const sumAmount = this._merchantInfo.merchant_payment_sum_amount;
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const success_url = this._merchantInfo.merchant_success_url || '';
 
