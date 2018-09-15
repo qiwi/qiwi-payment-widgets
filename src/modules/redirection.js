@@ -25,9 +25,9 @@ export default function redirection(
 
     const failUrl = widgetFailUrl || '';
 
-    const widgetAlias = widgetAliasCode || '';
+    const widgetAlias = widgetAliasCode.toLowerCase() || '';
 
-    const widgetRefferer = getHostName(document.referrer);
+    const widgetRefferer = getHostName(document.referrer).replace(/(^www.)/, "");
 
     if (publicKey) {
         const checkoutParams = {
@@ -45,7 +45,6 @@ export default function redirection(
 
 
         let link = makeLinkCheckout(checkoutParams, extras);
-
         window.open(link, '_blank');
     }
 }

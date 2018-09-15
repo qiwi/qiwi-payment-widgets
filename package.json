@@ -56,6 +56,10 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "es6-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "rm": "^0.1.8",
     "url-search-params-polyfill": "^2.0.0",
     "whatwg-fetch": "^2.0.3"
   }

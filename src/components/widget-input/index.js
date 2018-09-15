@@ -40,7 +40,7 @@ export default class WidgetInput extends WidgetButton{
             button.innerHTML = buttonText[0];
         }
 
-        const extra_widget_refferer = this._getHostName(document.referrer);
+        const extra_widget_refferer = this._getHostName(document.referrer).replace(/(^www.)/, "");
 
         const public_key = this._merchantInfo.merchant_public_key;
 
