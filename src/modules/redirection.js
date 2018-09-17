@@ -1,4 +1,5 @@
 import {getHostName} from './parsers';
+import {correctURLAfterReferrer} from '../functionForURLAfterReferrer/functionsForUrlAfterReferrer'
 
 function makeLinkCheckout(params, extras) {
     const url = 'https://oplata.qiwi.com/create';
@@ -25,9 +26,10 @@ export default function redirection(
 
     const failUrl = widgetFailUrl || '';
 
-    const widgetAlias = widgetAliasCode || '';
+    const widgetAlias = widgetAliasCode.toLowerCase() || '';
 
-    const widgetRefferer = getHostName(document.referrer);
+    let widgetReffererForCorrectingFunction = getHostName(document.referrer);
+    const widgetRefferer = correctURLAfterReferrer(widgetReffererForCorrectingFunction);
 
     if (publicKey) {
         const checkoutParams = {

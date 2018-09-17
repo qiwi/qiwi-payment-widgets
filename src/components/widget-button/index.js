@@ -1,6 +1,7 @@
 /* global URLSearchParams, fetch */
 
 import 'url-search-params-polyfill';
+import {correctURLAfterReferrer} from "../../functionForURLAfterReferrer/functionsForUrlAfterReferrer";
 
 export default class WidgetButton {
     constructor () {
@@ -307,8 +308,8 @@ export default class WidgetButton {
             .split('//')[1]
             .split('/')[0]
             .split(':')[0];
-
-        return encodeURIComponent(hostname.replace(/\./g, '-'));
+        let encodeUrlForCorrectFunction = encodeURIComponent(hostname.replace(/\./g, '-'));
+        return correctURLAfterReferrer(encodeUrlForCorrectFunction);
     }
 
     _getAlias () {

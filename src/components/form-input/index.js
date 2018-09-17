@@ -1,5 +1,5 @@
 import 'url-search-params-polyfill';
-
+import {correctURLAfterReferrer} from '../../functionForURLAfterReferrer/functionsForUrlAfterReferrer'
 
 export default class FormInput{
 
@@ -195,8 +195,8 @@ export default class FormInput{
     _getHostName (host='') {
         const a = document.createElement('a');
         a.href = host;
-
-        return encodeURIComponent(a.hostname.replace(/\./g, '-'));
+         let encodeUrlForCorrectFunction = encodeURIComponent(a.hostname.replace(/\./g, '-'));
+        return correctURLAfterReferrer(encodeUrlForCorrectFunction);
     }
 
 
