@@ -1,11 +1,11 @@
 import './style.css';
 import Button from '../Button';
-import redirection from '../../modules/redirection';
+import checkoutRedirection from '../../modules/redirection';
 import {numberWithSpaces} from '../../modules/parsers';
 
 export default function Variants ({
     defaultValue = [100, 500],
-    redirectionHandler = redirection
+    redirectionHandler = checkoutRedirection
 } = {}) {
     const container = document.createElement('div');
 

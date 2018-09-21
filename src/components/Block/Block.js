@@ -1,4 +1,4 @@
-import redirection from '../../modules/redirection';
+import checkoutRedirection from '../../modules/redirection';
 
 import './style.css';
 
@@ -20,7 +20,7 @@ export default function Block (elements, classes = '') {
                     element.init(data);
                 }
                 if (element.setClickHandler) {
-                    element.setClickHandler(() => redirection('', data));
+                    element.setClickHandler(() => checkoutRedirection('', data));
                 }
             });
         },

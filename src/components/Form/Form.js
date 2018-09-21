@@ -1,6 +1,6 @@
 import Field from '../Field';
 import Button from '../Button';
-import redirection from '../../modules/redirection';
+import checkoutRedirection from '../../modules/redirection';
 
 import './style.css';
 import {getContrastColorByBackground} from '../../modules/helpers';
@@ -28,7 +28,7 @@ export default function Form ({buttonClasses = ''} = {}) {
     const field = Field(changeFieldValue);
 
     button.setClickHandler(() => {
-        redirection(fieldValue, merchantInfo)
+        checkoutRedirection(fieldValue, merchantInfo)
     });
 
     container.appendChild(field.element);
