@@ -1,6 +1,6 @@
 import Field from '../Field';
 import Button from '../Button';
-import checkoutRedirection from '../../modules/redirection';
+import {checkoutRedirection} from '../../modules/redirection';
 
 import './style.css';
 import {getContrastColorByBackground} from '../../modules/helpers';

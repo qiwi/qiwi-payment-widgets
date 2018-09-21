@@ -1,6 +1,6 @@
 import './style.css';
 import Button from '../Button';
-import checkoutRedirection from '../../modules/redirection';
+import {checkoutRedirection} from '../../modules/redirection';
 import {numberWithSpaces} from '../../modules/parsers';
 
 export default function Variants ({

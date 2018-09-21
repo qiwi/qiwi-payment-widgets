@@ -1,8 +1,8 @@
-import checkoutRedirection from '../../modules/redirection';
-
+import {checkoutRedirection, preorderRedirection} from '../../modules/redirection';
+import {componentHasSumSelection} from '../../modules/helpers';
 import './style.css';
 
-export default function Block (elements, classes = '') {
+export default function Block(elements, classes = '') {
     const container = document.createElement('div');
 
     container.className = `block ${classes}`;
@@ -20,7 +20,11 @@ export default function Block (elements, classes = '') {
                     element.init(data);
                 }
                 if (element.setClickHandler) {
-                    element.setClickHandler(() => checkoutRedirection('', data));
+                    if (components.some(componentHasSumSelection)) {
+                        element.setClickHandler(() => checkoutRedirection('', data));
+                    } else {
+                        element.setClickHandler(() => preorderRedirection(data.widgetAliasCode));
+                    }
                 }
             });
         },

@@ -31,6 +31,10 @@ export function stylesArrayToObject(styles) {
     }, {});
 }
 
+export function componentHasSumSelection (component) {
+    return ['Form', 'Forms'].includes(component.name);
+}
+
 export function getImageByURL(url) {
     return new Promise(function (resolve) {
         let testImg = new Image();
