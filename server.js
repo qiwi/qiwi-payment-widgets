@@ -10,7 +10,7 @@ const widgetTemps = require('./public/widgetTemps.json');
 const scriptsPath = 'widgets';
 
 
-let dataWithAlias = JSON.parse(JSON.stringify(widgetTemps)).toLowerCase();
+let dataWithAlias = JSON.parse(JSON.stringify(widgetTemps))
 let dataWithPublicKey = JSON.parse(JSON.stringify(widgetTemps));
 
 dataWithAlias = dataWithAlias.map((temp) => {

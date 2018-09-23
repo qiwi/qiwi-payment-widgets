@@ -54,3 +54,13 @@ export function getImageByURL(url) {
 export function isBrowserSupportsSvg() {
     return typeof SVGRect !== 'undefined';
 }
+
+export function formatURLFromReferrer (URL) {
+    if (URL.match(/\/\/www./)){
+        URL = URL.replace(/^(http|https)\:\/\/www\./, '');
+        return URL;
+    } else {
+        URL = URL.replace(/^(http|https)\:\/\//, '');
+        return URL;
+    }
+}
