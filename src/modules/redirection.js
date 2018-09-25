@@ -3,7 +3,6 @@ import {formatURLFromReferrer} from './helpers'
 
 function makeLinkCheckout (params, extras) {
     const url = 'https://oplata.qiwi.com/create';
-    console.log(extras);
     const parsedParams = new URLSearchParams(params);
     Object.getOwnPropertyNames(extras).forEach(extraName => {
         parsedParams.append(`extras[${extraName}]`, `${extras[extraName]}`);
@@ -28,7 +27,6 @@ export default function redirection (
     const failUrl = widgetFailUrl || '';
 
     const widgetAlias = widgetAliasCode.toLowerCase() || '';
-    console.log(getHostName(document.referrer));
     const widgetRefferer = formatURLFromReferrer(getHostName(document.referrer));
 
     if (publicKey) {
