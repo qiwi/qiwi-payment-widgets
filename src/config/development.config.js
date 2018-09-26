@@ -1,3 +1,3 @@
 export default {
-    url: 'https://my.qiwi.com/api/widgets/widget-info'
+    url: 'http://localhost:9922/api/widgets/widget-info'
 }
