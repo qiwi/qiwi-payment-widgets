@@ -1,4 +1,5 @@
 import {color} from './styles';
+const COMPONENTS_WITH_SUM_SELECTION_NAMES = ['Form', 'Forms'];
 
 export function convertHexToRgb(hex) {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -32,7 +33,7 @@ export function stylesArrayToObject(styles) {
 }
 
 export function componentHasSumSelection (component) {
-    return ['Form', 'Forms'].includes(component.name);
+    return COMPONENTS_WITH_SUM_SELECTION_NAMES.includes(component.name);
 }
 
 export function getImageByURL(url) {
