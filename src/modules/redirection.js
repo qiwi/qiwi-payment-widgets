@@ -12,7 +12,7 @@ function makeLinkCheckout(params, extras) {
 }
 
 export function preorderRedirection (widgetAliasCode) {
-    window.open(`${config.preorderUrl}/${widgetAliasCode}`, '_blank');
+    window.open(`${config.preorderUrl}/${widgetAliasCode}?widgetReferrer=` + getHostName(document.referrer), '_blank');
 }
 
 export function checkoutRedirection (
