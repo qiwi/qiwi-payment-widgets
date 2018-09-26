@@ -1,5 +1,6 @@
 import {getHostName} from './parsers';
 import {formatURLFromReferrer} from './helpers'
+import config from '../config/default';
 
 function makeLinkCheckout (params, extras) {
     const url = 'https://oplata.qiwi.com/create';
@@ -11,7 +12,12 @@ function makeLinkCheckout (params, extras) {
     return `${url}?${parsedParams.toString()}`;
 }
 
-export default function redirection (
+
+export function preorderRedirection (widgetAliasCode) {
+    window.open(`${config.preorderUrl}/${widgetAliasCode}?widgetReferrer=` + getHostName(document.referrer), '_blank');
+}
+
+export function checkoutRedirection (
     amount = 0,
     {
         widget_success_url,
