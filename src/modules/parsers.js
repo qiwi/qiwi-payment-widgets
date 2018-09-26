@@ -11,7 +11,7 @@ export function getHostName (url = '') {
         .split('/')[0]
         .split(':')[0];
 
-    return encodeURIComponent(hostname.replace(/\./g, '-'));
+    return encodeURIComponent(hostname);
 }
 
 export function getAlias () {
