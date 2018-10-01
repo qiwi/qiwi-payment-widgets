@@ -56,6 +56,11 @@ export function getImageByURL(url) {
     })
 }
 
-export function isBrowserSupportsSvg() {
+export function isBrowserSupportsSvg () {
     return typeof SVGRect !== 'undefined';
+}
+
+export function formatURLFromReferrer (URL) {
+    URL = URL.replace(/^((http|https)\:\/\/)?(www\.)?/, '');
+    return URL;
 }
