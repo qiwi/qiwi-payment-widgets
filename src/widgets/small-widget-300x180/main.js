@@ -1,5 +1,5 @@
 import '../../modules/polyfill'
-import Widget from '../../modules/widget';
+import Widget, {EWidgetsTypes} from '../../modules/widget';
 import PaymentIcons from '../../components/PaymentIcons';
 import Button from '../../components/Button';
 import Title from '../../components/Title';
@@ -16,6 +16,6 @@ const widgetOferta = Oferta();
 
 const elements = [widgetTitle, widgetErrorDesc, widgetButton, widgetPaymentIcons, widgetOferta];
 
-const smallWidget300x180 = new Widget(elements);
+const smallWidget300x180 = new Widget(elements, EWidgetsTypes.SMALL_WIDGET);
 
 smallWidget300x180.init();

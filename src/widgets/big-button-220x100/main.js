@@ -1,5 +1,5 @@
 import '../../modules/polyfill'
-import Widget from '../../modules/widget';
+import Widget, {EWidgetsTypes} from '../../modules/widget';
 
 import PaymentIcons from '../../components/PaymentIcons';
 import Button from '../../components/Button';
@@ -20,6 +20,6 @@ const elements = [widgetTitle, widgetErrorDesc, widgetButton, widgetPaymentIcons
 
 const isTransparent = true;
 
-const bigButton220x100 = new Widget(elements, isTransparent);
+const bigButton220x100 = new Widget(elements, EWidgetsTypes.BUTTON_WIDGET);
 
 bigButton220x100.init();

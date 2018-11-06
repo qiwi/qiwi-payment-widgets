@@ -4,7 +4,6 @@ import {checkoutRedirection} from '../../modules/redirection';
 import {numberWithSpaces} from '../../modules/parsers';
 
 export default function Variants ({
-    defaultValue = [100, 500],
     redirectionHandler = checkoutRedirection
 } = {}) {
     const container = document.createElement('div');
@@ -23,9 +22,9 @@ export default function Variants ({
         },
         init: (data) => {
             data = Object.assign({}, data);
-            let amounts = data.merchantPaymentSumAmount && data.merchantPaymentSumAmount.length && data.merchantPaymentSumAmount.length > 0
-                ? data.merchantPaymentSumAmount
-                : defaultValue;
+            let amounts = data.widgetPaymentSumAmount && data.widgetPaymentSumAmount.length > 0
+                ? data.widgetPaymentSumAmount
+                : [];
 
             if (amounts.length > 2) {
                 amounts = amounts.slice(0, 3);

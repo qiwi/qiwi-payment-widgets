@@ -1,5 +1,5 @@
 import '../../modules/polyfill'
-import Widget from '../../modules/widget';
+import Widget, {EWidgetsTypes} from '../../modules/widget';
 
 import Title from '../../components/Title';
 import PaymentIcons from '../../components/PaymentIcons';
@@ -15,8 +15,6 @@ import Oferta from '../../components/Oferta';
 
 import './css/styles.css';
 
-let defaultVariants = [100, 500];
-
 const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
 const widgetDesc = Desc();
@@ -26,13 +24,13 @@ const widgetOferta = Oferta();
 const widgetFormTrigger = AnotherAmountButton();
 const widgetFooter = Block([widgetPaymentIcons, widgetOferta], 'widget__footer');
 
-const widgetVariants = Variants({ defaultVariants });
+const widgetSumVariants = Variants();
 
 const widgetForm = Form();
 
 const widgetForms = Forms([
     {
-        form: widgetVariants,
+        form: widgetSumVariants,
         triggerToNext: widgetFormTrigger
     },
     {
@@ -52,6 +50,6 @@ const widgetContainer = Block([widgetLogoBlock, widgetMainBlock], 'widget--row')
 
 const elements = [widgetContainer];
 
-const bigWidget728x200 = new Widget(elements);
+const bigWidget728x200 = new Widget(elements, EWidgetsTypes.BIG_WIDGET);
 
 bigWidget728x200.init();
