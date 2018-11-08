@@ -1,5 +1,6 @@
 import {color} from './styles';
 const COMPONENTS_WITH_SUM_SELECTION_NAMES = ['Form', 'Forms'];
+export const CHARITY_MARKETING_CATEGORY = '';
 
 export function convertHexToRgb(hex) {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
