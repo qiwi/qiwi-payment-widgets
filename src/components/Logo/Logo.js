@@ -1,6 +1,7 @@
 import './style.css'
-import {getImageByURL} from '../../modules/helpers';
+import {CHARITY_MARKETING_CATEGORY, getImageByURL} from '../../modules/helpers';
 import {styleCode} from '../../modules/styles';
+import defaultNadobroLogo from './assets/defaultNadobro.svg'
 
 export default function Logo () {
     const container = document.createElement('div');
@@ -12,6 +13,8 @@ export default function Logo () {
         init: (data) => {
             if (data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]) {
                 component.changeImage(data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]);
+            } else if (data.merchantMarketingCategory === CHARITY_MARKETING_CATEGORY) {
+                component.changeImage(defaultNadobroLogo);
             }
         },
         changeImage: (url) => {
