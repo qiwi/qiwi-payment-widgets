@@ -1,5 +1,5 @@
 import './style.css';
-import {getContrastColorByBackground, CHARITY_MARKETING_CATEGORY} from '../../modules/helpers';
+import {getContrastColorByBackground} from '../../modules/helpers';
 import {styleCode, color} from '../../modules/styles';
 
 export default function Link (publicKey = '') {
@@ -17,7 +17,7 @@ export default function Link (publicKey = '') {
             link.href = `${widgetLink}?publicKey=${publicKey}`;
         },
         init: (data) => {
-            if (data.merchantMarketingCategory !== CHARITY_MARKETING_CATEGORY) component.dispose();
+            if (!data.widgetStyles[styleCode.CHARITY_LINK]) component.dispose();
 
             component.addPublicKey(data.merchantSitePublicKey);
             const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
