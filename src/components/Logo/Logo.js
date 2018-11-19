@@ -13,7 +13,7 @@ export default function Logo () {
         init: (data) => {
             if (data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]) {
                 component.changeImage(data.widgetStyles[styleCode.WIDGET_SQUARE_LOGO_URL]);
-            } else if (data.merchantMarketingCategory === CHARITY_MARKETING_CATEGORY) {
+            } else if (data.widgetStyles[styleCode.CHARITY_LINK]) {
                 component.changeImage(defaultNadobroLogo);
             }
         },
