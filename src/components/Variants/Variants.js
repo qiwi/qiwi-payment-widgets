@@ -27,7 +27,7 @@ export default function Variants ({
                 : [];
 
             if (amounts.length > 2) {
-                amounts = amounts.slice(0, 3);
+                amounts = amounts.slice(0, 2);
             }
             buttons = amounts.map((amount) => {
                 const button = Button({
