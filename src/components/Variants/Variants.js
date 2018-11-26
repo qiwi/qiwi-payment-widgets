@@ -3,6 +3,8 @@ import Button from '../Button';
 import {checkoutRedirection} from '../../modules/redirection';
 import {numberWithSpaces} from '../../modules/parsers';
 
+const DEFAULT_PAYMENT_SUM_AMOUNTS = [];
+
 export default function Variants ({
     redirectionHandler = checkoutRedirection
 } = {}) {
@@ -24,7 +26,7 @@ export default function Variants ({
             data = Object.assign({}, data);
             let amounts = data.widgetPaymentSumAmount && data.widgetPaymentSumAmount.length > 0
                 ? data.widgetPaymentSumAmount
-                : [];
+                : DEFAULT_PAYMENT_SUM_AMOUNTS;
 
             if (amounts.length > 2) {
                 amounts = amounts.slice(0, 2);

@@ -46,14 +46,14 @@ export default function Forms (structure, classes = '') {
     const component = {
         element: container,
         enable: () => {
-            if (trigger.enable) trigger.enable();
+            if (typeof trigger.enable === 'function') trigger.enable();
         },
         disable: () => {
-            if (trigger.disable) trigger.disable();
+            if (typeof trigger.disable === 'function') trigger.disable();
         },
         init: (data) => {
             component.enable();
-            if (trigger.init) trigger.init(data);
+            if (typeof trigger.init === 'function') trigger.init(data);
             components.forEach((component) => {
                 component.init(data);
 
@@ -68,11 +68,11 @@ export default function Forms (structure, classes = '') {
         },
         dispose: (data) => {
             component.disable();
-            if (trigger.dispose) {
+            if (typeof trigger.dispose === 'function') {
                 trigger.dispose(data);
             }
             components.forEach((element) => {
-                if (element.dispose) {
+                if (typeof element.dispose === 'function') {
                     element.dispose(data);
                 }
             });
