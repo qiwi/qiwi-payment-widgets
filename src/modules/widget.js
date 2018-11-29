@@ -5,10 +5,10 @@ import {stylesArrayToObject} from './helpers';
 import {styleCode} from './styles'
 
 export default class Widget {
-    constructor (elements, isTransparent = false) {
+    constructor (elements, widgetType) {
         this._render(elements);
         this.alias = getAlias();
-        this.isTransparent = isTransparent;
+        this.widgetType = widgetType;
         this.publicKey = getPublicKey();
         this.noCache = getNoCacheFlag();
     }
@@ -27,7 +27,8 @@ export default class Widget {
             data.widgetStyles = stylesArrayToObject(data.widgetStyles);
             this._changeTabTitle(data.widgetMerchantName);
             this._addMetricCounter(data.widgetMerchantMetric);
-            if (this.isTransparent) {
+
+            if (this.widgetType === EWidgetsTypes.BUTTON_WIDGET) {
                 delete data.widgetStyles[styleCode.WIDGET_BACKGROUND];
             }
 
@@ -91,3 +92,10 @@ export default class Widget {
         this.widget.show();
     }
 }
+
+export const EWidgetsTypes = Object.freeze({
+    BIG_WIDGET: 'BIG_WIDGET',
+    MIDDLE_WIDGET: 'MIDDLE_WIDGET',
+    SMALL_WIDGET: 'SMALL_WIDGET',
+    BUTTON_WIDGET: 'BUTTON_WIDGET'
+});

@@ -5,21 +5,20 @@
     background-color: transparent;
     border: 0;
     border-radius: 0;
+    justify-content: center;
 }
 
 .widget__button {
     width: 220px;
-    height: 59px;
     border-radius: 100px;
     font-size: 19px;
-    line-height: 59px;
     margin: 0 auto;
 }
 
 .widget__payment-block {
     width: 191px;
     height: 18px;
-    margin: 20px auto 0;
+    margin: 2px auto 0;
 }
 
 .widget__oferta {
