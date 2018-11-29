@@ -24,6 +24,7 @@ export default function Forms (structure, classes = '') {
 
         if (group.triggerToNext) {
             trigger = group.triggerToNext;
+            trigger.form = group.form;
 
             group.triggerToNext.element.disabled = true;
 
@@ -45,25 +46,33 @@ export default function Forms (structure, classes = '') {
     const component = {
         element: container,
         enable: () => {
-            trigger.enable();
+            if (typeof trigger.enable === 'function') trigger.enable();
         },
         disable: () => {
-            trigger.disable();
+            if (typeof trigger.disable === 'function') trigger.disable();
         },
         init: (data) => {
             component.enable();
-            trigger.init(data);
-            components.forEach((element) => {
-                element.init(data);
+            if (typeof trigger.init === 'function') trigger.init(data);
+            components.forEach((component) => {
+                component.init(data);
+
+                if (component.element.children.length === 0) {
+                    component.element.classList.add('hidden');
+
+                    if (trigger.form === component) {
+                        trigger.element.click();
+                    }
+                }
             });
         },
         dispose: (data) => {
             component.disable();
-            if (trigger.dispose) {
+            if (typeof trigger.dispose === 'function') {
                 trigger.dispose(data);
             }
             components.forEach((element) => {
-                if (element.dispose) {
+                if (typeof element.dispose === 'function') {
                     element.dispose(data);
                 }
             });

@@ -122,7 +122,7 @@
 
 .widget__currency {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     right: 0;
     width: 12px;
     height: 24px;

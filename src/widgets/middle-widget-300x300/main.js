@@ -1,5 +1,6 @@
 import '../../modules/polyfill'
-import Widget from '../../modules/widget';
+import Widget, {EWidgetsTypes} from '../../modules/widget';
+
 
 import Title from '../../components/Title';
 import Desc from '../../components/Desc';
@@ -19,6 +20,6 @@ const widgetForm = Form({buttonClasses: 'widget__button-shadow'});
 
 const elements = [widgetTitle, widgetErrorDesc, widgetForm, widgetPaymentIcons, widgetOferta, widgetLink];
 
-const middleWidget300x300 = new Widget(elements);
+const middleWidget300x300 = new Widget(elements, EWidgetsTypes.MIDDLE_WIDGET);
 
 middleWidget300x300.init();

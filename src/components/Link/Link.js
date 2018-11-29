@@ -17,6 +17,8 @@ export default function Link (publicKey = '') {
             link.href = `${widgetLink}?publicKey=${publicKey}`;
         },
         init: (data) => {
+            if (!data.widgetStyles[styleCode.CHARITY_LINK]) component.dispose();
+
             component.addPublicKey(data.merchantSitePublicKey);
             const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             component.changeColor(bgColor);
