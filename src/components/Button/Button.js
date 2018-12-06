@@ -4,7 +4,7 @@ import {styleCode} from '../../modules/styles';
 
 export default function Button ({
     classes = '',
-    title = 'Помочь'
+    title = 'Оплатить'
 } = {}) {
     const container = document.createElement('div');
 
@@ -19,7 +19,7 @@ export default function Button ({
         setClickHandler: (handler) => {
             component.element.addEventListener('click', handler);
         },
-        _changeText: (text = 'Помочь') => {
+        _changeText: (text = 'Оплатить') => {
             component.element.innerHTML = text;
         },
         _changeBackgroundColor: (color) => {
