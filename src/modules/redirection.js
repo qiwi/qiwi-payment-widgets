@@ -23,7 +23,8 @@ export function checkoutRedirection (
         widget_success_url,
         widgetFailUrl,
         merchantSitePublicKey,
-        widgetAliasCode
+        widgetAliasCode,
+        themeCode
     }
 ) {
     const publicKey = merchantSitePublicKey;
@@ -44,7 +45,8 @@ export function checkoutRedirection (
         };
         const extras = {
             widgetAlias,
-            widgetRefferer
+            widgetRefferer,
+            themeCode
         };
         let link = makeLinkCheckout(checkoutParams, extras);
 
