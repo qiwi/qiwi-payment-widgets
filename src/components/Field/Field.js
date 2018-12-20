@@ -2,7 +2,7 @@ import './style.css';
 import {styleCode} from '../../modules/styles';
 
 const template = `
-    <input type="number" class="widget__input" id="donation-amount" required>
+    <input class="widget__input" id="donation-amount" required>
     <label class="widget__label" for="donation-amount">Cумма</label>
     <div class="widget__currency">₽</div>
     <div class="widget__bar"></div>
