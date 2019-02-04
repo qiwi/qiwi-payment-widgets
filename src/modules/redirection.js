@@ -20,7 +20,7 @@ export function preorderRedirection (widgetAliasCode) {
 export function checkoutRedirection (
     amount = 0,
     {
-        widget_success_url,
+        widgetSuccessUrl,
         widgetFailUrl,
         merchantSitePublicKey,
         widgetAliasCode,
@@ -29,7 +29,7 @@ export function checkoutRedirection (
 ) {
     const publicKey = merchantSitePublicKey;
 
-    const successUrl = widget_success_url || '';
+    const successUrl = widgetSuccessUrl || '';
 
     const failUrl = widgetFailUrl || '';
 
