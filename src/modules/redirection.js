@@ -34,7 +34,7 @@ export function checkoutRedirection (
     const failUrl = widgetFailUrl || '';
 
     const widgetAlias = widgetAliasCode.toLowerCase() || '';
-    const widgetRefferer = formatURLFromReferrer(getHostName(document.referrer));
+    const widgetReferrer = formatURLFromReferrer(getHostName(document.referrer));
 
     if (publicKey) {
         const checkoutParams = {
@@ -45,7 +45,7 @@ export function checkoutRedirection (
         };
         const extras = {
             widgetAlias,
-            widgetRefferer,
+            widgetReferrer,
             themeCode
         };
         let link = makeLinkCheckout(checkoutParams, extras);
