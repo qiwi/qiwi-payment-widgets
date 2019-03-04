@@ -50,11 +50,12 @@
     "url-loader": "^1.1.2",
     "vinyl-paths": "^2.1.0",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.2.1",
     "webpack-stream": "^4.0.0"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "color": "^3.1.0",
     "es6-promise": "^4.1.1",
     "url-search-params-polyfill": "^2.0.0",
     "whatwg-fetch": "^2.0.3"

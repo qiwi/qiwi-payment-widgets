@@ -1,6 +1,7 @@
 import './style.css';
 import {getContrastColorByBackground, convertHexToRgb} from '../../modules/helpers';
 import {styleCode, color} from '../../modules/styles';
+import Color from 'color'
 
 export default function Button ({
     classes = '',
@@ -42,6 +43,10 @@ export default function Button ({
                 if (classes.includes('widget__button-shadow') && convertHexToRgb(data.widgetStyles[styleCode.BUTTON_BACKGROUND])) {
                     const rgbColor = convertHexToRgb(data.widgetStyles[styleCode.BUTTON_BACKGROUND]);
                     component.element.style.boxShadow = `0 12px 15px 0 rgba(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b}, 0.2)`;
+                }
+
+                if (Color((data.widgetStyles[styleCode.BUTTON_BACKGROUND])).hex() !== Color(color.WHITE).hex()) {
+                    component.element.style.border = 'none';
                 }
             }
             if (data.widgetStyles[styleCode.WIDGET_BACKGROUND] && data.widgetStyles[styleCode.WIDGET_BACKGROUND] !== color.WHITE) {
