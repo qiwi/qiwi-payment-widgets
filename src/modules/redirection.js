@@ -24,7 +24,8 @@ export function checkoutRedirection (
         widgetFailUrl,
         merchantSitePublicKey,
         widgetAliasCode,
-        themeCode
+        themeCode,
+        widgetDescription
     }
 ) {
     const publicKey = merchantSitePublicKey;
@@ -32,6 +33,7 @@ export function checkoutRedirection (
     const successUrl = widgetSuccessUrl || '';
 
     const failUrl = widgetFailUrl || '';
+    const comment = widgetDescription || '';
 
     const widgetAlias = widgetAliasCode.toLowerCase() || '';
     const widgetReferrer = formatURLFromReferrer(getHostName(document.referrer));
@@ -41,7 +43,8 @@ export function checkoutRedirection (
             publicKey,
             amount,
             successUrl,
-            failUrl
+            failUrl,
+            comment
         };
         const extras = {
             widgetAlias,
