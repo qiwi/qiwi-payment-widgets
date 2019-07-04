@@ -33,7 +33,7 @@ export function checkoutRedirection (
     const successUrl = widgetSuccessUrl || '';
 
     const failUrl = widgetFailUrl || '';
-    const comment = widgetDescription || '';
+    const comment = widgetDescription;
 
     const widgetAlias = widgetAliasCode.toLowerCase() || '';
     const widgetReferrer = formatURLFromReferrer(getHostName(document.referrer));
