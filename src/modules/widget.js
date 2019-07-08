@@ -25,7 +25,7 @@ export default class Widget {
                 throw new Error('No public key or alias in url');
             }
             data.widgetStyles = stylesArrayToObject(data.widgetStyles);
-            this._changeTabTitle(data.widgetMerchantName);
+
             this._addMetricCounter(data.widgetMerchantMetric);
 
             if (this.widgetType === EWidgetsTypes.BUTTON_WIDGET) {

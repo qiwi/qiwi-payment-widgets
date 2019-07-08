@@ -23,7 +23,7 @@ export default function Title ({showFromStart = true} = {}) {
         element: title,
         init: (data) => {
             if (showFromStart) {
-                component.changeTitle(data.widgetMerchantName);
+                component.changeTitle(data.widgetStyles[styleCode.PAY_FORM_MERCHANT_NAME] || data.widgetMerchantName);
                 const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
                 component.changeColor(bgColor);
             } else {
