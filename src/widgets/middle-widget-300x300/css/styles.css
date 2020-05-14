@@ -21,16 +21,11 @@
 
 .widget__form {
     margin: 0;
+    flex-direction: column;
 }
 
 .widget__bar {
     width: 194px;
-}
-
-.widget__currency {
-    position: absolute;
-    bottom: 5px;
-    right: 0;
 }
 
 .widget__button {
@@ -82,4 +77,12 @@
 
 .block_oferted .widget__button {
     margin: 20px auto 0;
+}
+
+.widget__label {
+    bottom: 20px;
+}
+
+.widget__bar {
+    bottom: 8px;
 }

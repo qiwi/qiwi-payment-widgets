@@ -58,18 +58,28 @@ export default function Field (transmitValue) {
         transmitValue(field.value, error);
     });
     const component = {
+        data: {},
         element: container,
         disable: () => {
             field.disabled = true;
             container.classList.add('widget__field--disabled');
         },
         enable: () => {
-            field.disabled = false;
-            container.classList.remove('widget__field--disabled');
+            if (!component.data.widgetStyles[styleCode.FIXED_AMOUNT]) {
+                field.disabled = false;
+                container.classList.remove('widget__field--disabled');
+            }
         },
         init: (data) => {
+            component.data = data;
             if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
                 container.querySelector('div.widget__field div.widget__bar').style.background = data.widgetStyles[styleCode.BUTTON_BACKGROUND];
+            }
+            if (data.widgetStyles[styleCode.FIXED_AMOUNT]) {
+                container.classList.add('widget__field--fixed-amount');
+                component.disable();
+                field.value = data.widgetPaymentSumAmount[0];
+                field.style.width = ((field.value.length + 1) * 14) + 'px';
             }
         }
     };

@@ -18,7 +18,7 @@ export default function Forms (structure, classes = '') {
             form.classList.add('hidden');
         }
 
-        components.push(group.form);
+        components.push({form: group.form, condition: group.condition});
 
         form.appendChild(group.form.element);
 
@@ -55,14 +55,18 @@ export default function Forms (structure, classes = '') {
             component.enable();
             if (typeof trigger.init === 'function') trigger.init(data);
             components.forEach((component) => {
-                component.init(data);
+                component.form.init(data);
 
-                if (component.element.children.length === 0) {
-                    component.element.classList.add('hidden');
+                if (component.form.element.children.length === 0) {
+                    component.form.element.classList.add('hidden');
 
-                    if (trigger.form === component) {
+                    if (trigger.form === component.form) {
                         trigger.element.click();
                     }
+                }
+                console.log(component, data)
+                if (typeof component.condition === 'function' && !component.condition(data.widgetStyles)) {
+                    trigger.element.click();
                 }
             });
         },
@@ -72,8 +76,8 @@ export default function Forms (structure, classes = '') {
                 trigger.dispose(data);
             }
             components.forEach((element) => {
-                if (typeof element.dispose === 'function') {
-                    element.dispose(data);
+                if (typeof element.form.dispose === 'function') {
+                    element.form.dispose(data);
                 }
             });
         }

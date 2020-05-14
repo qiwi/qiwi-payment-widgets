@@ -14,6 +14,7 @@ import Block from '../../components/Block';
 import Oferta from '../../components/Oferta';
 
 import './css/styles.css';
+import {styleCode} from '../../modules/styles'
 
 const widgetTitle = Title();
 const widgetPaymentIcons = PaymentIcons();
@@ -30,6 +31,7 @@ const widgetForm = Form();
 
 const widgetForms = Forms([
     {
+        condition: (styles) => !styles[styleCode.FIXED_AMOUNT],
         form: widgetSumVariants,
         triggerToNext: widgetFormTrigger
     },

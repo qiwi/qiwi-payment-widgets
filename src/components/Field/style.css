@@ -1,8 +1,11 @@
 .widget__field {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 38px auto 0;
     height: 50px;
-    width: 100%;
+    max-width: 200px;
     color: inherit;
 }
 
@@ -50,9 +53,6 @@
 }
 
 .widget__input {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 20px;
@@ -102,7 +102,7 @@
     content: '';
     height: 1px;
     width: 0;
-    bottom: 0;
+    bottom: 5px;
     position: absolute;
     background: inherit;
     transition: 0.2s ease all;
@@ -121,9 +121,6 @@
 }
 
 .widget__currency {
-    position: absolute;
-    bottom: 5px;
-    right: 0;
     width: 12px;
     height: 24px;
     opacity: 0.7;
@@ -137,4 +134,12 @@
 .widget__form {
     position: relative;
     margin: 16px 0 0;
+}
+
+.widget__field--fixed-amount .widget__input {
+    border: none;
+}
+
+.widget__field--fixed-amount .widget__label {
+    display: none;
 }
