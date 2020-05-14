@@ -1,7 +1,7 @@
 import {getAlias, getPublicKey, getNoCacheFlag} from './parsers';
 import {getWidgetInfoByAlias, getWidgetInfoByKey} from './api';
 import WidgetComponent from '../components/Widget';
-import {formatStylesArray} from './helpers';
+import {formatWidgetData} from './helpers';
 import {styleCode} from './styles'
 
 export default class Widget {
@@ -24,7 +24,7 @@ export default class Widget {
             } else {
                 throw new Error('No public key or alias in url');
             }
-            data.widgetStyles = formatStylesArray(data.widgetStyles);
+            data = formatWidgetData(data);
             this._changeTabTitle(data.widgetMerchantName);
             this._addMetricCounter(data.widgetMerchantMetric);
 

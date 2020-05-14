@@ -23,26 +23,26 @@ export function getContrastColorByBackground(backgroundColor) {
     } else return null;
 }
 
-export function formatStylesArray(styles) {
-    if (!styles) return {};
+export function formatWidgetData (data) {
+    if (!data) return {};
 
-    const result = styles.reduce((acc, item) => {
+    data.widgetStyles = data.widgetStyles ? data.widgetStyles.reduce((acc, item) => {
         acc[item.widgetStyleCode] = item.widgetStyleValue;
         return acc;
-    }, {});
+    }, {}) : {};
 
-    if (result[styleCode.FIXED_AMOUNT]) {
-        result[styleCode.FIXED_AMOUNT] = result[styleCode.FIXED_AMOUNT] === '1'
+    if (data.widgetPaymentSumAmount.length === 1) {
+        data.widgetStyles[styleCode.FIXED_AMOUNT] = true
     }
 
-    return result
+    return data
 }
 
 export function componentHasSumSelection (component) {
     return COMPONENTS_WITH_SUM_SELECTION_NAMES.includes(component.name);
 }
 
-export function getImageByURL(url) {
+export function getImageByURL (url) {
     return new Promise(function (resolve) {
         let testImg = new Image();
 

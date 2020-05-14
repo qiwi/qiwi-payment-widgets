@@ -75,7 +75,7 @@ export default function Field (transmitValue) {
             if (data.widgetStyles[styleCode.BUTTON_BACKGROUND]) {
                 container.querySelector('div.widget__field div.widget__bar').style.background = data.widgetStyles[styleCode.BUTTON_BACKGROUND];
             }
-            if (data.widgetStyles[styleCode.FIXED_AMOUNT] && data.widgetPaymentSumAmount[0]) {
+            if (data.widgetStyles[styleCode.FIXED_AMOUNT]) {
                 container.classList.add('widget__field--fixed-amount');
                 component.disable();
                 field.value = data.widgetPaymentSumAmount[0];
