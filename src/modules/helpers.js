@@ -1,4 +1,4 @@
-import {color} from './styles';
+import {color, styleCode} from './styles'
 const COMPONENTS_WITH_SUM_SELECTION_NAMES = ['Form', 'Forms'];
 
 export function convertHexToRgb(hex) {
@@ -23,13 +23,19 @@ export function getContrastColorByBackground(backgroundColor) {
     } else return null;
 }
 
-export function stylesArrayToObject(styles) {
+export function formatStylesArray(styles) {
     if (!styles) return {};
 
-    return styles.reduce((acc, item) => {
+    const result = styles.reduce((acc, item) => {
         acc[item.widgetStyleCode] = item.widgetStyleValue;
         return acc;
     }, {});
+
+    if (result[styleCode.FIXED_AMOUNT]) {
+        result[styleCode.FIXED_AMOUNT] = result[styleCode.FIXED_AMOUNT] === '1'
+    }
+
+    return result
 }
 
 export function componentHasSumSelection (component) {

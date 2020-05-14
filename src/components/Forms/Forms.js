@@ -64,7 +64,7 @@ export default function Forms (structure, classes = '') {
                         trigger.element.click();
                     }
                 }
-                console.log(component, data)
+
                 if (typeof component.condition === 'function' && !component.condition(data.widgetStyles)) {
                     trigger.element.click();
                 }
