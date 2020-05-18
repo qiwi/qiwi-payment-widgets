@@ -78,9 +78,9 @@ export default function Field (transmitValue) {
             if (data.widgetStyles[styleCode.FIXED_AMOUNT]) {
                 container.classList.add('widget__field--fixed-amount');
                 component.disable();
-                field.value = data.widgetPaymentSumAmount[0];
+                field.value = new Intl.NumberFormat('ru-RU').format(data.widgetPaymentSumAmount[0]);
                 transmitValue(data.widgetPaymentSumAmount[0], false)
-                field.style.width = ((field.value.length + 1) * 14) + 'px';
+                field.style.width = ((field.value.length + 1) * 12) + 'px';
             }
         }
     };
