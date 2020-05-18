@@ -122,7 +122,7 @@
 
 .widget__currency {
     width: 12px;
-    height: 24px;
+    height: 22px;
     opacity: 0.7;
     font-family: "Museo", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 20px;
@@ -138,6 +138,7 @@
 
 .widget__field--fixed-amount .widget__input {
     border: none;
+    padding-right: 8px;
 }
 
 .widget__field--fixed-amount .widget__label {
