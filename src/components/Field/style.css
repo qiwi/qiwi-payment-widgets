@@ -144,3 +144,7 @@
 .widget__field--fixed-amount .widget__label {
     display: none;
 }
+
+.widget__field--fixed-amount .widget__currency {
+    display: none;
+}

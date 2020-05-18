@@ -86,3 +86,9 @@
 .widget__bar {
     bottom: 8px;
 }
+
+
+.widget__field--fixed-amount .widget__input {
+    text-align: center;
+    padding: 0;
+}
