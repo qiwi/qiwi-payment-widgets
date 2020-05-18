@@ -79,6 +79,7 @@ export default function Field (transmitValue) {
                 container.classList.add('widget__field--fixed-amount');
                 component.disable();
                 field.value = data.widgetPaymentSumAmount[0];
+                transmitValue(data.widgetPaymentSumAmount[0], false)
                 field.style.width = ((field.value.length + 1) * 14) + 'px';
             }
         }
