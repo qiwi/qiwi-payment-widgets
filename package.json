@@ -34,7 +34,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "exports-loader": "^0.6.4",
     "express": "^4.15.4",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^6.0.0",
     "gulp": "^4.0.0",
     "gulp-live-server": "0.0.31",
@@ -57,6 +56,7 @@
     "babel-runtime": "^6.26.0",
     "color": "^3.1.0",
     "es6-promise": "^4.1.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "url-search-params-polyfill": "^2.0.0",
     "whatwg-fetch": "^2.0.3"
   }

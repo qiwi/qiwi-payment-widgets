@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = function (folder, ENV) {
     let plugins = [
-        new ExtractTextPlugin('[name].[hash].css'),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+        }),
         new OptimizeCssAssetsPlugin(),
         new webpack.ProvidePlugin({
             'Promise': 'es6-promise',
@@ -41,10 +43,10 @@ module.exports = function (folder, ENV) {
                 }
             }, {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                })
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
             }, {
                 test: /\.(svg|woff|woff2|eot|ttf|otf)$/i,
                 use: [{
