@@ -80,13 +80,16 @@
 }
 
 .widget__label {
-    bottom: 20px;
+    bottom: 18px;
 }
 
 .widget__bar {
     bottom: 8px;
 }
 
+.widget__currency {
+    bottom: 16px;
+}
 
 .widget__field--fixed-amount .widget__input {
     text-align: center;
