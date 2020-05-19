@@ -23,21 +23,14 @@ module.exports = function (folder, ENV) {
             inject: 'body'
         })
     ];
-    if (process.env.NODE_ENV === 'production') {
-        plugins.unshift(new webpack.optimize.UglifyJsPlugin({
-            output: {
-                comments: false
-            },
-            compress: {
-                warnings: false
-            }
-        }));
-    }
     return {
         output: {
             filename: 'bundle.[hash].js',
             path: path.resolve(__dirname, folder),
             chunkFilename: 'bundle.js'
+        },
+        optimization: {
+            minimize: process.env.NODE_ENV === 'production'
         },
         module: {
             rules: [{
@@ -53,18 +46,22 @@ module.exports = function (folder, ENV) {
                     use: 'css-loader'
                 })
             }, {
-                test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
+                test: /\.(svg|woff|woff2|eot|ttf|otf)$/i,
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 8000
+                        limit: 8000,
+                        esModule: false
                     }
                 }]
             }, {
-                test: /\.(png|jpg|jpeg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false
+                    }
+                }]
             }]
         },
         plugins
