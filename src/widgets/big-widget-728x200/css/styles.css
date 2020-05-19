@@ -47,12 +47,12 @@
 
 .widget__field {
     margin: 0;
-    width: 175px;
+    max-width: 175px;
     height: 34px;
 }
 
 .widget__input {
-    width: 175px;
+    max-width: 175px;
 }
 
 .widget__input:focus~.widget__label, .widget__input:valid~.widget__label {
@@ -63,15 +63,8 @@
     width: 175px;
 }
 
-.widget__currency {
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-}
-
 .widget__form .widget__button {
-    position: absolute;
-    margin: 0;
+    margin: 0 0 0 24px;
     width: 154px;
     height: 36px;
     line-height: 36px;

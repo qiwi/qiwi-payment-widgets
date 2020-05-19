@@ -1,4 +1,4 @@
-import {color} from './styles';
+import {color, styleCode} from './styles'
 const COMPONENTS_WITH_SUM_SELECTION_NAMES = ['Form', 'Forms'];
 
 export function convertHexToRgb(hex) {
@@ -23,20 +23,26 @@ export function getContrastColorByBackground(backgroundColor) {
     } else return null;
 }
 
-export function stylesArrayToObject(styles) {
-    if (!styles) return {};
+export function formatWidgetData (data) {
+    if (!data) return {};
 
-    return styles.reduce((acc, item) => {
+    data.widgetStyles = data.widgetStyles ? data.widgetStyles.reduce((acc, item) => {
         acc[item.widgetStyleCode] = item.widgetStyleValue;
         return acc;
-    }, {});
+    }, {}) : {};
+
+    if (data.widgetPaymentSumAmount.length === 1) {
+        data.widgetStyles[styleCode.FIXED_AMOUNT] = true
+    }
+
+    return data
 }
 
 export function componentHasSumSelection (component) {
     return COMPONENTS_WITH_SUM_SELECTION_NAMES.includes(component.name);
 }
 
-export function getImageByURL(url) {
+export function getImageByURL (url) {
     return new Promise(function (resolve) {
         let testImg = new Image();
 

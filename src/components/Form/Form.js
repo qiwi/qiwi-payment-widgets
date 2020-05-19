@@ -35,6 +35,7 @@ export default function Form ({buttonClasses = ''} = {}) {
     container.appendChild(button.element);
 
     const component = {
+        data: {},
         _addMerchantInfo: (data) => {
             merchantInfo = data;
         },
@@ -43,9 +44,12 @@ export default function Form ({buttonClasses = ''} = {}) {
             field.disable();
         },
         enable: () => {
-            field.enable();
+            if (!component.data.widgetStyles[styleCode.FIXED_AMOUNT]) {
+                field.enable();
+            }
         },
         init: (data) => {
+            component.data = data
             const bgColor = data.widgetStyles[styleCode.WIDGET_BACKGROUND] || color.WHITE;
             container.style.color = getContrastColorByBackground(bgColor);
             field.init(data);
